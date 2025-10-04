@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaytonHealth - RCM Solutions for Hospitals & Patients</title>
+    <meta name="description"
+        content="PaytonHealth offers comprehensive Revenue Cycle Management (RCM) solutions to enhance financial performance for hospitals and simplify reimbursement for patients.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-color: #1193d4;
+            --bs-primary-rgb: 17, 147, 212;
+            --bs-dark-rgb: 23, 27, 42;
+            --bs-border-radius: .5rem;
+            --bs-border-radius-lg: .75rem;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            /* Prevents horizontal scroll */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+        }
+
+        .display-1,
+        .display-2,
+        .display-3,
+        .display-4,
+        .display-5,
+        .display-6 {
+            font-weight: 800;
+        }
+
+        p,
+        .lead,
+        .blockquote-footer {
+            font-size: 0.95rem;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+            color: #ffffff;
+            overflow: hidden;
+            max-height: 40px;
+            /* Set explicit height */
+            -webkit-transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1030;
+            background-color: transparent;
+            -webkit-transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        }
+
+        .main-header .navbar-brand {
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .main-header .navbar-nav .nav-link {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .main-header .navbar-nav .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .main-header .navbar-nav .nav-link.active {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .main-header .navbar-toggler {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .main-header .btn-get-started {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: white;
+        }
+
+        .main-header .btn-get-started:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .main-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.85);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+        }
+
+        .main-header.scrolled .top-bar {
+            max-height: 0;
+            padding: 0;
+        }
+
+        .main-header.scrolled .navbar-brand {
+            color: #111827;
+        }
+
+        .main-header.scrolled .navbar-nav .nav-link {
+            color: #334155;
+        }
+
+        .main-header.scrolled .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .main-header.scrolled .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .main-header.scrolled .navbar-toggler {
+            color: #334155;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .main-header.scrolled .btn-get-started {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .main-header.scrolled .btn-get-started:hover {
+            background-color: #0e7bb0;
+            border-color: #0e7bb0;
+        }
+
+        /* Offcanvas for mobile menu */
+        .offcanvas {
+            background-color: #fff;
+            color: #111827;
+            width: 75%;
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1.5rem;
+        }
+
+        .offcanvas-body {
+            padding: 1.5rem;
+        }
+
+        .offcanvas .navbar-nav .nav-link {
+            color: #334155;
+            padding: 0.75rem 0;
+            font-weight: 600;
+        }
+
+        .offcanvas .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .offcanvas .dropdown-menu {
+            background-color: #f8fafc;
+            border: none;
+            box-shadow: none;
+            padding-left: 1rem;
+        }
+
+        .offcanvas .dropdown-item {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .dropdown-menu {
+            border-radius: 0.75rem;
+            border-color: #e5e7eb;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item.active,
+        .dropdown-item:active {
+            color: var(--primary-color);
+            background-color: rgba(var(--bs-primary-rgb), 0.1);
+            font-weight: 600;
+        }
+
+        .dropdown-item:hover {
+            color: var(--primary-color);
+            background-color: rgba(var(--bs-primary-rgb), 0.05);
+        }
+
+        .hero-section {
+            position: relative;
+            padding-top: 160px;
+            padding-bottom: 120px;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(10, 20, 40, 0.85) 0%, rgba(10, 20, 40, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 600;
+            --bs-btn-hover-bg: #0e7bb0;
+            --bs-btn-hover-border-color: #0e7bb0;
+        }
+
+        footer a:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .card-hover {
+            -webkit-transition: -webkit-transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+            box-shadow: 0 1rem 2rem rgba(30, 41, 59, 0.12);
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            /* Spacing for FAQ items */
+        }
+
+        .accordion-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+            -webkit-transition: opacity 0.6s ease-out, -webkit-transform 0.6s ease-out;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-animate.is-visible {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        .feature-img-card {
+            overflow: hidden;
+            border-radius: var(--bs-border-radius-lg);
+        }
+
+        .feature-img-card img {
+            -webkit-transition: -webkit-transform 0.4s ease;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-img-card:hover img {
+            -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+        }
+
+        .bg-image-section {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .bg-image-section::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            background: inherit;
+            -webkit-filter: blur(5px);
+            filter: blur(5px);
+            z-index: 1;
+        }
+
+        .bg-image-section .container {
+            position: relative;
+            z-index: 3;
+        }
+
+        .glass-content-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--bs-border-radius-lg);
+        }
+
+        .glass-service-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--bs-border-radius-lg);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .glass-service-card:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px);
+        }
+
+        .glass-content-card .accordion-item {
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 1rem;
+        }
+
+        .glass-content-card .accordion-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .glass-content-card .accordion-button {
+            background-color: transparent !important;
+            color: white;
+            font-weight: 600;
+            border-radius: var(--bs-border-radius) !important;
+        }
+
+        .glass-content-card .accordion-button::after {
+            -webkit-filter: invert(1) grayscale(100) brightness(200%);
+            filter: invert(1) grayscale(100) brightness(200%);
+        }
+
+        .glass-content-card .accordion-button:not(.collapsed) {
+            color: white;
+            box-shadow: none;
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .glass-content-card .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+        }
+
+        .glass-content-card .accordion-body {
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+
+        /* New "How It Works" Timeline */
+        .timeline-zigzag {
+            position: relative;
+        }
+
+        .timeline-zigzag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 32px;
+            /* Align with center of mobile icon */
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: #e5e7eb;
+            /* Animation properties */
+            transform-origin: top;
+            -webkit-transform-origin: top;
+            -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+            -webkit-transition: -webkit-transform 0.8s ease-out;
+            transition: transform 0.8s ease-out;
+        }
+
+        .timeline-zigzag.is-drawing::before {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+        }
+
+        @media (min-width: 1200px) {
+
+            /* XL breakpoint */
+            .timeline-zigzag::before {
+                left: 50%;
+            }
+        }
+
+        .timeline-zigzag-item {
+            position: relative;
+        }
+
+        .timeline-zigzag-item:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+
+
+        @media (min-width: 1200px) {
+
+            /* XL breakpoint */
+            .timeline-zigzag-item {
+                width: 50%;
+                padding-right: 3rem;
+                margin-left: 0;
+            }
+
+            .timeline-zigzag-item:nth-child(even) {
+                margin-left: 50%;
+                padding-left: 3rem;
+                padding-right: 0;
+            }
+
+            .timeline-zigzag-item:not(:last-child) {
+                margin-bottom: 3rem;
+            }
+        }
+
+        .timeline-zigzag-content {
+            border: 1px solid #e5e7eb;
+            border-radius: var(--bs-border-radius-lg);
+            background-color: #fff;
+        }
+
+        .timeline-zigzag-icon {
+            width: 64px;
+            height: 64px;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1199.98px) {
+            .timeline-zigzag-item {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .timeline-zigzag-content {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+
+            /* XL breakpoint */
+            .timeline-zigzag-icon {
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                z-index: 10;
+            }
+
+            .timeline-zigzag-item:nth-child(odd) .timeline-zigzag-icon {
+                right: -32px;
+            }
+
+            .timeline-zigzag-item:nth-child(even) .timeline-zigzag-icon {
+                left: -32px;
+            }
+        }
+
+        /* Modal Popup Form */
+        .modal-content {
+            border-radius: var(--bs-border-radius-lg);
+            border: none;
+        }
+
+        .modal-header {
+            border-bottom: none;
+            padding: 2rem 2rem 1rem;
+        }
+
+        .modal-body {
+            padding: 1rem 2rem 2rem;
+        }
+
+        .modal-backdrop.show {
+            --bs-backdrop-opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container d-flex justify-content-center justify-content-md-end">
+                <span>Need help? Call us at <a href="tel:+919876543210"
+                        class="text-white text-decoration-none fw-bold">+91 98765 43210</a></span>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-xl">
+            <div class="container px-4">
+                <a class="navbar-brand fs-4" href="index.html">PAYTONHEALTH</a>
+
+                <div class="d-none d-xl-flex ms-auto align-items-center">
+                    <ul class="navbar-nav gap-lg-3 text-center">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="services.html">All Services</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="for-hospitals.html">For Hospitals</a></li>
+                                <li><a class="dropdown-item" href="for-patients.html">For Patients</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Claims</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
+                                <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Resources</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    </ul>
+                    <button class="btn btn-get-started px-4 fw-bold ms-lg-3" data-bs-toggle="modal"
+                        data-bs-target="#consultationModal">Get Started</button>
+                </div>
+
+                <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">PAYTONHEALTH</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="services.html">All Services</a></li>
+                        <li><a class="dropdown-item" href="for-hospitals.html">For Hospitals</a></li>
+                        <li><a class="dropdown-item" href="for-patients.html">For Patients</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Claims</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
+                        <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+            <button class="btn btn-primary px-4 fw-bold mt-4 w-100" data-bs-toggle="modal"
+                data-bs-target="#consultationModal">Get Started</button>
+        </div>
+    </div>
+
+    <main>
+
+        <section class="hero-section"
+            style="background-image: url('https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?q=80&w=2070&auto=format&fit=crop');">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <h1 class="display-3 fw-bolder">Streamline Your Revenue Cycle with Payton</h1>
+                        <p class="lead mt-3">Enhance financial performance and patient satisfaction with our
+                            comprehensive RCM solutions.</p>
+                        <div class="row pt-4 mt-4 border-top border-secondary">
+                            <div class="col-4 text-center">
+                                <p class="display-6 fw-bold text-primary mb-0"><span class="counter"
+                                        data-target="98">0</span>%</p>
+                                <p class="small text-white-50 mt-1">Claim Success</p>
+                            </div>
+                            <div class="col-4 text-center">
+                                <p class="display-6 fw-bold text-primary mb-0"><span class="counter"
+                                        data-target="200">0</span>+</p>
+                                <p class="small text-white-50 mt-1">Hospital Partners</p>
+                            </div>
+                            <div class="col-4 text-center">
+                                <p class="display-6 fw-bold text-primary mb-0"><span class="counter"
+                                        data-target="15">0</span>%</p>
+                                <p class="small text-white-50 mt-1">Avg Revenue Lift</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="p-4 rounded-4 shadow-lg"
+                            style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2);">
+                            <h4 class="fw-bold text-white text-center">Request a Free Consultation</h4>
+                            <form class="mt-4 d-flex flex-column gap-3">
+                                <div><label for="fullNameHero" class="form-label small text-white">Full
+                                        Name</label><input type="text" class="form-control" id="fullNameHero"
+                                        placeholder="John Doe"></div>
+                                <div><label for="workEmailHero" class="form-label small text-white">Work
+                                        Email</label><input type="email" class="form-control" id="workEmailHero"
+                                        placeholder="you@company.com">
+                                </div>
+                                <div><label for="userTypeHero" class="form-label small text-white">I am
+                                        a...</label><select class="form-select" id="userTypeHero">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Healthcare Provider</option>
+                                        <option>Patient</option>
+                                    </select></div>
+                                <div class="d-grid mt-3"><button type="submit" class="btn btn-primary btn-lg">Schedule
+                                        Consultation</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 scroll-animate">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <p class="text-primary fw-semibold mb-2">Our Expertise</p>
+                    <h2 class="display-5 fw-bold">In-House Doctor Expertise</h2>
+                    <p class="lead text-muted mt-3 mx-auto" style="max-width: 48rem;">Our in-house doctor team provides
+                        expert insights and support, ensuring accurate coding, compliance, and optimal reimbursement
+                        outcomes.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card card-hover h-100 border-0 shadow-sm feature-img-card">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAhZqf80RzBlT7W9_hV7q9QqT8p9eXNFvy_KIc0_fAACGFEnw1r9VvYMvJSklW9kEmYDWBeXRcIWBSizfffx24-sBOTdXjrJ2Naw1P8EXCjLOUz3QycMC2t7yxZYf4C5QjEa-ZkuUVZQGjlvEchkIfAs1tb6mi3hl-jPXzCKEHC0nmNJWV8P4xkz_FLkhmHMEjSV8p0KIWcrSRBGjSXZg9LDwH3oYvPrzlmvro94S8X46Xa3Ha6tTKAmr2yRn5wQ2BsDo3A350aT8"
+                                class="card-img-top" alt="Doctor reviewing medical codes on a tablet"
+                                style="height: 200px; object-fit: cover;" loading="lazy" decoding="async">
+                            <div class="card-body p-4">
+                                <h5 class="card-title fw-bold">Accurate Coding</h5>
+                                <p class="card-text text-muted">Our in-house doctors ensure precise coding, minimizing
+                                    errors and maximizing revenue.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-hover h-100 border-0 shadow-sm feature-img-card">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkJZ2mmVZCqbMBG6eX0k-6QPX_ZwQBTA5_8rcvhp6Iy5rNd3bxyEn41eappKatOKndEHtmiYAC2C_6bIdHczfFBHdH9cQtOXUcAbBPncLjVJJ5kApUoawKzXnoeRrneAM5QuXjuEdLMZ_PB_MIhPCn3Uz_2Qo85at9mnvklS4gCLMi2KUUQ9apvy1yLI07VQG-9yHEp7a_Usw2PIwE4aSMC7WAO2zIywpAjeSpWLj4sMY6Rh8NGtLnJn5xBdOmkDcI1c7vu_ewM6M"
+                                class="card-img-top" alt="Formal handshake signifying compliance and assurance"
+                                style="height: 200px; object-fit: cover;" loading="lazy" decoding="async">
+                            <div class="card-body p-4">
+                                <h5 class="card-title fw-bold">Compliance Assurance</h5>
+                                <p class="card-text text-muted">We guarantee adherence to all regulatory standards,
+                                    reducing risks and ensuring compliance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-hover h-100 border-0 shadow-sm feature-img-card">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5GOcLIAaevZPH1_uyeuhbIwJQLWk9kcyHJ4vTTeZWlUbB3994kLpixIV-4qkq7AoWdXUuR_XXm203LrVGHJbHGFEkzN7V3wVrlcnFEesm2HasV4TfQOdm9TZc92aVeEWRUT5Z-Tjz0Oj7VuycdTSmEyeuWieEyG5WuLWQS-CXbJU0LJ0OB7Wz3S8H8eGn32Z2y_FgAsTlvWQFL7tuNPHFXwlt3BXgrqPeZydUh3mLT7kFBHwu1i8EMh8_r-1BVD3ASWs2csAGTJE"
+                                class="card-img-top" alt="Graphs showing financial growth and optimal reimbursement"
+                                style="height: 200px; object-fit: cover;" loading="lazy" decoding="async">
+                            <div class="card-body p-4">
+                                <h5 class="card-title fw-bold">Optimal Reimbursement</h5>
+                                <p class="card-text text-muted">Our expertise leads to the highest possible
+                                    reimbursement rates for both hospitals and patients.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-white scroll-animate">
+            <div class="container">
+                <div class="text-center mx-auto mb-5" style="max-width: 56rem;">
+                    <h2 class="display-5 fw-bold">The Payton Healthcare Difference</h2>
+                    <p class="lead text-muted mt-3">Our unique in-house doctor provides clinical authority in revenue
+                        cycle management, ensuring accuracy and efficiency in financial processes.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card card-hover h-100 border-0 p-4 text-center">
+                            <div class="mx-auto d-flex align-items-center justify-content-center rounded-3 bg-primary-subtle text-primary mb-3"
+                                style="width: 60px; height: 60px;">
+                                <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M212,152a12,12,0,1,1-12-12A12,12,0,0,1,212,152Zm-4.55,39.29A48.08,48.08,0,0,1,160,232H136a48.05,48.05,0,0,1-48-48V143.49A64,64,0,0,1,32,80V40A16,16,0,0,1,48,24H64a8,8,0,0,1,0,16H48V80a48,48,0,0,0,48.64,48c26.11-.34,47.36-22.25,47.36-48.83V40H128a8,8,0,0,1,0-16h16a16,16,0,0,1,16,16V79.17c0,32.84-24.53,60.29-56,64.31V184a32,32,0,0,0,32,32h24a32.06,32.06,0,0,0,31.22-25,40,40,0,1,1,16.23.27ZM224,152a24,24,0,1,0-24,24A24,24,0,0,0,224,152Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <h5 class="fw-bold">Clinical Expertise</h5>
+                                <p class="text-muted small">Benefit from clinical insights integrated into financial
+                                    management.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-hover h-100 border-0 p-4 text-center">
+                            <div class="mx-auto d-flex align-items-center justify-content-center rounded-3 bg-primary-subtle text-primary mb-3"
+                                style="width: 60px; height: 60px;">
+                                <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <h5 class="fw-bold">Patient-Centric Approach</h5>
+                                <p class="text-muted small">Prioritize patient satisfaction with tailored reimbursement
+                                    support.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-hover h-100 border-0 p-4 text-center">
+                            <div class="mx-auto d-flex align-items-center justify-content-center rounded-3 bg-primary-subtle text-primary mb-3"
+                                style="width: 60px; height: 60px;">
+                                <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <h5 class="fw-bold">Enhanced Compliance</h5>
+                                <p class="text-muted small">Ensure adherence to healthcare regulations and standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-image-section scroll-animate"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCR9lr4Id9UYsHTfxoJG5DXQtvZilRg8ovcXyz4Z4mn8w0pPVyUU0mbyd6qkTxWytVV_aMoAryxkb0HBWvbxLDy4MkHt5YZxNw0Dfs3D2u_-hb_6Qxn4RFUoLPiekRY-B3Ytg69XxadJF1NYPohvNQm1PVDB_lwUEr07iIjTiHYuqA8691J1VO8PEVZuCsZ7VWegCOdgw-PE9SA8_tAH_YyqNctvfNYT7Kjm_HZcM10EtycI3ftWJJ58Loh7pUeTnHQq5j1dxQjS3k');">
+            <div class="hero-overlay"
+                style="background: linear-gradient(rgba(23, 27, 42, 0.9), rgba(23, 27, 42, 0.8));"></div>
+            <div class="container">
+                <div class="text-center mx-auto mb-5" style="max-width: 56rem;">
+                    <h2 class="display-5 fw-bold text-white">Our Services</h2>
+                    <p class="lead text-white-50 mt-3">We offer comprehensive solutions tailored for both hospitals and
+                        patients, ensuring financial efficiency and peace of mind.</p>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="h4 fw-bold tracking-tight text-white mb-4">Hospital Services</h3>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="glass-service-card h-100 p-4">
+                                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-light text-primary mb-3"
+                                        style="width: 60px; height: 60px;">
+                                        <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M216,88H168V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V88H40a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16H88v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V168h48a16,16,0,0,0,16-16V104A16,16,0,0,0,216,88Zm0,64H160a8,8,0,0,0-8,8v56H104V160a8,8,0,0,0-8-8H40V104H96a8,8,0,0,0,8-8V40h48V96a8,8,0,0,0,8,8h56Z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="fw-bold text-white">Revenue Cycle Management</h5>
+                                    <p class="text-white-50 small">Comprehensive solutions to manage and optimize
+                                        revenue
+                                        cycles.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="glass-service-card h-100 p-4">
+                                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-light text-primary mb-3"
+                                        style="width: 60px; height: 60px;">
+                                        <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm40-68a28,28,0,0,1-28,28h-4v8a8,8,0,0,1-16,0v-8H104a8,8,0,0,1,0-16h36a12,12,0,0,0,0-24H116a28,28,0,0,1,0-56h4V72a8,8,0,0,1,16,0v8h16a8,8,0,0,1,0,16H116a12,12,0,0,0,0,24h24A28,28,0,0,1,168,148Z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="fw-bold text-white">Financial Optimization</h5>
+                                    <p class="text-white-50 small">Strategies to enhance financial performance and
+                                        reduce
+                                        costs.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="glass-service-card h-100 p-4">
+                                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-light text-primary mb-3"
+                                        style="width: 60px; height: 60px;">
+                                        <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="fw-bold text-white">Compliance and Reporting</h5>
+                                    <p class="text-white-50 small">Ensuring adherence to regulations and providing
+                                        detailed
+                                        reporting.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="h4 fw-bold tracking-tight text-white mb-4">Patient Services</h3>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="glass-service-card h-100 p-4">
+                                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-light text-primary mb-3"
+                                        style="width: 60px; height: 60px;">
+                                        <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24ZM74.08,197.5a64,64,0,0,1,107.84,0,87.83,87.83,0,0,1-107.84,0ZM96,120a32,32,0,1,1,32,32A32,32,0,0,1,96,120Zm97.76,66.41a79.66,79.66,0,0,0-36.06-28.75,48,48,0,1,0-59.4,0,79.66,79.66,0,0,0-36.06,28.75,88,88,0,1,1,131.52,0Z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="fw-bold text-white">Reimbursement Support</h5>
+                                    <p class="text-white-50 small">Assistance with navigating insurance claims and
+                                        reimbursement processes.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="glass-service-card h-100 p-4">
+                                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-light text-primary mb-3"
+                                        style="width: 60px; height: 60px;">
+                                        <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M230.33,141.06a24.43,24.43,0,0,0-21.24-4.23l-41.84,9.62A28,28,0,0,0,140,112H89.94a31.82,31.82,0,0,0-22.63,9.37L44.69,144H16A16,16,0,0,0,0,160v40a16,16,0,0,0,16,16H120a7.93,7.93,0,0,0,1.94-.24l64-16a6.94,6.94,0,0,0,1.19-.4L226,182.82l.44-.2a24.6,24.6,0,0,0,3.93-41.56ZM16,160H40v40H16Zm203.43,8.21-38,16.18L119,200H56V155.31l22.63-22.62A15.86,15.86,0,0,1,89.94,128H140a12,12,0,0,1,0,24H112a8,8,0,0,0,0,16h32a8.32,8.32,0,0,0,1.79-.2l67-15.41.31-.08a8.6,8.6,0,0,1,6.3,15.9ZM164,96a36,36,0,0,0,5.9-.48,36,36,0,1,0,28.22-47A36,36,0,1,0,164,96Zm60-12a20,20,0,1,1-20-20A20,20,0,0,1,224,84ZM164,40a20,20,0,0,1,19.25,14.61,36,36,0,0,0-15,24.93A20.42,20.42,0,0,1,164,80a20,20,0,0,1,0-40Z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="fw-bold text-white">Financial Assistance</h5>
+                                    <p class="text-white-50 small">Support for patients seeking financial aid and
+                                        payment
+                                        options.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="glass-service-card h-100 p-4">
+                                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-light text-primary mb-3"
+                                        style="width: 60px; height: 60px;">
+                                        <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="fw-bold text-white">Advocacy and Guidance</h5>
+                                    <p class="text-white-50 small">Guidance and advocacy to help patients understand
+                                        their
+                                        rights and options.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 scroll-animate">
+            <div class="container">
+                <div class="text-center mx-auto mb-5" style="max-width: 48rem;">
+                    <h2 class="display-5 fw-bold">How It Works</h2>
+                    <p class="lead text-muted mt-3">A simplified process for both our B2B and B2C clients, ensuring
+                        clarity and ease of use in managing healthcare finances.</p>
+                </div>
+                <div class="timeline-zigzag">
+                    <div class="timeline-zigzag-item">
+                        <div
+                            class="timeline-zigzag-icon d-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-bold">
+                            1</div>
+                        <div class="timeline-zigzag-content p-4 shadow-sm text-md-end">
+                            <h5 class="fw-bold">Initial Consultation</h5>
+                            <p class="text-muted small">We start by understanding your specific needs, whether you're a
+                                hospital or a patient.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-zigzag-item">
+                        <div
+                            class="timeline-zigzag-icon d-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-bold">
+                            2</div>
+                        <div class="timeline-zigzag-content p-4 shadow-sm">
+                            <h5 class="fw-bold">Strategy & Planning</h5>
+                            <p class="text-muted small">We develop a tailored strategy for revenue cycle management or
+                                patient reimbursement.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-zigzag-item">
+                        <div
+                            class="timeline-zigzag-icon d-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-bold">
+                            3</div>
+                        <div class="timeline-zigzag-content p-4 shadow-sm text-md-end">
+                            <h5 class="fw-bold">Implementation</h5>
+                            <p class="text-muted small">Our team executes the plan, handling all the complexities of the
+                                financial processes.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-zigzag-item">
+                        <div
+                            class="timeline-zigzag-icon d-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-bold">
+                            4</div>
+                        <div class="timeline-zigzag-content p-4 shadow-sm">
+                            <h5 class="fw-bold">Ongoing Support</h5>
+                            <p class="text-muted small">We provide continuous support and reporting to ensure long-term
+                                financial health.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 scroll-animate bg-light">
+            <div class="container">
+                <div class="text-center mx-auto mb-5" style="max-width: 48rem;">
+                    <h2 class="display-5 fw-bold">Proven Results for Our Partners</h2>
+                    <p class="lead text-muted mt-3">Discover how we've helped businesses and individuals navigate
+                        healthcare finance, leading to improved outcomes and peace of mind.</p>
+                </div>
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-6">
+                        <div class="card card-hover h-100 shadow-sm border-0">
+                            <div class="row g-0">
+                                <div class="col-md-4"><img
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyxViuBWMm1TezqzF8fM8C6Yh7sVEe7lLdlspjv-jxQGujUOPEuX8VX7U0goDjWnUwoPYQILrNgGe44muO9K-uLPj3n8hwGQQZ3riTiGWOVz4UFb0iHNYFTaG9EeCHZmxE-vx8FmTKduy6MCrJDCqePwQ54kJbnIcVO2_J4zd2IcKDF7sLNRFCvtYhRsIKsABvVESX_8FCLpW0gi1JwpjMmU5rsgzX-x-yyme-2YIvVOW48Q_nFHRtmuy3O4WirSiRy5hmDo6ctZY"
+                                        class="img-fluid rounded-start h-100" alt="Hospital administrator at a desk"
+                                        style="object-fit: cover; min-height: 250px;" loading="lazy" decoding="async">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <div class="text-warning mb-2"><span
+                                                class="material-symbols-outlined small filled">star</span><span
+                                                class="material-symbols-outlined small filled">star</span><span
+                                                class="material-symbols-outlined small filled">star</span><span
+                                                class="material-symbols-outlined small filled">star</span><span
+                                                class="material-symbols-outlined small filled">star</span></div>
+                                        <h5 class="card-title fw-bold">Streamlined Billing for a Hospital Network</h5>
+                                        <p class="card-text text-muted small mt-2">"Payton's RCM solution resulted in a
+                                            30% reduction in billing errors and a 20% increase in revenue collection
+                                            efficiency."</p>
+                                        <p class="card-text mt-3"><small class="text-primary fw-semibold">- CFO, Major
+                                                Hospital Network</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card card-hover h-100 shadow-sm border-0">
+                            <div class="row g-0">
+                                <div class="col-md-4"><img
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ0hxRKscGwlK1Tdf841G_onroCAKrTIRZmj20rE-v8ZV4Rm7zSaRR7KziiZ14EGgm7CtkReo0e2Qu17rJc2R-gQNwu6ex4ym71ZbGB5WfN_q_olgfLSFbYqACko0SAVxE8bOCxG3SLsHoB-lms9s-jX0lP5oG3uCrQmAkc7WDWMDQQtK4udhU5d_U0JWhupqixM7tStNnCJLktTgfBYnnqMStA6FQCdycIhrreEIH3BlqpWYjQ9BKgEsiik9-PWk3w3Bno5jnZ28"
+                                        class="img-fluid rounded-start h-100" alt="Medical clinic front desk"
+                                        style="object-fit: cover; min-height: 250px;" loading="lazy" decoding="async">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <div class="text-warning mb-2"><span
+                                                class="material-symbols-outlined small filled">star</span><span
+                                                class="material-symbols-outlined small filled">star</span><span
+                                                class="material-symbols-outlined small filled">star</span><span
+                                                class="material-symbols-outlined small filled">star</span><span
+                                                class="material-symbols-outlined small filled">star</span></div>
+                                        <h5 class="card-title fw-bold">Improved Cash Flow for a Medical Clinic</h5>
+                                        <p class="card-text text-muted small mt-2">"Partnering with Payton optimized our
+                                            revenue cycle, leading to a 40% cash flow improvement, allowing us to invest
+                                            in new equipment."</p>
+                                        <p class="card-text mt-3"><small class="text-primary fw-semibold">- Clinic
+                                                Administrator</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-hover h-100 shadow-sm border-0">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop"
+                                        class="rounded-circle" alt="Headshot of Dr. Emily Carter"
+                                        style="width: 50px; height: 50px; object-fit: cover;" loading="lazy"
+                                        decoding="async">
+                                    <div>
+                                        <h6 class="fw-bold mb-0">Dr. Emily Carter</h6>
+                                        <p class="small text-muted mb-0">2023-08-15</p>
+                                    </div>
+                                </div>
+                                <div class="text-warning mb-2">
+                                    <span class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span>
+                                </div>
+                                <p class="card-text text-muted small">"Payton Healthcare has transformed our revenue
+                                    cycle management. Their expertise and support have significantly improved our
+                                    financial performance and client satisfaction."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-hover h-100 shadow-sm border-0">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop"
+                                        class="rounded-circle" alt="Headshot of Mr. David Lee"
+                                        style="width: 50px; height: 50px; object-fit: cover;" loading="lazy"
+                                        decoding="async">
+                                    <div>
+                                        <h6 class="fw-bold mb-0">Mr. David Lee</h6>
+                                        <p class="small text-muted mb-0">2023-07-20</p>
+                                    </div>
+                                </div>
+                                <div class="text-warning mb-2">
+                                    <span class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span>
+                                </div>
+                                <p class="card-text text-muted small">"Their comprehensive solutions and proactive
+                                    approach have streamlined our processes, resulting in substantial revenue growth and
+                                    improved efficiency."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-hover h-100 shadow-sm border-0">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop"
+                                        class="rounded-circle" alt="Headshot of Ms. Sarah Johnson"
+                                        style="width: 50px; height: 50px; object-fit: cover;" loading="lazy"
+                                        decoding="async">
+                                    <div>
+                                        <h6 class="fw-bold mb-0">Ms. Sarah Johnson</h6>
+                                        <p class="small text-muted mb-0">2023-06-25</p>
+                                    </div>
+                                </div>
+                                <div class="text-warning mb-2">
+                                    <span class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span><span
+                                        class="material-symbols-outlined small filled">star</span>
+                                </div>
+                                <p class="card-text text-muted small">"I was overwhelmed by the reimbursement process
+                                    until Payton Healthcare stepped in. Their dedicated support made all the difference,
+                                    and I received my benefits promptly."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 scroll-animate bg-image-section"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAyYp4E712QoBabkPuS6yhnKArCfZpzoFRuYXapJW69z1oEwgR_7ya05iIABycQ16TErvanDk7FfWd2EjAiAtcEJfFIir-Y1mDqM2sRl7H4_1G-TZIsrE8d25yIDZp8Hkpm3RZCFvlh52HFGL4qa7aa-6JOJDmODD79vORKGOJKhdm1XZln9R9ZddPKsNFRBdtameb9CBGv_5ntvCl7GFM0N6uZWn6ff9wryhJVn707Hk-QvwoakuFUvT5NMZik8esbqkhKJnjRhAw');">
+            <div class="hero-overlay"
+                style="background: linear-gradient(rgba(23, 27, 42, 0.7), rgba(23, 27, 42, 0.7));"></div>
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="p-4 p-md-5 glass-content-card">
+                            <div class="text-left mb-4">
+                                <h2 class="display-5 fw-bold text-white">Frequently Asked Questions</h2>
+                            </div>
+                            <div class="accordion" id="faqAccordion">
+                                <div class="accordion-item rounded-3">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed rounded-3"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#q1">What types of
+                                            providers do you work with?</button></h2>
+                                    <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">We work with a wide range of providers,
+                                            including hospitals, physician groups, specialty clinics, and independent
+                                            practices. Our solutions are scalable to fit the unique needs of any
+                                            organization.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item rounded-3">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed rounded-3"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#q2">How do you
+                                            ensure
+                                            data security and HIPAA compliance?</button></h2>
+                                    <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">Data security is our top priority. We utilize
+                                            state-of-the-art platforms and adhere to the strictest HIPAA guidelines. Our
+                                            team undergoes rigorous training in privacy and security protocols.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item rounded-3">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed rounded-3"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#q3">What is your
+                                            pricing model?</button></h2>
+                                    <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">Our pricing is typically based on a
+                                            percentage of collections, which aligns our success with yours. We also
+                                            offer
+                                            flexible models for specific services. Contact us for a custom quote.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="card text-center text-white border-0 shadow p-4 p-md-5 rounded-4"
+                    style="background-color: var(--primary-color);">
+                    <div class="card-body">
+                        <h2 class="display-5 fw-bold">Ready to Optimize Your Revenue Cycle?</h2>
+                        <p class="lead my-3 mx-auto" style="max-width: 40rem; color: rgba(255,255,255,0.8);">Let's
+                            discuss how Payton Healthcare can support your financial goals. Contact us today for a free
+                            consultation.</p>
+                        <button class="btn btn-light btn-lg px-5 mt-3 text-primary" data-bs-toggle="modal"
+                            data-bs-target="#consultationModal">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container px-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h2 class="fs-4">PAYTONHEALTH</h2>
+                    <p class="text-white-50 mt-3 pe-4">Your partner in healthcare financial management. We're dedicated
+                        to optimizing your revenue and supporting your patients.</p>
+                    <p class="text-white-50 mt-3 small">
+                        123 Health St, Medical City,<br>
+                        Kurnool, Andhra Pradesh 518001, India
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="fw-bold text-light">Company</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="about.html">About Us</a>
+                        </li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="careers.html">Careers</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold text-light">Resources</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="no-cost-emi.html">No Cost
+                                EMI</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="how-to-claim.html">How to
+                                Claim</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="claim-forms.html">Claim
+                                Forms</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold text-light">Legal</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="#">Privacy Policy</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="#">Terms of Service</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="text-white-50">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-2">
+                <p class="text-white-50 mb-3 mb-md-0">© 2025 Payton Healthcare. All rights reserved.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-white-50" aria-label="Facebook"><svg aria-hidden="true" class="bi"
+                            width="24" height="24" fill="currentColor">
+                            <path
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z">
+                            </path>
+                        </svg></a>
+                    <a href="#" class="text-white-50" aria-label="Twitter"><svg aria-hidden="true" class="bi" width="24"
+                            height="24" fill="currentColor">
+                            <path
+                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                            </path>
+                        </svg></a>
+                    <a href="#" class="text-white-50" aria-label="LinkedIn"><svg aria-hidden="true" class="bi"
+                            width="24" height="24" fill="currentColor">
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM11.5 8H9v10h2.5V8zM7.75 5.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5zM18 8h-2.5v2h.5a1.5 1.5 0 0 1 1.5 1.5V18h2.5v-5a3.5 3.5 0 0 0-3.5-3.5H16V8z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h1 class="modal-title fs-4" id="consultationModalLabel">Request a Free Consultation</h1>
+                        <p class="text-muted small mb-0">Let's discuss how we can help your financial goals.</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="d-flex flex-column gap-3">
+                        <div><label for="modalFullName" class="form-label small">Full Name</label><input type="text"
+                                class="form-control" id="modalFullName" placeholder="John Doe"></div>
+                        <div><label for="modalWorkEmail" class="form-label small">Work Email</label><input type="email"
+                                class="form-control" id="modalWorkEmail" placeholder="you@company.com">
+                        </div>
+                        <div><label for="modalUserType" class="form-label small">I am a...</label><select
+                                class="form-select" id="modalUserType">
+                                <option selected disabled>Select an option</option>
+                                <option>Healthcare Provider</option>
+                                <option>Patient</option>
+                            </select></div>
+                        <div class="d-grid mt-3"><button type="submit" class="btn btn-primary btn-lg">Schedule
+                                Consultation</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.querySelector('.main-header');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            const animationObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+
+                        // Counter animation
+                        if (target.matches('.counter')) {
+                            const targetNum = +target.dataset.target;
+                            let current = 0;
+                            const increment = targetNum / 100 > 1 ? Math.ceil(targetNum / 100) : 1;
+                            const updateCounter = () => {
+                                current += increment;
+                                if (current < targetNum) {
+                                    target.innerText = Math.ceil(current);
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    target.innerText = targetNum;
+                                }
+                            };
+                            updateCounter();
+                            animationObserver.unobserve(target);
+                        }
+
+                        // General scroll animation
+                        if (target.matches('.scroll-animate')) {
+                            target.classList.add('is-visible');
+                            animationObserver.unobserve(target);
+                        }
+
+                        // Timeline animation
+                        if (target.matches('.timeline-zigzag')) {
+                            target.classList.add('is-drawing');
+                            animationObserver.unobserve(target);
+                        }
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.counter').forEach(counter => {
+                animationObserver.observe(counter);
+            });
+            document.querySelectorAll('.scroll-animate').forEach(el => {
+                animationObserver.observe(el);
+            });
+            const timeline = document.querySelector('.timeline-zigzag');
+            if (timeline) {
+                animationObserver.observe(timeline);
+            }
+
+
+            // Auto-popup modal logic
+            const consultationModal = new bootstrap.Modal(document.getElementById('consultationModal'));
+            const popupShown = sessionStorage.getItem('popupShown');
+
+            if (!popupShown) {
+                setTimeout(() => {
+                    if (document.visibilityState === 'visible') {
+                        consultationModal.show();
+                        sessionStorage.setItem('popupShown', 'true');
+                    }
+                }, 10000); // 10-second delay
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - PaytonHealth</title>
+    <meta name="description"
+        content="PaytonHealth offers a wide array of services designed to optimize revenue cycles for healthcare providers and simplify reimbursement processes for patients.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-color: #1193d4;
+            --bs-primary-rgb: 17, 147, 212;
+            --bs-dark-rgb: 23, 27, 42;
+            --bs-border-radius: .5rem;
+            --bs-border-radius-lg: .75rem;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+        }
+
+        .display-1,
+        .display-2,
+        .display-3,
+        .display-4,
+        .display-5,
+        .display-6 {
+            font-weight: 800;
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+            color: #ffffff;
+            max-height: 40px;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+        }
+
+        .main-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1030;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+        }
+
+        .main-header .navbar-brand {
+            color: #111827;
+            font-weight: 800;
+        }
+
+        .main-header .navbar-nav .nav-link {
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .main-header .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .main-header .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .main-header .navbar-toggler {
+            color: #334155;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .main-header .btn-get-started {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .main-header .btn-get-started:hover {
+            background-color: #0e7bb0;
+            border-color: #0e7bb0;
+        }
+
+        .offcanvas {
+            background-color: #fff;
+            color: #111827;
+            width: 75%;
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1.5rem;
+        }
+
+        .offcanvas-body {
+            padding: 1.5rem;
+        }
+
+        .offcanvas .navbar-nav .nav-link {
+            color: #334155;
+            padding: 0.75rem 0;
+            font-weight: 600;
+        }
+
+        .offcanvas .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .offcanvas .dropdown-menu {
+            background-color: #f8fafc;
+            border: none;
+            box-shadow: none;
+            padding-left: 1rem;
+        }
+
+        .dropdown-menu {
+            border-radius: 0.75rem;
+            border-color: #e5e7eb;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item.active,
+        .dropdown-item:active {
+            color: var(--primary-color);
+            background-color: rgba(var(--bs-primary-rgb), 0.1);
+            font-weight: 600;
+        }
+
+        .dropdown-item:hover {
+            color: var(--primary-color);
+            background-color: rgba(var(--bs-primary-rgb), 0.05);
+        }
+
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 600;
+            --bs-btn-hover-bg: #0e7bb0;
+            --bs-btn-hover-border-color: #0e7bb0;
+        }
+
+        footer a:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .modal-content {
+            border-radius: var(--bs-border-radius-lg);
+            border: none;
+        }
+
+        .modal-header {
+            border-bottom: none;
+            padding: 2rem 2rem 1rem;
+        }
+
+        .modal-body {
+            padding: 1rem 2rem 2rem;
+        }
+
+        .page-header {
+            padding: 4rem 0;
+            background-color: #eef7ff;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <header class="main-header">
+        <div class="top-bar" style="max-height: 0; padding: 0;">
+            <div class="container d-flex justify-content-center justify-content-md-end">
+                <span>Need help? Call us at <a href="tel:+919876543210"
+                        class="text-white text-decoration-none fw-bold">+91 98765 43210</a></span>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-xl">
+            <div class="container px-4">
+                <a class="navbar-brand fs-4" href="index.html">PAYTONHEALTH</a>
+
+                <div class="d-none d-xl-flex ms-auto align-items-center">
+                    <ul class="navbar-nav gap-lg-3 text-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item active" href="services.html">All Services</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="for-hospitals.html">For Hospitals</a></li>
+                                <li><a class="dropdown-item" href="for-patients.html">For Patients</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Claims</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
+                                <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Resources</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    </ul>
+                    <button class="btn btn-get-started px-4 fw-bold ms-lg-3" data-bs-toggle="modal"
+                        data-bs-target="#consultationModal">Get Started</button>
+                </div>
+
+                <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">PAYTONHEALTH</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="services.html">All Services</a></li>
+                        <li><a class="dropdown-item" href="for-hospitals.html">For Hospitals</a></li>
+                        <li><a class="dropdown-item" href="for-patients.html">For Patients</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Claims</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
+                        <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+            <button class="btn btn-primary px-4 fw-bold mt-4 w-100" data-bs-toggle="modal"
+                data-bs-target="#consultationModal">Get Started</button>
+        </div>
+    </div>
+
+    <main class="flex-grow-1">
+        <section class="page-header text-center">
+            <div class="container">
+                <h1 class="display-4 fw-bolder">Comprehensive Healthcare Solutions</h1>
+                <p class="lead text-muted mt-3 mx-auto" style="max-width: 52rem;">
+                    Payton Healthcare offers a wide array of services designed to optimize revenue cycles for healthcare
+                    providers and simplify reimbursement processes for patients.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <h2 class="display-5 fw-bold border-bottom pb-3 mb-5">Hospital Services</h2>
+                <div class="d-flex flex-column gap-5">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-md-6 order-md-2"><img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd4ubKOhzGh2oHHOacW8RT4l1uGYH8PraGwVBmqK6LdKt39WdMqLwRMXZPQ34kjIme0qtcdXjGlZodD35WJ5jQjHZX7H8Z-vuQOJx2JliQOerIOp7Dh9ZqB7bRllxc2AeJBOSW5LK3IMynlZAVMBq_N7GTfHIedPDPPfBIeWFJDP1M4ZvDyL6cmU1fPxp35jcFyGRLKYmrXPLZ5Kpd2gDLv1kVlUfTJTGJ9GR9PBLTDzFbpABZmovV-jlekJQn5ePrZAM808qCpv0"
+                                alt="Revenue Cycle Management" class="img-fluid rounded-3 shadow-lg"></div>
+                        <div class="col-md-6 order-md-1">
+                            <h3 class="h2 fw-bold">Revenue Cycle Management</h3>
+                            <p class="mt-3 text-muted">Streamline your financial operations with our comprehensive RCM
+                                services, including billing, coding, and claims management. We leverage advanced
+                                technology to maximize revenue and minimize denials.</p>
+                        </div>
+                    </div>
+                    <div class="row g-5 align-items-center">
+                        <div class="col-md-6"><img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2bYhia6-JcIqLC0btXfkp3Hq2WP1HJl7fXgXBs7L_dvXJFelUhC10wTaiUL7vXQr6hURnn8UckJxBUMPRmIANE5MFOOZ8gn5ufbgJUqFwPbjoc94CC24J91oswgHMg-Hr4vwGzbeWk246o3vKrZbUVsafFH8Ljg9UuB8OFQnaqDVtGSSTMGN6tZaWWukIQEEIUjneOznJye9pCfX9j13sexKV_o_PNNYG556ZvTnt-vcqiShrlqlrjpb4buJkTgV6xBGv-iBDUl0"
+                                alt="Denial Management" class="img-fluid rounded-3 shadow-lg"></div>
+                        <div class="col-md-6">
+                            <h3 class="h2 fw-bold">Denial Management</h3>
+                            <p class="mt-3 text-muted">Reduce revenue loss with our proactive denial management
+                                strategies. Our experts analyze denial patterns, identify root causes, and implement
+                                corrective actions to improve your first-pass resolution rate.</p>
+                        </div>
+                    </div>
+                    <div class="row g-5 align-items-center">
+                        <div class="col-md-6 order-md-2"><img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz4-0lttiAKHRSz6YY73oiEeZQm7NBQm0vn-Ax-e3OH0MqyqjRLXwWNPOksvWvXrjFgX0Dhnj2G5aLNZDNtdvB-iBcaXmiN0DFlm0u3wHNRe-1oGYHbqD2gm_-N3L7BTkcFZ3OohNcTbBvzNaVKAHvGMANlIzLWJT7iFny4qStMpfsepu_MywTLToLMxkVuVMXwLlPfXIFCGWtoE1ZqDtDq19A0aD0BJYpIkwNGJ1Wh7N7h1rTGaoTZN4Qi-_trHIR6KIZkVbV35A"
+                                alt="Underpayment Recovery" class="img-fluid rounded-3 shadow-lg"></div>
+                        <div class="col-md-6 order-md-1">
+                            <h3 class="h2 fw-bold">Underpayment Recovery</h3>
+                            <p class="mt-3 text-muted">Recover revenue from underpaid claims with our meticulous
+                                recovery services. We identify discrepancies, appeal underpayments, and ensure you
+                                receive the full reimbursement you deserve.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="display-5 fw-bold border-bottom pb-3 mb-5">Patient Services</h2>
+                <div class="d-flex flex-column gap-5">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-md-6"><img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB2l6_g_l8HBmKfD7H5VyWjP_8DsakRiGYSwr5nHb-uPgHSMt8STFRRsnTgD1DDpc5cYJotyFvHRywhmtHpxG1x32E_f_3ILGyOCwFF2aABvp6OTZHnV8WAlWU6zTovpo4O1kfuMkUlnnC1Y_BjWpOKfU_Nk-u10Fx3xAQPFzWL-xKhcmMvXtWPj8bW47kXmr07Vptwwct4TGnL1Pz06A1tKl3jeCFd_FfZHUCECOgYYbtjr3s9aTKLI9TVeY3g0GD6DzaPh4H0HQ"
+                                alt="Patient Reimbursement Support" class="img-fluid rounded-3 shadow-lg"></div>
+                        <div class="col-md-6">
+                            <h3 class="h2 fw-bold">Patient Reimbursement Support</h3>
+                            <p class="mt-3 text-muted">Navigate the complexities of healthcare reimbursement with our
+                                dedicated patient support services. We assist with understanding benefits, filing
+                                claims, and resolving payment issues.</p>
+                        </div>
+                    </div>
+                    <div class="row g-5 align-items-center">
+                        <div class="col-md-6 order-md-2"><img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiTu0zKiqt3hfCEIeu5bZnlIRBABwE1YRzwAAuoMS--nhnQLgd_O88ubrHoqK37eJVbfrqY8Tqw2Y1NX4tR7KZ9-7lbfjCJAtjgfv9mr3ubzrod5Quk6qWgMToyn_aHltLzrcgF7qMzArWawNKyyotUUgZedIG2UCC6d2MBvVaP_G6ACUppgTqN8qHp5gbQJmJO8YUWyHvTgd37sVObEaqmN2lG1k428Pe8QXytamvmfL3iejDTYFM-jf15npepe8_B0VAFnZpYQ8"
+                                alt="Insurance Advocacy" class="img-fluid rounded-3 shadow-lg"></div>
+                        <div class="col-md-6 order-md-1">
+                            <h3 class="h2 fw-bold">Insurance Advocacy</h3>
+                            <p class="mt-3 text-muted">Advocate for your rights with our insurance advocacy services. We
+                                represent patients in disputes with insurance companies, ensuring fair treatment and
+                                maximizing coverage for medical expenses.</p>
+                        </div>
+                    </div>
+                    <div class="row g-5 align-items-center">
+                        <div class="col-md-6"><img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbwwilM78LQgcZ_OePwYYihlXzPP7beYmFFJXoH76IgBH8PfWU3_3TBJ4c94UOEaAoDj7E8GA5a1JjP2fX7eMKi6YiClIHRyzhYbdM-4rJi9um63Ac7vlbucUw9ESIZhI5d-JXIQbXa1z6GBVVY-GZj8RqbtL59ZyLeHmIsdGXyBmm79GurxyT6bIxqUfDL16FQbzPO_FC98sQS-ideKfl_7CZ1l6TsPpkHIUY5Z770tXL9VoXxoMKxbLhexZDvVOpsCnacRQ09vg"
+                                alt="Financial Assistance Programs" class="img-fluid rounded-3 shadow-lg"></div>
+                        <div class="col-md-6">
+                            <h3 class="h2 fw-bold">Financial Assistance Programs</h3>
+                            <p class="mt-3 text-muted">Access financial assistance programs with our guidance. We help
+                                patients identify and apply for programs that can alleviate the financial burden of
+                                healthcare costs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container px-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h2 class="fs-4">PAYTONHEALTH</h2>
+                    <p class="text-white-50 mt-3 pe-4">Your partner in healthcare financial management. We're dedicated
+                        to optimizing your revenue and supporting your patients.</p>
+                    <p class="text-white-50 mt-3 small">
+                        123 Health St, Medical City,<br>
+                        Kurnool, Andhra Pradesh 518001, India
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="fw-bold text-light">Company</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="about.html">About Us</a>
+                        </li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="careers.html">Careers</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold text-light">Resources</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="no-cost-emi.html">No Cost
+                                EMI</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="how-to-claim.html">How to
+                                Claim</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="claim-forms.html">Claim
+                                Forms</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold text-light">Legal</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="#">Privacy Policy</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="#">Terms of Service</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="text-white-50">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-2">
+                <p class="text-white-50 mb-3 mb-md-0">© 2025 Payton Healthcare. All rights reserved.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-white-50" aria-label="Facebook"><svg aria-hidden="true" class="bi"
+                            width="24" height="24" fill="currentColor">
+                            <path
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z">
+                            </path>
+                        </svg></a>
+                    <a href="#" class="text-white-50" aria-label="Twitter"><svg aria-hidden="true" class="bi" width="24"
+                            height="24" fill="currentColor">
+                            <path
+                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                            </path>
+                        </svg></a>
+                    <a href="#" class="text-white-50" aria-label="LinkedIn"><svg aria-hidden="true" class="bi"
+                            width="24" height="24" fill="currentColor">
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM11.5 8H9v10h2.5V8zM7.75 5.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5zM18 8h-2.5v2h.5a1.5 1.5 0 0 1 1.5 1.5V18h2.5v-5a3.5 3.5 0 0 0-3.5-3.5H16V8z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h1 class="modal-title fs-4" id="consultationModalLabel">Request a Free Consultation</h1>
+                        <p class="text-muted small mb-0">Let's discuss how we can help your financial goals.</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="d-flex flex-column gap-3">
+                        <div><label for="modalFullName" class="form-label small">Full Name</label><input type="text"
+                                class="form-control" id="modalFullName" placeholder="John Doe"></div>
+                        <div><label for="modalWorkEmail" class="form-label small">Work Email</label><input type="email"
+                                class="form-control" id="modalWorkEmail" placeholder="you@company.com">
+                        </div>
+                        <div><label for="modalUserType" class="form-label small">I am a...</label><select
+                                class="form-select" id="modalUserType">
+                                <option selected disabled>Select an option</option>
+                                <option>Healthcare Provider</option>
+                                <option>Patient</option>
+                            </select></div>
+                        <div class="d-grid mt-3"><button type="submit" class="btn btn-primary btn-lg">Schedule
+                                Consultation</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
