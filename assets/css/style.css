@@ -1,3 +1,8 @@
+/* ================================
+   PaytonHealth - Central Stylesheet
+   ================================ */
+
+/* CSS Variables */
 :root {
     --primary-color: #1193d4;
     --bs-primary-rgb: 17, 147, 212;
@@ -6,23 +11,13 @@
     --bs-border-radius-lg: .75rem;
 }
 
+/* Base Styles */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f8fafc;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* This padding prevents the fixed header from overlapping the main content */
-    padding-top: 96px;
-    /* Height of top-bar (40px) + navbar (~56px) */
-}
-
-@media (max-width: 1199.98px) {
-
-    /* On smaller screens (XL breakpoint), top-bar is hidden from view */
-    body {
-        padding-top: 56px;
-        /* Adjust padding to match navbar-only height */
-    }
+    overflow-x: hidden;
 }
 
 h1,
@@ -44,11 +39,8 @@ h6 {
 }
 
 p,
-.blockquote-footer,
-.card-text,
-.accordion-body,
-.form-label,
-li {
+.lead,
+.blockquote-footer {
     font-size: 0.95rem;
 }
 
@@ -56,27 +48,15 @@ li {
     font-size: 1.1rem;
 }
 
-.text-primary {
-    color: var(--primary-color) !important;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    font-weight: 600;
-    --bs-btn-hover-bg: #0e7bb0;
-    --bs-btn-hover-border-color: #0e7bb0;
-}
-
-/* Header & Navigation */
+/* Header Styles */
 .top-bar {
     background-color: var(--primary-color);
     padding: 0.5rem 0;
     font-size: 0.875rem;
     color: #ffffff;
+    overflow: hidden;
     max-height: 40px;
     transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-    overflow: hidden;
 }
 
 .main-header {
@@ -127,7 +107,6 @@ li {
 /* Scrolled Header State */
 .main-header.scrolled {
     background-color: rgba(255, 255, 255, 0.85);
-    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
 }
@@ -181,6 +160,10 @@ li {
     padding: 1.5rem;
 }
 
+.offcanvas-body {
+    padding: 1.5rem;
+}
+
 .offcanvas .navbar-nav .nav-link {
     color: #334155;
     padding: 0.75rem 0;
@@ -191,6 +174,10 @@ li {
     color: var(--primary-color);
 }
 
+.offcanvas .navbar-nav .nav-link.active {
+    color: var(--primary-color);
+}
+
 .offcanvas .dropdown-menu {
     background-color: #f8fafc;
     border: none;
@@ -198,7 +185,12 @@ li {
     padding-left: 1rem;
 }
 
-/* Dropdown Menu */
+.offcanvas .dropdown-item {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+/* Dropdown Styles */
 .dropdown-menu {
     border-radius: 0.75rem;
     border-color: #e5e7eb;
@@ -217,24 +209,15 @@ li {
     background-color: rgba(var(--bs-primary-rgb), 0.05);
 }
 
-/* Hero Sections */
+/* Hero Section */
 .hero-section {
     position: relative;
-    display: flex;
-    align-items: center;
-    text-align: center;
+    padding-top: 160px;
+    padding-bottom: 120px;
     color: white;
     background-size: cover;
     background-position: center;
-    min-height: 400px;
-    margin-top: -96px;
-    /* Pulls section up to be under the transparent header */
-}
-
-.hero-section-home {
-    padding-top: 160px;
-    padding-bottom: 120px;
-    text-align: left;
+    min-height: 480px;
 }
 
 .hero-overlay {
@@ -252,19 +235,60 @@ li {
     z-index: 2;
 }
 
-@media (max-width: 1199.98px) {
-    .hero-section {
-        margin-top: -56px;
-    }
-
-    /* Adjust for mobile header height */
-    .hero-section-home {
-        padding-top: 120px;
-        padding-bottom: 80px;
-    }
+/* Page Header (for non-hero pages with hero styling) */
+.page-header {
+    padding: 4rem 0;
+    background-color: #eef7ff;
 }
 
-/* Components */
+/* Compact page styling - reduced font sizes for better content density */
+.page-content {
+    font-size: 0.9rem;
+}
+
+.page-content .lead {
+    font-size: 1rem;
+}
+
+.page-content h2 {
+    font-size: 1.75rem;
+}
+
+.page-content h3 {
+    font-size: 1.35rem;
+}
+
+.page-content h4 {
+    font-size: 1.15rem;
+}
+
+.page-content h5 {
+    font-size: 1rem;
+}
+
+/* Consistent section spacing */
+.section-spacing {
+    padding: 3.5rem 0;
+}
+
+.section-spacing-lg {
+    padding: 5rem 0;
+}
+
+/* Buttons */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 600;
+    --bs-btn-hover-bg: #0e7bb0;
+    --bs-btn-hover-border-color: #0e7bb0;
+}
+
+/* Cards */
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -274,52 +298,12 @@ li {
     box-shadow: 0 1rem 2rem rgba(30, 41, 59, 0.12);
 }
 
-.accordion-button:not(.collapsed) {
-    color: var(--primary-color);
-    background-color: rgba(var(--bs-primary-rgb), 0.05);
-}
-
-.accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
-}
-
-.form-check-input:checked {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.form-control:focus,
-.form-select:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
-}
-
-.table {
-    --bs-table-hover-bg: #f8fafc;
-}
-
-.btn-download {
-    background-color: rgba(var(--bs-primary-rgb), 0.08);
-    color: var(--primary-color);
-    border: none;
-    font-weight: 600;
-}
-
-.btn-download:hover {
+.badge.bg-primary-soft {
     background-color: rgba(var(--bs-primary-rgb), 0.15);
     color: var(--primary-color);
 }
 
-footer a:hover {
-    color: var(--primary-color) !important;
-}
-
-.modal-content {
-    border-radius: var(--bs-border-radius-lg);
-    border: none;
-}
-
-/* Timeline Zigzag */
+/* Timeline Styles */
 .timeline-zigzag {
     position: relative;
 }
@@ -333,6 +317,12 @@ footer a:hover {
     width: 2px;
     height: 100%;
     background-color: #e5e7eb;
+    transform-origin: top;
+    transition: transform 0.8s ease-out;
+}
+
+.timeline-zigzag.is-drawing::before {
+    transform: scaleY(1);
 }
 
 @media (min-width: 1200px) {
@@ -405,6 +395,65 @@ footer a:hover {
     }
 }
 
+/* Accordion Styles */
+.accordion-button:not(.collapsed) {
+    color: var(--primary-color);
+    background-color: rgba(var(--bs-primary-rgb), 0.05);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.accordion-item {
+    margin-bottom: 1rem;
+}
+
+.accordion-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Form Styles */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Footer */
+footer a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: var(--bs-border-radius-lg);
+    border: none;
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 2rem 2rem 1rem;
+}
+
+.modal-body {
+    padding: 1rem 2rem 2rem;
+}
+
+.modal-backdrop.show {
+    --bs-backdrop-opacity: 0.7;
+}
+
+/* Material Icons */
+.material-symbols-outlined.filled {
+    font-variation-settings: 'FILL' 1;
+}
+
 /* Scroll Animations */
 .scroll-animate {
     opacity: 0;
@@ -417,11 +466,120 @@ footer a:hover {
     transform: translateY(0);
 }
 
-.timeline-zigzag.is-drawing::before {
-    transform: scaleY(1);
+/* Feature Image Cards */
+.feature-img-card {
+    overflow: hidden;
+    border-radius: var(--bs-border-radius-lg);
 }
 
-/* Utility */
-.material-symbols-outlined.filled {
-    font-variation-settings: 'FILL' 1;
+.feature-img-card img {
+    transition: transform 0.4s ease;
+}
+
+.feature-img-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Background Image Sections */
+.bg-image-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    overflow: hidden;
+}
+
+.bg-image-section::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: inherit;
+    filter: blur(5px);
+    z-index: 1;
+}
+
+.bg-image-section .container {
+    position: relative;
+    z-index: 3;
+}
+
+/* Glass Effect Cards */
+.glass-content-card {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--bs-border-radius-lg);
+}
+
+.glass-service-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--bs-border-radius-lg);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.glass-service-card:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px);
+}
+
+.glass-content-card .accordion-item {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1rem;
+}
+
+.glass-content-card .accordion-button {
+    background-color: transparent !important;
+    color: white;
+    font-weight: 600;
+    border-radius: var(--bs-border-radius) !important;
+}
+
+.glass-content-card .accordion-button::after {
+    filter: invert(1) grayscale(100) brightness(200%);
+}
+
+.glass-content-card .accordion-button:not(.collapsed) {
+    color: white;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.glass-content-card .accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+.glass-content-card .accordion-body {
+    color: rgba(255, 255, 255, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Table Styles */
+.table {
+    --bs-table-hover-bg: #f8fafc;
+}
+
+/* Utility Classes */
+.icon-box-sm {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    color: var(--primary-color);
+}
+
+.btn-download {
+    background-color: rgba(var(--bs-primary-rgb), 0.08);
+    color: var(--primary-color);
+    border: none;
+    font-weight: 600;
+}
+
+.btn-download:hover {
+    background-color: rgba(var(--bs-primary-rgb), 0.15);
+    color: var(--primary-color);
 }

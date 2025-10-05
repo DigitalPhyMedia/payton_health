@@ -14,199 +14,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-    <style>
-        :root {
-            --primary-color: #1193d4;
-            --bs-primary-rgb: 17, 147, 212;
-            --bs-dark-rgb: 23, 27, 42;
-            --bs-border-radius: .5rem;
-            --bs-border-radius-lg: .75rem;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-weight: 700;
-        }
-
-        .display-1,
-        .display-2,
-        .display-3,
-        .display-4,
-        .display-5,
-        .display-6 {
-            font-weight: 800;
-        }
-
-        .top-bar {
-            background-color: var(--primary-color);
-            padding: 0.5rem 0;
-            font-size: 0.875rem;
-            color: #ffffff;
-            max-height: 40px;
-            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-        }
-
-        .main-header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1030;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
-        }
-
-        .main-header .navbar-brand {
-            color: #111827;
-            font-weight: 800;
-        }
-
-        .main-header .navbar-nav .nav-link {
-            font-weight: 500;
-            color: #334155;
-        }
-
-        .main-header .navbar-nav .nav-link:hover {
-            color: var(--primary-color);
-        }
-
-        .main-header .navbar-nav .nav-link.active {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .main-header .navbar-toggler {
-            color: #334155;
-            border-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .main-header .btn-get-started {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-        }
-
-        .main-header .btn-get-started:hover {
-            background-color: #0e7bb0;
-            border-color: #0e7bb0;
-        }
-
-        .offcanvas {
-            background-color: #fff;
-            color: #111827;
-            width: 75%;
-        }
-
-        .offcanvas-header {
-            border-bottom: 1px solid #e5e7eb;
-            padding: 1.5rem;
-        }
-
-        .offcanvas-body {
-            padding: 1.5rem;
-        }
-
-        .offcanvas .navbar-nav .nav-link {
-            color: #334155;
-            padding: 0.75rem 0;
-            font-weight: 600;
-        }
-
-        .offcanvas .navbar-nav .nav-link.active {
-            color: var(--primary-color);
-        }
-
-        .offcanvas .dropdown-menu {
-            background-color: #f8fafc;
-            border: none;
-            box-shadow: none;
-            padding-left: 1rem;
-        }
-
-        .dropdown-menu {
-            border-radius: 0.75rem;
-            border-color: #e5e7eb;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-        }
-
-        .dropdown-item.active,
-        .dropdown-item:active {
-            color: var(--primary-color);
-            background-color: rgba(var(--bs-primary-rgb), 0.1);
-            font-weight: 600;
-        }
-
-        .dropdown-item:hover {
-            color: var(--primary-color);
-            background-color: rgba(var(--bs-primary-rgb), 0.05);
-        }
-
-        .text-primary {
-            color: var(--primary-color) !important;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            font-weight: 600;
-            --bs-btn-hover-bg: #0e7bb0;
-            --bs-btn-hover-border-color: #0e7bb0;
-        }
-
-        footer a:hover {
-            color: var(--primary-color) !important;
-        }
-
-        .modal-content {
-            border-radius: var(--bs-border-radius-lg);
-            border: none;
-        }
-
-        .modal-header {
-            border-bottom: none;
-            padding: 2rem 2rem 1rem;
-        }
-
-        .modal-body {
-            padding: 1rem 2rem 2rem;
-        }
-
-        .page-header {
-            padding: 4rem 0;
-            background-color: #eef7ff;
-        }
-
-        .btn-download {
-            background-color: rgba(var(--bs-primary-rgb), 0.08);
-            color: var(--primary-color);
-            border: none;
-            font-weight: 600;
-        }
-
-        .btn-download:hover {
-            background-color: rgba(var(--bs-primary-rgb), 0.15);
-            color: var(--primary-color);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
     <header class="main-header">
-        <div class="top-bar" style="max-height: 0; padding: 0;">
+        <div class="top-bar">
             <div class="container d-flex justify-content-center justify-content-md-end">
                 <span>Need help? Call us at <a href="tel:+919876543210"
                         class="text-white text-decoration-none fw-bold">+91 98765 43210</a></span>
@@ -219,8 +32,8 @@
                     <ul class="navbar-nav gap-lg-3 text-center">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Services</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Services</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="services.html">All Services</a></li>
                                 <li>
@@ -231,16 +44,16 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Claims</a>
+                            <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                data-bs-toggle="dropdown">Claims</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
                                 <li><a class="dropdown-item active" href="claim-forms.html">Claim Forms</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Resources</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Resources</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
                             </ul>
@@ -253,24 +66,23 @@
                         data-bs-target="#consultationModal">Get Started</button>
                 </div>
                 <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    data-bs-target="#offcanvasNavbar">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
             </div>
         </nav>
     </header>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">PAYTONHEALTH</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title fw-bold">PAYTONHEALTH</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Services</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="services.html">All Services</a></li>
                         <li><a class="dropdown-item" href="for-hospitals.html">For Hospitals</a></li>
@@ -278,16 +90,15 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Claims</a>
+                    <a class="nav-link dropdown-toggle active" href="#" role="button"
+                        data-bs-toggle="dropdown">Claims</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
                         <li><a class="dropdown-item active" href="claim-forms.html">Claim Forms</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Resources</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
                     </ul>
@@ -301,69 +112,328 @@
         </div>
     </div>
 
-    <main class="flex-grow-1">
-        <section class="page-header text-center">
+    <main class="flex-grow-1 page-content">
+        <section class="hero-section d-flex align-items-center"
+            style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop');">
+            <div class="hero-overlay"></div>
             <div class="container">
-                <h1 class="display-4 fw-bolder">Download Claim Forms</h1>
-                <p class="lead text-muted mt-3" style="max-width: 600px; margin: auto;">Access all necessary forms for
-                    your claims. Download PDFs directly from our secure portal.</p>
+                <div style="max-width: 48rem;">
+                    <h1 class="display-4 fw-bolder">Download Claim Forms</h1>
+                    <p class="lead mt-3">Access all necessary forms for your claims. Download PDFs directly from our
+                        secure portal and get started with your claim process today.</p>
+                </div>
             </div>
         </section>
-        <section class="py-5">
-            <div class="container py-5">
-                <div class="mx-auto card border-0 shadow-sm p-4" style="max-width: 56rem;">
+
+        <section class="section-spacing scroll-animate">
+            <div class="container">
+                <div class="mx-auto" style="max-width: 64rem;">
                     <div class="mb-5">
                         <h2 class="h3 fw-bold border-bottom pb-3 mb-4">Patient Reimbursement Forms</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                <span class="fw-medium">Medical Expense Claim Form (Form PH-001)</span>
-                                <a href="#" class="btn btn-sm btn-download px-3 py-2">
-                                    <span class="material-symbols-outlined me-1 fs-6 align-middle">download</span>
+                        <p class="text-muted mb-4">Essential forms for patients seeking medical expense reimbursement
+                        </p>
+                        <div class="list-group">
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Medical Expense Claim Form (Form PH-001)</h5>
+                                    <p class="text-muted small mb-0">Standard form for claiming medical expenses
+                                        including hospitalization, consultations, and procedures.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
                                     Download
                                 </a>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                <span class="fw-medium">Dental Claim Form (Form PH-002)</span>
-                                <a href="#" class="btn btn-sm btn-download px-3 py-2">
-                                    <span class="material-symbols-outlined me-1 fs-6 align-middle">download</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Dental Claim Form (Form PH-002)</h5>
+                                    <p class="text-muted small mb-0">Specialized form for dental treatment expenses
+                                        including orthodontics, extractions, and cosmetic procedures.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
                                     Download
                                 </a>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                <span class="fw-medium">Vision Care Claim Form (Form PH-003)</span>
-                                <a href="#" class="btn btn-sm btn-download px-3 py-2">
-                                    <span class="material-symbols-outlined me-1 fs-6 align-middle">download</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Vision Care Claim Form (Form PH-003)</h5>
+                                    <p class="text-muted small mb-0">Form for vision-related expenses including eye
+                                        exams, glasses, contact lenses, and vision correction surgery.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
                                     Download
                                 </a>
-                            </li>
-                        </ul>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Emergency Treatment Claim Form (Form PH-004)</h5>
+                                    <p class="text-muted small mb-0">Fast-track form for emergency medical treatments
+                                        and urgent care expenses.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <h2 class="h3 fw-bold border-bottom pb-3 mb-4">Revenue Cycle Management Forms</h2>
+                        <p class="text-muted mb-4">Essential forms for healthcare providers and facilities</p>
+                        <div class="list-group">
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Provider Enrollment Application (RCM-A01)</h5>
+                                    <p class="text-muted small mb-0">Complete this form to enroll your healthcare
+                                        facility with Payton Healthcare's RCM services.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
+                                    Download
+                                </a>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Billing Service Agreement (RCM-B02)</h5>
+                                    <p class="text-muted small mb-0">Service agreement outlining terms and conditions
+                                        for billing and revenue cycle management services.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
+                                    Download
+                                </a>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">HIPAA Authorization Form (RCM-C03)</h5>
+                                    <p class="text-muted small mb-0">Required authorization for handling protected
+                                        health information in compliance with HIPAA regulations.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
+                                    Download
+                                </a>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Denial Appeal Request Form (RCM-D04)</h5>
+                                    <p class="text-muted small mb-0">Form for submitting appeals on denied claims with
+                                        supporting documentation requirements.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     <div>
-                        <h2 class="h3 fw-bold border-bottom pb-3 mb-4">Revenue Cycle Management Forms</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                <span class="fw-medium">Provider Enrollment Application (RCM-A01)</span>
-                                <a href="#" class="btn btn-sm btn-download px-3 py-2">
-                                    <span class="material-symbols-outlined me-1 fs-6 align-middle">download</span>
+                        <h2 class="h3 fw-bold border-bottom pb-3 mb-4">Supporting Documents</h2>
+                        <p class="text-muted mb-4">Additional forms and checklists to ensure complete claim submission
+                        </p>
+                        <div class="list-group">
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Document Checklist (DOC-001)</h5>
+                                    <p class="text-muted small mb-0">Comprehensive checklist of all documents required
+                                        for various types of claims.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
                                     Download
                                 </a>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Medical Records Release Form (DOC-002)</h5>
+                                    <p class="text-muted small mb-0">Authorization form for releasing medical records to
+                                        insurance providers and third parties.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
+                                    Download
+                                </a>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Pre-Authorization Request Form (DOC-003)</h5>
+                                    <p class="text-muted small mb-0">Form for requesting pre-authorization for planned
+                                        medical procedures and treatments.</p>
+                                </div>
+                                <a href="#" class="btn btn-primary px-4">
+                                    <span class="material-symbols-outlined me-2 align-middle"
+                                        style="font-size: 20px;">download</span>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-spacing bg-light scroll-animate">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">How to Fill Out Forms Correctly</h2>
+                    <p class="text-muted mx-auto" style="max-width: 48rem;">Follow these guidelines to ensure your forms
+                        are completed accurately</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover h-100 border-0 shadow-sm text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mx-auto">edit_note</span>
+                            <h5 class="fw-bold mt-3">Use Black Ink</h5>
+                            <p class="text-muted small">Fill out forms using black or blue ink. Ensure handwriting is
+                                clear and legible.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover h-100 border-0 shadow-sm text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mx-auto">text_fields</span>
+                            <h5 class="fw-bold mt-3">Complete All Fields</h5>
+                            <p class="text-muted small">Fill in every required field. Mark N/A if a field doesn't apply
+                                to you.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover h-100 border-0 shadow-sm text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mx-auto">draw</span>
+                            <h5 class="fw-bold mt-3">Sign & Date</h5>
+                            <p class="text-muted small">Don't forget to sign and date all forms where indicated.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover h-100 border-0 shadow-sm text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mx-auto">attach_file</span>
+                            <h5 class="fw-bold mt-3">Attach Documents</h5>
+                            <p class="text-muted small">Include all required supporting documents with your forms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-spacing scroll-animate">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="display-6 fw-bold">Need Help?</h2>
+                        <p class="text-muted mb-4">Our team is here to assist you with filling out forms and
+                            understanding the claim process.</p>
+                        <ul class="list-unstyled d-flex flex-column gap-3">
+                            <li class="d-flex align-items-start gap-3">
+                                <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+                                <span>Free consultation to review your forms before submission</span>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                <span class="fw-medium">Billing Service Agreement (RCM-B02)</span>
-                                <a href="#" class="btn btn-sm btn-download px-3 py-2">
-                                    <span class="material-symbols-outlined me-1 fs-6 align-middle">download</span>
-                                    Download
-                                </a>
+                            <li class="d-flex align-items-start gap-3">
+                                <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+                                <span>Expert guidance on required documentation</span>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                <span class="fw-medium">HIPAA Authorization Form (RCM-C03)</span>
-                                <a href="#" class="btn btn-sm btn-download px-3 py-2">
-                                    <span class="material-symbols-outlined me-1 fs-6 align-middle">download</span>
-                                    Download
-                                </a>
+                            <li class="d-flex align-items-start gap-3">
+                                <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+                                <span>Assistance with claim tracking and follow-up</span>
+                            </li>
+                            <li class="d-flex align-items-start gap-3">
+                                <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+                                <span>Support throughout the entire reimbursement process</span>
                             </li>
                         </ul>
+                        <div class="d-flex gap-3 mt-4">
+                            <button class="btn btn-primary px-4" data-bs-toggle="modal"
+                                data-bs-target="#consultationModal">Get Help Now</button>
+                            <a href="how-to-claim.html" class="btn btn-outline-primary px-4">View Claim Guide</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop"
+                            alt="Form Assistance" class="img-fluid rounded-3 shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-spacing bg-light scroll-animate">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Common Form Mistakes to Avoid</h2>
+                    <p class="text-muted">Learn from common errors to ensure smooth claim processing</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-danger-subtle text-danger rounded-circle d-flex align-items-center justify-content-center me-3"
+                                        style="width: 48px; height: 48px;">
+                                        <span class="material-symbols-outlined">close</span>
+                                    </div>
+                                    <h5 class="fw-bold mb-0">Incomplete Information</h5>
+                                </div>
+                                <p class="text-muted small mb-0">Leaving fields blank or providing partial information
+                                    can delay or reject your claim. Always complete every required field.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-danger-subtle text-danger rounded-circle d-flex align-items-center justify-content-center me-3"
+                                        style="width: 48px; height: 48px;">
+                                        <span class="material-symbols-outlined">close</span>
+                                    </div>
+                                    <h5 class="fw-bold mb-0">Missing Signatures</h5>
+                                </div>
+                                <p class="text-muted small mb-0">Forgetting to sign or date the form is one of the most
+                                    common reasons for claim rejection. Review before submission.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-danger-subtle text-danger rounded-circle d-flex align-items-center justify-content-center me-3"
+                                        style="width: 48px; height: 48px;">
+                                        <span class="material-symbols-outlined">close</span>
+                                    </div>
+                                    <h5 class="fw-bold mb-0">Wrong Form Selection</h5>
+                                </div>
+                                <p class="text-muted small mb-0">Using the wrong form for your claim type can cause
+                                    delays. Ensure you download the correct form for your specific situation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-danger-subtle text-danger rounded-circle d-flex align-items-center justify-content-center me-3"
+                                        style="width: 48px; height: 48px;">
+                                        <span class="material-symbols-outlined">close</span>
+                                    </div>
+                                    <h5 class="fw-bold mb-0">Missing Attachments</h5>
+                                </div>
+                                <p class="text-muted small mb-0">Submitting forms without required supporting documents
+                                    will result in rejection. Use our checklist to verify all documents are included.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -377,10 +447,8 @@
                     <h2 class="fs-4">PAYTONHEALTH</h2>
                     <p class="text-white-50 mt-3 pe-4">Your partner in healthcare financial management. We're dedicated
                         to optimizing your revenue and supporting your patients.</p>
-                    <p class="text-white-50 mt-3 small">
-                        123 Health St, Medical City,<br>
-                        Kurnool, Andhra Pradesh 518001, India
-                    </p>
+                    <p class="text-white-50 mt-3 small">123 Health St, Medical City,<br>Kurnool, Andhra Pradesh 518001,
+                        India</p>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5 class="fw-bold text-light">Company</h5>
@@ -415,55 +483,64 @@
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-2">
                 <p class="text-white-50 mb-3 mb-md-0">© 2025 Payton Healthcare. All rights reserved.</p>
                 <div class="d-flex gap-4">
-                    <a href="#" class="text-white-50" aria-label="Facebook"><svg aria-hidden="true" class="bi"
-                            width="24" height="24" fill="currentColor">
+                    <a href="#" class="text-white-50" aria-label="Facebook">
+                        <svg aria-hidden="true" class="bi" width="24" height="24" fill="currentColor">
                             <path
                                 d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z">
                             </path>
-                        </svg></a>
-                    <a href="#" class="text-white-50" aria-label="Twitter"><svg aria-hidden="true" class="bi" width="24"
-                            height="24" fill="currentColor">
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white-50" aria-label="Twitter">
+                        <svg aria-hidden="true" class="bi" width="24" height="24" fill="currentColor">
                             <path
                                 d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
                             </path>
-                        </svg></a>
-                    <a href="#" class="text-white-50" aria-label="LinkedIn"><svg aria-hidden="true" class="bi"
-                            width="24" height="24" fill="currentColor">
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white-50" aria-label="LinkedIn">
+                        <svg aria-hidden="true" class="bi" width="24" height="24" fill="currentColor">
                             <path
                                 d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM11.5 8H9v10h2.5V8zM7.75 5.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5zM18 8h-2.5v2h.5a1.5 1.5 0 0 1 1.5 1.5V18h2.5v-5a3.5 3.5 0 0 0-3.5-3.5H16V8z">
                             </path>
-                        </svg></a>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="consultationModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <div>
-                        <h1 class="modal-title fs-4" id="consultationModalLabel">Request a Free Consultation</h1>
+                        <h1 class="modal-title fs-4">Request a Free Consultation</h1>
                         <p class="text-muted small mb-0">Let's discuss how we can help your financial goals.</p>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form class="d-flex flex-column gap-3">
-                        <div><label for="modalFullName" class="form-label small">Full Name</label><input type="text"
-                                class="form-control" id="modalFullName" placeholder="John Doe"></div>
-                        <div><label for="modalWorkEmail" class="form-label small">Work Email</label><input type="email"
-                                class="form-control" id="modalWorkEmail" placeholder="you@company.com">
+                        <div>
+                            <label for="modalFullName" class="form-label small">Full Name</label>
+                            <input type="text" class="form-control" id="modalFullName" placeholder="John Doe" required>
                         </div>
-                        <div><label for="modalUserType" class="form-label small">I am a...</label><select
-                                class="form-select" id="modalUserType">
+                        <div>
+                            <label for="modalWorkEmail" class="form-label small">Work Email</label>
+                            <input type="email" class="form-control" id="modalWorkEmail" placeholder="you@company.com"
+                                required>
+                        </div>
+                        <div>
+                            <label for="modalUserType" class="form-label small">I am a...</label>
+                            <select class="form-select" id="modalUserType" required>
                                 <option selected disabled>Select an option</option>
                                 <option>Healthcare Provider</option>
                                 <option>Patient</option>
-                            </select></div>
-                        <div class="d-grid mt-3"><button type="submit" class="btn btn-primary btn-lg">Schedule
-                                Consultation</button></div>
+                            </select>
+                        </div>
+                        <div class="d-grid mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg">Schedule Consultation</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -471,6 +548,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

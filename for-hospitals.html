@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Hospitals - PaytonHealth</title>
     <meta name="description"
-        content="Payton Healthcare offers comprehensive RCM services tailored for hospitals, focusing on financial optimization and operational efficiency.">
+        content="Comprehensive RCM services for hospitals focusing on financial optimization and operational efficiency.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,195 +14,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-    <style>
-        :root {
-            --primary-color: #1193d4;
-            --bs-primary-rgb: 17, 147, 212;
-            --bs-dark-rgb: 23, 27, 42;
-            --bs-border-radius: .5rem;
-            --bs-border-radius-lg: .75rem;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-weight: 700;
-        }
-
-        .display-1,
-        .display-2,
-        .display-3,
-        .display-4,
-        .display-5,
-        .display-6 {
-            font-weight: 800;
-        }
-
-        .top-bar {
-            background-color: var(--primary-color);
-            padding: 0.5rem 0;
-            font-size: 0.875rem;
-            color: #ffffff;
-            max-height: 40px;
-            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-        }
-
-        .main-header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1030;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
-        }
-
-        .main-header .navbar-brand {
-            color: #111827;
-            font-weight: 800;
-        }
-
-        .main-header .navbar-nav .nav-link {
-            font-weight: 500;
-            color: #334155;
-        }
-
-        .main-header .navbar-nav .nav-link:hover {
-            color: var(--primary-color);
-        }
-
-        .main-header .navbar-nav .nav-link.active {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .main-header .navbar-toggler {
-            color: #334155;
-            border-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .main-header .btn-get-started {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-        }
-
-        .main-header .btn-get-started:hover {
-            background-color: #0e7bb0;
-            border-color: #0e7bb0;
-        }
-
-        .offcanvas {
-            background-color: #fff;
-            color: #111827;
-            width: 75%;
-        }
-
-        .offcanvas-header {
-            border-bottom: 1px solid #e5e7eb;
-            padding: 1.5rem;
-        }
-
-        .offcanvas-body {
-            padding: 1.5rem;
-        }
-
-        .offcanvas .navbar-nav .nav-link {
-            color: #334155;
-            padding: 0.75rem 0;
-            font-weight: 600;
-        }
-
-        .offcanvas .navbar-nav .nav-link.active {
-            color: var(--primary-color);
-        }
-
-        .offcanvas .dropdown-menu {
-            background-color: #f8fafc;
-            border: none;
-            box-shadow: none;
-            padding-left: 1rem;
-        }
-
-        .dropdown-menu {
-            border-radius: 0.75rem;
-            border-color: #e5e7eb;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-        }
-
-        .dropdown-item.active,
-        .dropdown-item:active {
-            color: var(--primary-color);
-            background-color: rgba(var(--bs-primary-rgb), 0.1);
-            font-weight: 600;
-        }
-
-        .dropdown-item:hover {
-            color: var(--primary-color);
-            background-color: rgba(var(--bs-primary-rgb), 0.05);
-        }
-
-        .text-primary {
-            color: var(--primary-color) !important;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            font-weight: 600;
-            --bs-btn-hover-bg: #0e7bb0;
-            --bs-btn-hover-border-color: #0e7bb0;
-        }
-
-        footer a:hover {
-            color: var(--primary-color) !important;
-        }
-
-        .modal-content {
-            border-radius: var(--bs-border-radius-lg);
-            border: none;
-        }
-
-        .modal-header {
-            border-bottom: none;
-            padding: 2rem 2rem 1rem;
-        }
-
-        .modal-body {
-            padding: 1rem 2rem 2rem;
-        }
-
-        .page-header {
-            padding: 4rem 0;
-            background-color: #eef7ff;
-        }
-
-        .icon-box-sm {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: rgba(var(--bs-primary-rgb), 0.1);
-            color: var(--primary-color);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
     <header class="main-header">
-        <div class="top-bar" style="max-height: 0; padding: 0;">
+        <div class="top-bar">
             <div class="container d-flex justify-content-center justify-content-md-end">
                 <span>Need help? Call us at <a href="tel:+919876543210"
                         class="text-white text-decoration-none fw-bold">+91 98765 43210</a></span>
@@ -215,8 +32,8 @@
                     <ul class="navbar-nav gap-lg-3 text-center">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Services</a>
+                            <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                data-bs-toggle="dropdown">Services</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="services.html">All Services</a></li>
                                 <li>
@@ -227,16 +44,16 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Claims</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Claims</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
                                 <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Resources</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Resources</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
                             </ul>
@@ -249,24 +66,24 @@
                         data-bs-target="#consultationModal">Get Started</button>
                 </div>
                 <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    data-bs-target="#offcanvasNavbar">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
             </div>
         </nav>
     </header>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">PAYTONHEALTH</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title fw-bold">PAYTONHEALTH</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Services</a>
+                    <a class="nav-link dropdown-toggle active" href="#" role="button"
+                        data-bs-toggle="dropdown">Services</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="services.html">All Services</a></li>
                         <li><a class="dropdown-item active" href="for-hospitals.html">For Hospitals</a></li>
@@ -274,16 +91,14 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Claims</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Claims</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
                         <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Resources</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
                     </ul>
@@ -297,108 +112,179 @@
         </div>
     </div>
 
-    <main class="flex-grow-1">
-        <section class="page-header text-center">
+    <main class="flex-grow-1 page-content">
+        <section class="hero-section d-flex align-items-center"
+            style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop');">
+            <div class="hero-overlay"></div>
             <div class="container">
-                <h1 class="display-4 fw-bolder">RCM for Hospitals</h1>
-                <p class="lead text-muted mt-3" style="max-width: 52rem; margin: auto;">Payton Healthcare offers
-                    comprehensive RCM services tailored for hospitals, focusing on financial optimization and
-                    operational efficiency to improve your bottom line.</p>
+                <div style="max-width: 52rem;">
+                    <h1 class="display-4 fw-bolder">Revenue Cycle Management for Hospitals</h1>
+                    <p class="lead mt-3">Payton Healthcare offers comprehensive RCM services tailored for hospitals,
+                        focusing on financial optimization and operational efficiency to improve your bottom line and
+                        allow you to focus on what matters most—patient care.</p>
+                </div>
             </div>
         </section>
 
-        <section class="py-5">
+        <section class="section-spacing scroll-animate">
             <div class="container">
-                <div class="d-flex flex-column gap-5 py-5">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Transform Your Revenue Cycle</h2>
+                    <p class="text-muted mx-auto" style="max-width: 48rem;">We understand the complex challenges
+                        healthcare providers face. Our solutions are designed to streamline your revenue cycle, reduce
+                        administrative burden, and maximize your financial performance.</p>
+                </div>
+
+                <div class="d-flex flex-column gap-5">
                     <div class="row g-5 align-items-center">
-                        <div class="col-md-6 order-md-2"><img
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ_qhF6YyTN07HGvqofeeGOV1uX6z0zuGT6OoY1S0On0x6Fz2gqRafv9SKqCI88cGVZvepfb7EUu3uoXBrqd1KSiLzZbrSpRQb-GlCeprJ9JOqnkzOCx9Pr-HQUgjEEqFzurfZRvyjaDKpcKVrXWboyIL1k2TTdfSQ6M2oyeB6u01ZvSdTxqlxzJq8pYgbPQrRuGFAJb63pWRkeFe7Faq8fEAK90SXKmDkkrVlJP24M2bOA_-G5BMTbxK79J8dT4VEnt8VFv3KXAI"
-                                alt="Financial Optimization" class="img-fluid rounded-3 shadow-lg"></div>
+                        <div class="col-md-6 order-md-2">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
+                                alt="Financial Optimization" class="img-fluid rounded-3 shadow-lg">
+                        </div>
                         <div class="col-md-6 order-md-1">
-                            <p class="small fw-bold text-uppercase text-primary">Financial Optimization</p>
-                            <h3 class="h2 fw-bold mt-2">Revenue Enhancement</h3>
-                            <p class="mt-3 text-muted">Maximize revenue through improved coding accuracy, charge
-                                capture,
-                                and denial management. Our strategies ensure all services are accurately billed and
-                                reimbursed promptly.</p>
+                            <p class="small fw-bold text-uppercase text-primary mb-2">Financial Optimization</p>
+                            <h3 class="h3 fw-bold mt-2">Maximize Revenue Collection</h3>
+                            <p class="mt-3 text-muted">Increase your revenue through improved coding accuracy,
+                                comprehensive charge capture, and proactive denial management. Our proven strategies
+                                ensure all services are accurately billed and reimbursed promptly, reducing days in A/R
+                                by up to 30%.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="d-flex gap-2 mb-2"><span class="material-symbols-outlined text-primary"
+                                        style="font-size: 20px;">check_circle</span><span class="small">Advanced coding
+                                        accuracy protocols</span></li>
+                                <li class="d-flex gap-2 mb-2"><span class="material-symbols-outlined text-primary"
+                                        style="font-size: 20px;">check_circle</span><span class="small">Real-time charge
+                                        capture systems</span></li>
+                                <li class="d-flex gap-2"><span class="material-symbols-outlined text-primary"
+                                        style="font-size: 20px;">check_circle</span><span class="small">Proactive denial
+                                        prevention strategies</span></li>
+                            </ul>
                         </div>
                     </div>
+
                     <div class="row g-5 align-items-center">
-                        <div class="col-md-6"><img
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC9EZf9Q9ZGsAhgwSauCvlYEWcFOP6I8Ml4lGv6E5m4Oejd-o3nVaI-9o-sDh9lWpvELJdxyiVYQVIEUXU99ECtu9AFqRI-6xOm2XpAsya0fs1FGLb2KZVt-3wt9JVSDbOLdDmq6iztrvh2SOHDKFCx2EqAjqeapZSJ1U5ZpHwagMKK5JD-5KXIeReLwFlm9csGKkWpLTNmNNhm43QKHH2DhquLX7plhD_IaZXMXGs6oBGEtr-y6drXt7EQJhP15eOXZgINSh5IUQ"
-                                alt="Operational Efficiency" class="img-fluid rounded-3 shadow-lg"></div>
                         <div class="col-md-6">
-                            <p class="small fw-bold text-uppercase text-primary">Operational Efficiency</p>
-                            <h3 class="h2 fw-bold mt-2">Process Streamlining</h3>
-                            <p class="mt-3 text-muted">Streamline your revenue cycle with our expert guidance, reducing
-                                administrative costs and improving workflow. We focus on optimizing each step from
-                                patient
-                                registration to final payment.</p>
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop"
+                                alt="Operational Efficiency" class="img-fluid rounded-3 shadow-lg">
+                        </div>
+                        <div class="col-md-6">
+                            <p class="small fw-bold text-uppercase text-primary mb-2">Operational Efficiency</p>
+                            <h3 class="h3 fw-bold mt-2">Streamline Your Processes</h3>
+                            <p class="mt-3 text-muted">Optimize your revenue cycle with our expert guidance, reducing
+                                administrative costs and improving workflow efficiency. We focus on optimizing each step
+                                from patient registration to final payment, resulting in up to 40% reduction in
+                                administrative costs.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="d-flex gap-2 mb-2"><span class="material-symbols-outlined text-primary"
+                                        style="font-size: 20px;">check_circle</span><span class="small">Automated
+                                        workflow management</span></li>
+                                <li class="d-flex gap-2 mb-2"><span class="material-symbols-outlined text-primary"
+                                        style="font-size: 20px;">check_circle</span><span class="small">Integrated
+                                        billing systems</span></li>
+                                <li class="d-flex gap-2"><span class="material-symbols-outlined text-primary"
+                                        style="font-size: 20px;">check_circle</span><span class="small">Staff training
+                                        and development</span></li>
+                            </ul>
                         </div>
                     </div>
+
                     <div class="row g-5 align-items-center">
-                        <div class="col-md-6 order-md-2"><img
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVALyKvMIIhS9id1BnwVioew5UzgPoTbXmo4Tzq02Li-B7Y-aFa9dqK87GsaYuY-yf_qF1djFwdddny-VkQz9f0rIvQ2OdS1JCra6OKNrhaVuhuA0b1zT9lIcOOHJZl3njGskaIYDv0IY10Wik159i9GPLLZZiyDsYzt_pus8eFTO0rvsNszmXu1HpLdJi_bWqY0LEXUlmQFVzxmVGQNODQT9rkuKvcJUav1B0Y2OyeaL3VgTU9c89Imm5iyM-QVVFwPGPpjzBR04"
-                                alt="Patient Satisfaction" class="img-fluid rounded-3 shadow-lg"></div>
+                        <div class="col-md-6 order-md-2">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
+                                alt="Patient Satisfaction" class="img-fluid rounded-3 shadow-lg">
+                        </div>
                         <div class="col-md-6 order-md-1">
-                            <p class="small fw-bold text-uppercase text-primary">Patient Satisfaction</p>
-                            <h3 class="h2 fw-bold mt-2">Enhanced Patient Experience</h3>
-                            <p class="mt-3 text-muted">Improve patient satisfaction with clear billing communication and
-                                support. Our patient-centric approach ensures a positive experience, leading to better
-                                patient retention and referrals.</p>
+                            <p class="small fw-bold text-uppercase text-primary mb-2">Patient Satisfaction</p>
+                            <h3 class="h3 fw-bold mt-2">Enhance Patient Experience</h3>
+                            <p class="mt-3 text-muted">Improve patient satisfaction with clear billing communication,
+                                flexible payment options, and dedicated support. Our patient-centric approach ensures a
+                                positive experience, leading to better patient retention rates and increased referrals
+                                by up to 25%.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="d-flex gap-2 mb-2"><span class="material-symbols-outlined text-primary"
+                                        style="font-size: 20px;">check_circle</span><span class="small">Transparent
+                                        billing statements</span></li>
+                                <li class="d-flex gap-2 mb-2"><span class="material-symbols-outlined text-primary"
+                                        style="font-size: 20px;">check_circle</span><span class="small">Flexible payment
+                                        plan options</span></li>
+                                <li class="d-flex gap-2"><span class="material-symbols-outlined text-primary"
+                                        style="font-size: 20px;">check_circle</span><span class="small">Dedicated
+                                        patient support team</span></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-5 bg-light">
-            <div class="container py-5">
-                <div class="text-center mt-5">
-                    <h2 class="display-5 fw-bold">Our Data-Driven Approach</h2>
-                    <p class="lead text-muted mt-3 mx-auto" style="max-width: 48rem;">Our approach to RCM is
-                        technology-enabled, ensuring transparency and accountability. We work with your team to identify
-                        improvements and implement customized solutions.</p>
+        <section class="section-spacing bg-light scroll-animate">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Our Data-Driven Approach</h2>
+                    <p class="text-muted mx-auto" style="max-width: 48rem;">Our approach to RCM is technology-enabled
+                        and results-focused, ensuring transparency and accountability. We work closely with your team to
+                        identify improvement opportunities and implement customized solutions that deliver measurable
+                        outcomes.</p>
                 </div>
 
-                <div class="row g-5 mt-5">
+                <div class="row g-5 mt-4">
                     <div class="col-md-6">
                         <h3 class="h4 fw-bold mb-4">Core Services</h3>
                         <ul class="list-unstyled d-flex flex-column gap-3">
                             <li class="d-flex align-items-start gap-3">
                                 <div
                                     class="icon-box-sm d-flex align-items-center justify-content-center flex-shrink-0 mt-1">
-                                    <span class="material-symbols-outlined fs-6">check</span>
-                                </div><span>Comprehensive
-                                    Revenue Cycle Assessment</span>
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">Revenue Cycle Assessment</h5>
+                                    <p class="small text-muted mb-0">Comprehensive analysis of your current processes to
+                                        identify bottlenecks and opportunities for improvement.</p>
+                                </div>
                             </li>
                             <li class="d-flex align-items-start gap-3">
                                 <div
                                     class="icon-box-sm d-flex align-items-center justify-content-center flex-shrink-0 mt-1">
-                                    <span class="material-symbols-outlined fs-6">check</span>
-                                </div><span>Coding and
-                                    Documentation Review</span>
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">Coding & Documentation Review</h5>
+                                    <p class="small text-muted mb-0">Expert review ensuring accurate coding and complete
+                                        documentation for optimal reimbursement rates.</p>
+                                </div>
                             </li>
                             <li class="d-flex align-items-start gap-3">
                                 <div
                                     class="icon-box-sm d-flex align-items-center justify-content-center flex-shrink-0 mt-1">
-                                    <span class="material-symbols-outlined fs-6">check</span>
-                                </div><span>Denial Management
-                                    and Appeals</span>
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">Denial Management & Appeals</h5>
+                                    <p class="small text-muted mb-0">Systematic approach to reducing denials and
+                                        appealing rejected claims with high success rates.</p>
+                                </div>
                             </li>
                             <li class="d-flex align-items-start gap-3">
                                 <div
                                     class="icon-box-sm d-flex align-items-center justify-content-center flex-shrink-0 mt-1">
-                                    <span class="material-symbols-outlined fs-6">check</span>
-                                </div><span>Patient Billing and
-                                    Collections</span>
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">Patient Billing & Collections</h5>
+                                    <p class="small text-muted mb-0">Patient-friendly billing practices combined with
+                                        effective collection strategies to optimize cash flow.</p>
+                                </div>
                             </li>
                             <li class="d-flex align-items-start gap-3">
                                 <div
                                     class="icon-box-sm d-flex align-items-center justify-content-center flex-shrink-0 mt-1">
-                                    <span class="material-symbols-outlined fs-6">check</span>
-                                </div><span>Performance
-                                    Reporting and Analytics</span>
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">Performance Analytics</h5>
+                                    <p class="small text-muted mb-0">Real-time dashboards and detailed reporting to
+                                        track KPIs and measure improvement progress.</p>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -408,44 +294,104 @@
                             <li class="d-flex align-items-start gap-3">
                                 <div
                                     class="icon-box-sm d-flex align-items-center justify-content-center flex-shrink-0 mt-1">
-                                    <span class="material-symbols-outlined fs-6">check</span>
-                                </div><span>Increased Revenue
-                                    and Reduced Costs</span>
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">Increased Revenue</h5>
+                                    <p class="small text-muted mb-0">Average 15-20% improvement in net revenue
+                                        collection within the first year of partnership.</p>
+                                </div>
                             </li>
                             <li class="d-flex align-items-start gap-3">
                                 <div
                                     class="icon-box-sm d-flex align-items-center justify-content-center flex-shrink-0 mt-1">
-                                    <span class="material-symbols-outlined fs-6">check</span>
-                                </div><span>Improved
-                                    Operational Efficiency</span>
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">Reduced Operating Costs</h5>
+                                    <p class="small text-muted mb-0">Significant reduction in administrative overhead
+                                        through process automation and optimization.</p>
+                                </div>
                             </li>
                             <li class="d-flex align-items-start gap-3">
                                 <div
                                     class="icon-box-sm d-flex align-items-center justify-content-center flex-shrink-0 mt-1">
-                                    <span class="material-symbols-outlined fs-6">check</span>
-                                </div><span>Enhanced Patient
-                                    Satisfaction</span>
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">Enhanced Patient Satisfaction</h5>
+                                    <p class="small text-muted mb-0">Improved patient experience through clear
+                                        communication and flexible financial options.</p>
+                                </div>
                             </li>
                             <li class="d-flex align-items-start gap-3">
                                 <div
                                     class="icon-box-sm d-flex align-items-center justify-content-center flex-shrink-0 mt-1">
-                                    <span class="material-symbols-outlined fs-6">check</span>
-                                </div><span>Compliance and Risk
-                                    Mitigation</span>
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">Compliance & Risk Mitigation</h5>
+                                    <p class="small text-muted mb-0">Stay ahead of regulatory changes and reduce
+                                        compliance risks with expert guidance.</p>
+                                </div>
                             </li>
                             <li class="d-flex align-items-start gap-3">
                                 <div
                                     class="icon-box-sm d-flex align-items-center justify-content-center flex-shrink-0 mt-1">
-                                    <span class="material-symbols-outlined fs-6">check</span>
-                                </div><span>Access to Industry
-                                    Experts</span>
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">Expert Team Access</h5>
+                                    <p class="small text-muted mb-0">Dedicated specialists with deep healthcare finance
+                                        expertise supporting your success.</p>
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="text-center mt-5 pt-4">
                     <button class="btn btn-primary btn-lg px-5" data-bs-toggle="modal"
-                        data-bs-target="#consultationModal">Get Started with Payton</button>
+                        data-bs-target="#consultationModal">Schedule a Free Consultation</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-spacing scroll-animate">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Success By The Numbers</h2>
+                    <p class="text-muted">Real results from our hospital partners</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-3 col-6 text-center">
+                        <div class="card border-0 shadow-sm h-100 p-4">
+                            <h3 class="display-5 fw-bold text-primary mb-0"><span class="counter"
+                                    data-target="98">0</span>%</h3>
+                            <p class="small text-muted mb-0 mt-2">Clean Claim Rate</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center">
+                        <div class="card border-0 shadow-sm h-100 p-4">
+                            <h3 class="display-5 fw-bold text-primary mb-0"><span class="counter"
+                                    data-target="30">0</span>%</h3>
+                            <p class="small text-muted mb-0 mt-2">Reduction in A/R Days</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center">
+                        <div class="card border-0 shadow-sm h-100 p-4">
+                            <h3 class="display-5 fw-bold text-primary mb-0"><span class="counter"
+                                    data-target="15">0</span>%</h3>
+                            <p class="small text-muted mb-0 mt-2">Average Revenue Increase</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center">
+                        <div class="card border-0 shadow-sm h-100 p-4">
+                            <h3 class="display-5 fw-bold text-primary mb-0"><span class="counter"
+                                    data-target="200">0</span>+</h3>
+                            <p class="small text-muted mb-0 mt-2">Hospital Partners</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -458,10 +404,8 @@
                     <h2 class="fs-4">PAYTONHEALTH</h2>
                     <p class="text-white-50 mt-3 pe-4">Your partner in healthcare financial management. We're dedicated
                         to optimizing your revenue and supporting your patients.</p>
-                    <p class="text-white-50 mt-3 small">
-                        123 Health St, Medical City,<br>
-                        Kurnool, Andhra Pradesh 518001, India
-                    </p>
+                    <p class="text-white-50 mt-3 small">123 Health St, Medical City,<br>Kurnool, Andhra Pradesh 518001,
+                        India</p>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5 class="fw-bold text-light">Company</h5>
@@ -519,26 +463,24 @@
         </div>
     </footer>
 
-    <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="consultationModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <div>
-                        <h1 class="modal-title fs-4" id="consultationModalLabel">Request a Free Consultation</h1>
+                        <h1 class="modal-title fs-4">Request a Free Consultation</h1>
                         <p class="text-muted small mb-0">Let's discuss how we can help your financial goals.</p>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form class="d-flex flex-column gap-3">
                         <div><label for="modalFullName" class="form-label small">Full Name</label><input type="text"
-                                class="form-control" id="modalFullName" placeholder="John Doe"></div>
+                                class="form-control" id="modalFullName" placeholder="John Doe" required></div>
                         <div><label for="modalWorkEmail" class="form-label small">Work Email</label><input type="email"
-                                class="form-control" id="modalWorkEmail" placeholder="you@company.com">
-                        </div>
+                                class="form-control" id="modalWorkEmail" placeholder="you@company.com" required></div>
                         <div><label for="modalUserType" class="form-label small">I am a...</label><select
-                                class="form-select" id="modalUserType">
+                                class="form-select" id="modalUserType" required>
                                 <option selected disabled>Select an option</option>
                                 <option>Healthcare Provider</option>
                                 <option>Patient</option>
@@ -552,6 +494,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

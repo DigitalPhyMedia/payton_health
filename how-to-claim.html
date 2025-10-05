@@ -14,286 +14,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-    <style>
-        :root {
-            --primary-color: #1193d4;
-            --bs-primary-rgb: 17, 147, 212;
-            --bs-dark-rgb: 23, 27, 42;
-            --bs-border-radius: .5rem;
-            --bs-border-radius-lg: .75rem;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-weight: 700;
-        }
-
-        .display-1,
-        .display-2,
-        .display-3,
-        .display-4,
-        .display-5,
-        .display-6 {
-            font-weight: 800;
-        }
-
-        .top-bar {
-            background-color: var(--primary-color);
-            padding: 0.5rem 0;
-            font-size: 0.875rem;
-            color: #ffffff;
-            max-height: 40px;
-            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-        }
-
-        .main-header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1030;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
-        }
-
-        .main-header .navbar-brand {
-            color: #111827;
-            font-weight: 800;
-        }
-
-        .main-header .navbar-nav .nav-link {
-            font-weight: 500;
-            color: #334155;
-        }
-
-        .main-header .navbar-nav .nav-link:hover {
-            color: var(--primary-color);
-        }
-
-        .main-header .navbar-nav .nav-link.active {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .main-header .navbar-toggler {
-            color: #334155;
-            border-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .main-header .btn-get-started {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-        }
-
-        .main-header .btn-get-started:hover {
-            background-color: #0e7bb0;
-            border-color: #0e7bb0;
-        }
-
-        .offcanvas {
-            background-color: #fff;
-            color: #111827;
-            width: 75%;
-        }
-
-        .offcanvas-header {
-            border-bottom: 1px solid #e5e7eb;
-            padding: 1.5rem;
-        }
-
-        .offcanvas-body {
-            padding: 1.5rem;
-        }
-
-        .offcanvas .navbar-nav .nav-link {
-            color: #334155;
-            padding: 0.75rem 0;
-            font-weight: 600;
-        }
-
-        .offcanvas .navbar-nav .nav-link.active {
-            color: var(--primary-color);
-        }
-
-        .offcanvas .dropdown-menu {
-            background-color: #f8fafc;
-            border: none;
-            box-shadow: none;
-            padding-left: 1rem;
-        }
-
-        .dropdown-menu {
-            border-radius: 0.75rem;
-            border-color: #e5e7eb;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-        }
-
-        .dropdown-item.active,
-        .dropdown-item:active {
-            color: var(--primary-color);
-            background-color: rgba(var(--bs-primary-rgb), 0.1);
-            font-weight: 600;
-        }
-
-        .dropdown-item:hover {
-            color: var(--primary-color);
-            background-color: rgba(var(--bs-primary-rgb), 0.05);
-        }
-
-        .text-primary {
-            color: var(--primary-color) !important;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            font-weight: 600;
-            --bs-btn-hover-bg: #0e7bb0;
-            --bs-btn-hover-border-color: #0e7bb0;
-        }
-
-        footer a:hover {
-            color: var(--primary-color) !important;
-        }
-
-        .modal-content {
-            border-radius: var(--bs-border-radius-lg);
-            border: none;
-        }
-
-        .modal-header {
-            border-bottom: none;
-            padding: 2rem 2rem 1rem;
-        }
-
-        .modal-body {
-            padding: 1rem 2rem 2rem;
-        }
-
-        .page-header {
-            padding: 4rem 0;
-            background-color: #eef7ff;
-        }
-
-        .timeline-zigzag {
-            position: relative;
-        }
-
-        .timeline-zigzag::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 32px;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background-color: #e5e7eb;
-        }
-
-        @media (min-width: 1200px) {
-            .timeline-zigzag::before {
-                left: 50%;
-            }
-        }
-
-        .timeline-zigzag-item {
-            position: relative;
-        }
-
-        .timeline-zigzag-item:not(:last-child) {
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 1200px) {
-            .timeline-zigzag-item {
-                width: 50%;
-                padding-right: 3rem;
-                margin-left: 0;
-            }
-
-            .timeline-zigzag-item:nth-child(even) {
-                margin-left: 50%;
-                padding-left: 3rem;
-                padding-right: 0;
-            }
-        }
-
-        .timeline-zigzag-content {
-            border: 1px solid #e5e7eb;
-            border-radius: var(--bs-border-radius-lg);
-            background-color: #fff;
-        }
-
-        .timeline-zigzag-icon {
-            width: 64px;
-            height: 64px;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 1199.98px) {
-            .timeline-zigzag-item {
-                display: flex;
-                align-items: center;
-                gap: 1.5rem;
-            }
-
-            .timeline-zigzag-content {
-                width: 100%;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .timeline-zigzag-icon {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 10;
-            }
-
-            .timeline-zigzag-item:nth-child(odd) .timeline-zigzag-icon {
-                right: -32px;
-            }
-
-            .timeline-zigzag-item:nth-child(even) .timeline-zigzag-icon {
-                left: -32px;
-            }
-        }
-
-        .accordion-button:not(.collapsed) {
-            color: var(--primary-color);
-            background-color: rgba(var(--bs-primary-rgb), 0.05);
-        }
-
-        .accordion-button:focus {
-            box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
-        }
-
-        .form-check-input:checked {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
     <header class="main-header">
-        <div class="top-bar" style="max-height: 0; padding: 0;">
+        <div class="top-bar">
             <div class="container d-flex justify-content-center justify-content-md-end">
                 <span>Need help? Call us at <a href="tel:+919876543210"
                         class="text-white text-decoration-none fw-bold">+91 98765 43210</a></span>
@@ -306,8 +32,8 @@
                     <ul class="navbar-nav gap-lg-3 text-center">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Services</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Services</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="services.html">All Services</a></li>
                                 <li>
@@ -318,16 +44,16 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Claims</a>
+                            <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                data-bs-toggle="dropdown">Claims</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item active" href="how-to-claim.html">How to Claim</a></li>
                                 <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Resources</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Resources</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
                             </ul>
@@ -340,24 +66,23 @@
                         data-bs-target="#consultationModal">Get Started</button>
                 </div>
                 <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    data-bs-target="#offcanvasNavbar">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
             </div>
         </nav>
     </header>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">PAYTONHEALTH</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title fw-bold">PAYTONHEALTH</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Services</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="services.html">All Services</a></li>
                         <li><a class="dropdown-item" href="for-hospitals.html">For Hospitals</a></li>
@@ -365,16 +90,15 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Claims</a>
+                    <a class="nav-link dropdown-toggle active" href="#" role="button"
+                        data-bs-toggle="dropdown">Claims</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item active" href="how-to-claim.html">How to Claim</a></li>
                         <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Resources</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
                     </ul>
@@ -388,21 +112,64 @@
         </div>
     </div>
 
-    <main class="flex-grow-1">
-        <section class="page-header text-center">
+    <main class="flex-grow-1 page-content">
+        <section class="hero-section d-flex align-items-center"
+            style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop');">
+            <div class="hero-overlay"></div>
             <div class="container">
-                <h1 class="display-4 fw-bolder">How to File a Claim</h1>
-                <p class="lead text-muted mt-3">A simple guide to navigating cashless and reimbursement claims with
-                    ease.</p>
+                <div style="max-width: 48rem;">
+                    <h1 class="display-4 fw-bolder">How to File a Claim</h1>
+                    <p class="lead mt-3">A simple guide to navigating cashless and reimbursement claims with ease. We're
+                        here to support you every step of the way.</p>
+                </div>
             </div>
         </section>
 
-        <section class="py-5">
-            <div class="container py-4">
-                <div class="mb-5 text-center">
-                    <h2 class="display-5 fw-bold">Cashless Claims</h2>
-                    <p class="text-muted mt-3">Receive treatment without paying upfront. The hospital directly bills
-                        your insurance provider.</p>
+        <section class="section-spacing scroll-animate">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Choose Your Claim Type</h2>
+                    <p class="text-muted mx-auto" style="max-width: 48rem;">Understanding the difference between
+                        cashless and reimbursement claims helps you make the right choice for your situation.</p>
+                </div>
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6">
+                        <div class="card card-hover h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span
+                                        class="material-symbols-outlined fs-1 text-primary me-3">credit_card_off</span>
+                                    <h3 class="h4 fw-bold mb-0">Cashless Claims</h3>
+                                </div>
+                                <p class="text-muted">Receive treatment without paying upfront. The hospital directly
+                                    bills your insurance provider.</p>
+                                <a href="#cashless-section" class="btn btn-outline-primary btn-sm mt-2">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card card-hover h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="material-symbols-outlined fs-1 text-primary me-3">payments</span>
+                                    <h3 class="h4 fw-bold mb-0">Reimbursement Claims</h3>
+                                </div>
+                                <p class="text-muted">Pay for treatment upfront and then seek reimbursement from your
+                                    insurer.</p>
+                                <a href="#reimbursement-section" class="btn btn-outline-primary btn-sm mt-2">Learn
+                                    More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cashless-section" class="section-spacing bg-light scroll-animate">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Cashless Claims Process</h2>
+                    <p class="text-muted">Step-by-step guide to filing a cashless claim</p>
                 </div>
                 <div class="timeline-zigzag">
                     <div class="timeline-zigzag-item">
@@ -412,8 +179,9 @@
                         </div>
                         <div class="timeline-zigzag-content p-4 shadow-sm text-md-end">
                             <h5 class="fw-bold">Pre-Authorization</h5>
-                            <p class="text-muted small">Obtain pre-authorization from your insurance provider for
-                                planned treatments.</p>
+                            <p class="text-muted small mb-0">Obtain pre-authorization from your insurance provider for
+                                planned treatments. This can be done through the hospital or directly with your insurer.
+                                Ensure all required documents are submitted at least 48 hours before treatment.</p>
                         </div>
                     </div>
                     <div class="timeline-zigzag-item">
@@ -422,8 +190,10 @@
                             <span class="material-symbols-outlined">local_hospital</span>
                         </div>
                         <div class="timeline-zigzag-content p-4 shadow-sm">
-                            <h5 class="fw-bold">Treatment</h5>
-                            <p class="text-muted small">Undergo the necessary medical procedures or treatments.</p>
+                            <h5 class="fw-bold">Admission & Treatment</h5>
+                            <p class="text-muted small mb-0">Get admitted to a network hospital and undergo the
+                                necessary medical procedures or treatments. Present your insurance card and ID proof at
+                                the time of admission.</p>
                         </div>
                     </div>
                     <div class="timeline-zigzag-item">
@@ -433,7 +203,8 @@
                         </div>
                         <div class="timeline-zigzag-content p-4 shadow-sm text-md-end">
                             <h5 class="fw-bold">Claim Submission</h5>
-                            <p class="text-muted small">The hospital submits the claim to your insurance provider.</p>
+                            <p class="text-muted small mb-0">The hospital submits the claim directly to your insurance
+                                provider with all necessary medical records and billing details.</p>
                         </div>
                     </div>
                     <div class="timeline-zigzag-item">
@@ -442,21 +213,21 @@
                             <span class="material-symbols-outlined">receipt_long</span>
                         </div>
                         <div class="timeline-zigzag-content p-4 shadow-sm">
-                            <h5 class="fw-bold">Settlement</h5>
-                            <p class="text-muted small">The insurance provider settles the claim directly with the
-                                hospital.</p>
+                            <h5 class="fw-bold">Settlement & Discharge</h5>
+                            <p class="text-muted small mb-0">The insurance provider settles the claim directly with the
+                                hospital. You may only need to pay for non-covered items or any applicable deductibles.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-5 bg-light">
-            <div class="container py-4">
-                <div class="mb-5 text-center">
-                    <h2 class="display-5 fw-bold">Reimbursement Claims</h2>
-                    <p class="text-muted mt-3">Pay for treatment upfront and then seek reimbursement from your insurer.
-                    </p>
+        <section id="reimbursement-section" class="section-spacing scroll-animate">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Reimbursement Claims Process</h2>
+                    <p class="text-muted">Step-by-step guide to filing a reimbursement claim</p>
                 </div>
                 <div class="timeline-zigzag">
                     <div class="timeline-zigzag-item">
@@ -466,7 +237,9 @@
                         </div>
                         <div class="timeline-zigzag-content p-4 shadow-sm text-md-end">
                             <h5 class="fw-bold">Treatment and Payment</h5>
-                            <p class="text-muted small">Pay for your medical treatment out-of-pocket.</p>
+                            <p class="text-muted small mb-0">Pay for your medical treatment out-of-pocket at the
+                                hospital. Keep all original bills, receipts, and payment proofs safe for claim
+                                submission.</p>
                         </div>
                     </div>
                     <div class="timeline-zigzag-item">
@@ -475,9 +248,10 @@
                             <span class="material-symbols-outlined">folder_open</span>
                         </div>
                         <div class="timeline-zigzag-content p-4 shadow-sm">
-                            <h5 class="fw-bold">Documentation</h5>
-                            <p class="text-muted small">Gather all necessary documents, including bills, receipts, and
-                                medical reports.</p>
+                            <h5 class="fw-bold">Document Collection</h5>
+                            <p class="text-muted small mb-0">Gather all necessary documents including bills, receipts,
+                                discharge summary, medical reports, diagnostic test results, and doctor's prescriptions.
+                            </p>
                         </div>
                     </div>
                     <div class="timeline-zigzag-item">
@@ -487,8 +261,9 @@
                         </div>
                         <div class="timeline-zigzag-content p-4 shadow-sm text-md-end">
                             <h5 class="fw-bold">Claim Filing</h5>
-                            <p class="text-muted small">Submit the claim form along with the required documents to your
-                                insurance provider.</p>
+                            <p class="text-muted small mb-0">Submit the claim form along with all required documents to
+                                your insurance provider within the stipulated timeframe (usually 15-30 days from
+                                discharge).</p>
                         </div>
                     </div>
                     <div class="timeline-zigzag-item">
@@ -497,86 +272,173 @@
                             <span class="material-symbols-outlined">price_check</span>
                         </div>
                         <div class="timeline-zigzag-content p-4 shadow-sm">
-                            <h5 class="fw-bold">Reimbursement</h5>
-                            <p class="text-muted small">Receive reimbursement from your insurance provider for the
-                                covered expenses.</p>
+                            <h5 class="fw-bold">Processing & Reimbursement</h5>
+                            <p class="text-muted small mb-0">The insurer reviews your claim and processes the
+                                reimbursement. You'll receive the approved amount directly to your bank account within
+                                15-30 days.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-5">
-            <div class="container mt-4">
+        <section class="section-spacing bg-light scroll-animate">
+            <div class="container">
                 <div class="row g-5">
                     <div class="col-lg-6">
+                        <h2 class="h3 fw-bold mb-4">Required Documents Checklist</h2>
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-3">For All Claims:</h5>
+                                <ul class="list-unstyled d-flex flex-column gap-2 mb-4">
+                                    <li class="d-flex align-items-start gap-2">
+                                        <span class="material-symbols-outlined text-primary"
+                                            style="font-size: 20px;">check_circle</span>
+                                        <span class="small">Duly filled and signed claim form</span>
+                                    </li>
+                                    <li class="d-flex align-items-start gap-2">
+                                        <span class="material-symbols-outlined text-primary"
+                                            style="font-size: 20px;">check_circle</span>
+                                        <span class="small">Original bills and receipts</span>
+                                    </li>
+                                    <li class="d-flex align-items-start gap-2">
+                                        <span class="material-symbols-outlined text-primary"
+                                            style="font-size: 20px;">check_circle</span>
+                                        <span class="small">Discharge summary</span>
+                                    </li>
+                                    <li class="d-flex align-items-start gap-2">
+                                        <span class="material-symbols-outlined text-primary"
+                                            style="font-size: 20px;">check_circle</span>
+                                        <span class="small">Medical investigation reports</span>
+                                    </li>
+                                    <li class="d-flex align-items-start gap-2">
+                                        <span class="material-symbols-outlined text-primary"
+                                            style="font-size: 20px;">check_circle</span>
+                                        <span class="small">Doctor's prescriptions</span>
+                                    </li>
+                                    <li class="d-flex align-items-start gap-2">
+                                        <span class="material-symbols-outlined text-primary"
+                                            style="font-size: 20px;">check_circle</span>
+                                        <span class="small">Payment receipts</span>
+                                    </li>
+                                </ul>
+                                <a href="claim-forms.html" class="btn btn-primary btn-sm">Download Forms</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
                         <h2 class="h3 fw-bold mb-4">Frequently Asked Questions</h2>
-                        <div class="accordion" id="faqAccordion">
+                        <div class="accordion" id="claimFaq">
                             <div class="accordion-item rounded-3 mb-3 shadow-sm border-0">
-                                <h2 class="accordion-header"><button class="accordion-button collapsed rounded-3"
-                                        type="button" data-bs-toggle="collapse" data-bs-target="#q1">What documents are
-                                        required for a reimbursement claim?</button></h2>
-                                <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body text-muted small">Typically, you'll need original bills,
-                                        receipts, discharge summary, and medical reports. A claim form from the insurer
-                                        is also required.</div>
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed rounded-3" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        What documents are required for a reimbursement claim?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#claimFaq">
+                                    <div class="accordion-body text-muted small">
+                                        Typically, you'll need original bills, receipts, discharge summary, and medical
+                                        reports. A claim form from the insurer is also required. Check the required
+                                        documents checklist above for complete details.
+                                    </div>
                                 </div>
                             </div>
                             <div class="accordion-item rounded-3 mb-3 shadow-sm border-0">
-                                <h2 class="accordion-header"><button class="accordion-button collapsed rounded-3"
-                                        type="button" data-bs-toggle="collapse" data-bs-target="#q2">How long does it
-                                        take to process a claim?</button></h2>
-                                <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body text-muted small">Claim processing times vary by insurer
-                                        but generally range from 15 to 30 days for reimbursement claims. Cashless claims
-                                        are usually approved within hours.</div>
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed rounded-3" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        How long does it take to process a claim?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#claimFaq">
+                                    <div class="accordion-body text-muted small">
+                                        Claim processing times vary by insurer but generally range from 15 to 30 days
+                                        for reimbursement claims. Cashless claims are usually approved within 24-48
+                                        hours for emergencies and 2-3 days for planned procedures.
+                                    </div>
                                 </div>
                             </div>
                             <div class="accordion-item rounded-3 shadow-sm border-0">
-                                <h2 class="accordion-header"><button class="accordion-button collapsed rounded-3"
-                                        type="button" data-bs-toggle="collapse" data-bs-target="#q3">What should I do if
-                                        my claim is rejected?</button></h2>
-                                <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body text-muted small">If your claim is rejected, first
-                                        understand the reason for rejection from the insurer. You can then rectify the
-                                        issue (e.g., provide missing documents) and re-submit the claim.</div>
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed rounded-3" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        What should I do if my claim is rejected?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#claimFaq">
+                                    <div class="accordion-body text-muted small">
+                                        If your claim is rejected, first understand the reason from the insurer. You can
+                                        then rectify the issue (e.g., provide missing documents) and re-submit the
+                                        claim. Our team can help you with the appeals process.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h2 class="h3 fw-bold mb-4">Tips to Minimize Rejections</h2>
-                        <div class="list-group">
-                            <label class="list-group-item d-flex gap-3">
-                                <input class="form-check-input flex-shrink-0" type="checkbox" value=""
-                                    style="font-size: 1.375em;">
-                                <span class="pt-1 form-checked-content">
-                                    <strong>Ensure accuracy.</strong> Ensure all information on the claim form is
-                                    accurate and complete.
-                                </span>
-                            </label>
-                            <label class="list-group-item d-flex gap-3">
-                                <input class="form-check-input flex-shrink-0" type="checkbox" value=""
-                                    style="font-size: 1.375em;">
-                                <span class="pt-1 form-checked-content">
-                                    <strong>Attach all documents.</strong> Attach all necessary documents, including
-                                    original bills and medical reports.
-                                </span>
-                            </label>
-                            <label class="list-group-item d-flex gap-3">
-                                <input class="form-check-input flex-shrink-0" type="checkbox" value=""
-                                    style="font-size: 1.375em;">
-                                <span class="pt-1 form-checked-content">
-                                    <strong>Verify your policy.</strong> Verify that the treatment is covered under your
-                                    policy before undergoing it.
-                                </span>
-                            </label>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <section class="section-spacing scroll-animate">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Tips to Maximize Claim Success</h2>
+                    <p class="text-muted">Follow these best practices to ensure smooth claim processing</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover h-100 border-0 shadow-sm text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mx-auto">description</span>
+                            <h5 class="fw-bold mt-3">Complete Documentation</h5>
+                            <p class="text-muted small">Ensure all information on the claim form is accurate and
+                                complete with supporting documents.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover h-100 border-0 shadow-sm text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mx-auto">schedule</span>
+                            <h5 class="fw-bold mt-3">Timely Submission</h5>
+                            <p class="text-muted small">Submit your claim within the stipulated timeframe to avoid
+                                rejection due to delays.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover h-100 border-0 shadow-sm text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mx-auto">verified</span>
+                            <h5 class="fw-bold mt-3">Verify Coverage</h5>
+                            <p class="text-muted small">Verify that the treatment is covered under your policy before
+                                undergoing it.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover h-100 border-0 shadow-sm text-center p-4">
+                            <span class="material-symbols-outlined fs-1 text-primary mx-auto">support_agent</span>
+                            <h5 class="fw-bold mt-3">Seek Expert Help</h5>
+                            <p class="text-muted small">Don't hesitate to reach out to our team for guidance and support
+                                throughout the process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-spacing scroll-animate"
+            style="background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a8a 100%);">
+            <div class="container">
+                <div class="text-center text-white">
+                    <h2 class="display-5 fw-bold">Need Help With Your Claim?</h2>
+                    <p class="lead mt-3 mx-auto" style="max-width: 40rem; color: rgba(255,255,255,0.9);">Our expert team
+                        is here to guide you through every step of the claims process. Contact us for personalized
+                        assistance.</p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
+                        <button class="btn btn-light btn-lg px-5" data-bs-toggle="modal"
+                            data-bs-target="#consultationModal">Get Expert Help</button>
+                        <a href="claim-forms.html" class="btn btn-outline-light btn-lg px-5">Download Forms</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
@@ -586,10 +448,8 @@
                     <h2 class="fs-4">PAYTONHEALTH</h2>
                     <p class="text-white-50 mt-3 pe-4">Your partner in healthcare financial management. We're dedicated
                         to optimizing your revenue and supporting your patients.</p>
-                    <p class="text-white-50 mt-3 small">
-                        123 Health St, Medical City,<br>
-                        Kurnool, Andhra Pradesh 518001, India
-                    </p>
+                    <p class="text-white-50 mt-3 small">123 Health St, Medical City,<br>Kurnool, Andhra Pradesh 518001,
+                        India</p>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5 class="fw-bold text-light">Company</h5>
@@ -624,54 +484,64 @@
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-2">
                 <p class="text-white-50 mb-3 mb-md-0">© 2025 Payton Healthcare. All rights reserved.</p>
                 <div class="d-flex gap-4">
-                    <a href="#" class="text-white-50" aria-label="Facebook"><svg aria-hidden="true" class="bi"
-                            width="24" height="24" fill="currentColor">
+                    <a href="#" class="text-white-50" aria-label="Facebook">
+                        <svg aria-hidden="true" class="bi" width="24" height="24" fill="currentColor">
                             <path
                                 d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z">
                             </path>
-                        </svg></a>
-                    <a href="#" class="text-white-50" aria-label="Twitter"><svg aria-hidden="true" class="bi" width="24"
-                            height="24" fill="currentColor">
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white-50" aria-label="Twitter">
+                        <svg aria-hidden="true" class="bi" width="24" height="24" fill="currentColor">
                             <path
                                 d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
                             </path>
-                        </svg></a>
-                    <a href="#" class="text-white-50" aria-label="LinkedIn"><svg aria-hidden="true" class="bi"
-                            width="24" height="24" fill="currentColor">
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white-50" aria-label="LinkedIn">
+                        <svg aria-hidden="true" class="bi" width="24" height="24" fill="currentColor">
                             <path
                                 d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM11.5 8H9v10h2.5V8zM7.75 5.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5zM18 8h-2.5v2h.5a1.5 1.5 0 0 1 1.5 1.5V18h2.5v-5a3.5 3.5 0 0 0-3.5-3.5H16V8z">
                             </path>
-                        </svg></a>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="consultationModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <div>
-                        <h1 class="modal-title fs-4" id="consultationModalLabel">Request a Free Consultation</h1>
+                        <h1 class="modal-title fs-4">Request a Free Consultation</h1>
                         <p class="text-muted small mb-0">Let's discuss how we can help your financial goals.</p>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form class="d-flex flex-column gap-3">
-                        <div><label for="modalFullName" class="form-label small">Full Name</label><input type="text"
-                                class="form-control" id="modalFullName" placeholder="John Doe"></div>
-                        <div><label for="modalWorkEmail" class="form-label small">Work Email</label><input type="email"
-                                class="form-control" id="modalWorkEmail" placeholder="you@company.com"></div>
-                        <div><label for="modalUserType" class="form-label small">I am a...</label><select
-                                class="form-select" id="modalUserType">
+                        <div>
+                            <label for="modalFullName" class="form-label small">Full Name</label>
+                            <input type="text" class="form-control" id="modalFullName" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label for="modalWorkEmail" class="form-label small">Work Email</label>
+                            <input type="email" class="form-control" id="modalWorkEmail" placeholder="you@company.com"
+                                required>
+                        </div>
+                        <div>
+                            <label for="modalUserType" class="form-label small">I am a...</label>
+                            <select class="form-select" id="modalUserType" required>
                                 <option selected disabled>Select an option</option>
                                 <option>Healthcare Provider</option>
                                 <option>Patient</option>
-                            </select></div>
-                        <div class="d-grid mt-3"><button type="submit" class="btn btn-primary btn-lg">Schedule
-                                Consultation</button></div>
+                            </select>
+                        </div>
+                        <div class="d-grid mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg">Schedule Consultation</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -679,12 +549,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // This script block can be expanded with animations if needed in the future,
-            // but for now, it just ensures Bootstrap's JS is loaded.
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

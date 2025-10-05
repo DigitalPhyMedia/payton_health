@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Center - PaytonHealth</title>
+    <meta name="description"
+        content="Review the Terms and Conditions, Privacy Policy, and Refund Policy for Payton Healthcare's services.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Additional styles for the sticky nav and scrollspy */
+        #legal-nav.nav-pills .nav-link {
+            border-radius: var(--bs-border-radius);
+            font-weight: 500;
+        }
+
+        #legal-nav.nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .scrollspy-content h3 {
+            padding-top: 80px;
+            /* Offset for sticky header */
+            margin-top: -60px;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target="#legal-nav" data-bs-offset="100"
+    tabindex="0">
+
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container d-flex justify-content-center justify-content-md-end">
+                <span>Need help? Call us at <a href="tel:+919876543210"
+                        class="text-white text-decoration-none fw-bold">+91 98765 43210</a></span>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-xl">
+            <div class="container px-4">
+                <a class="navbar-brand fs-4" href="index.html">PAYTONHEALTH</a>
+
+                <div class="d-none d-xl-flex ms-auto align-items-center">
+                    <ul class="navbar-nav gap-lg-3 text-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="services.html">All Services</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="for-hospitals.html">For Hospitals</a></li>
+                                <li><a class="dropdown-item" href="for-patients.html">For Patients</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Claims</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
+                                <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Resources</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    </ul>
+                    <button class="btn btn-get-started px-4 fw-bold ms-lg-3" data-bs-toggle="modal"
+                        data-bs-target="#consultationModal">Get Started</button>
+                </div>
+
+                <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">PAYTONHEALTH</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="services.html">All Services</a></li>
+                        <li><a class="dropdown-item" href="for-hospitals.html">For Hospitals</a></li>
+                        <li><a class="dropdown-item" href="for-patients.html">For Patients</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Claims</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
+                        <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+            <button class="btn btn-primary px-4 fw-bold mt-4 w-100" data-bs-toggle="modal"
+                data-bs-target="#consultationModal">Get Started</button>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero-section d-flex align-items-center text-center"
+            style="background-image: url('https://images.unsplash.com/photo-1599249300664-3054a8a387b3?q=80&w=2070&auto=format&fit=crop');">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <h1 class="display-4 fw-bolder">Legal Center</h1>
+                <p class="lead mt-3 mx-auto" style="max-width: 48rem;">
+                    Your guide to our terms, policies, and your rights as a user of our services.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <nav id="legal-nav" class="nav nav-pills flex-column sticky-top" style="top: 100px;">
+                            <a class="nav-link" href="#terms">Terms and Conditions</a>
+                            <a class="nav-link" href="#privacy">Privacy Policy</a>
+                            <a class="nav-link" href="#refund">Refund Policy</a>
+                        </nav>
+                    </div>
+
+                    <div class="col-lg-9 scrollspy-content">
+                        <div id="terms" class="mb-5">
+                            <h3 class="h2 fw-bold">Terms and Conditions</h3>
+                            <div class="mt-4 text-muted d-flex flex-column gap-3">
+                                <p>Welcome to Payton Healthcare. By accessing or using our website, you agree to be
+                                    bound by these Terms and Conditions. Please read them carefully. If you do not agree
+                                    to these terms, please do not use our website. These terms govern your use of our
+                                    website and the services we provide.</p>
+                                <p>We may update these terms from time to time, so please check back periodically for
+                                    changes. Your continued use of the website after any changes constitutes your
+                                    acceptance of the new terms.</p>
+                            </div>
+                        </div>
+
+                        <hr class="my-5">
+
+                        <div id="privacy" class="mb-5">
+                            <h3 class="h2 fw-bold">Privacy Policy</h3>
+                            <div class="mt-4 text-muted d-flex flex-column gap-3">
+                                <p>Your privacy is important to us. This Privacy Policy explains how we collect, use,
+                                    and protect your personal information. By using our website, you consent to the
+                                    practices described in this policy. We collect information you provide directly to
+                                    us, such as when you fill out a form or contact us.</p>
+                                <p>We also collect information automatically, such as your IP address and browsing
+                                    activity. We use your information to provide and improve our services, communicate
+                                    with you, and for other purposes described in this policy. We take reasonable
+                                    measures to protect your information, but no method of transmission over the
+                                    internet is completely secure.</p>
+                            </div>
+                        </div>
+
+                        <hr class="my-5">
+
+                        <div id="refund" class="mb-5">
+                            <h3 class="h2 fw-bold">Refund Policy</h3>
+                            <div class="mt-4 text-muted d-flex flex-column gap-3">
+                                <p>Our Refund Policy outlines the terms and conditions for refunds related to our
+                                    services. Please review this policy carefully before making any purchases. If you
+                                    are not satisfied with our services, you may be eligible for a refund under certain
+                                    conditions.</p>
+                                <p>To request a refund, please contact our customer support team with your order details
+                                    and reason for the request. We will review your request and respond within a
+                                    reasonable timeframe. Refunds, if approved, will be processed according to our
+                                    policy and may take a certain number of days to reflect in your account.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container px-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h2 class="fs-4">PAYTONHEALTH</h2>
+                    <p class="text-white-50 mt-3 pe-4">Your partner in healthcare financial management. We're dedicated
+                        to optimizing your revenue and supporting your patients.</p>
+                    <p class="text-white-50 mt-3 small">
+                        123 Health St, Medical City,<br>
+                        Kurnool, Andhra Pradesh 518001, India
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="fw-bold text-light">Company</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="about.html">About Us</a>
+                        </li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="careers.html">Careers</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold text-light">Resources</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="no-cost-emi.html">No Cost
+                                EMI</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="how-to-claim.html">How to
+                                Claim</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="claim-forms.html">Claim
+                                Forms</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold text-light">Legal</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="legal.html">Privacy
+                                Policy</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="legal.html#terms">Terms of
+                                Service</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="text-white-50">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-2">
+                <p class="text-white-50 mb-3 mb-md-0">© 2025 Payton Healthcare. All rights reserved.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-white-50" aria-label="Facebook"><svg aria-hidden="true" class="bi"
+                            width="24" height="24" fill="currentColor">
+                            <path
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z">
+                            </path>
+                        </svg></a>
+                    <a href="#" class="text-white-50" aria-label="Twitter"><svg aria-hidden="true" class="bi" width="24"
+                            height="24" fill="currentColor">
+                            <path
+                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                            </path>
+                        </svg></a>
+                    <a href="#" class="text-white-50" aria-label="LinkedIn"><svg aria-hidden="true" class="bi"
+                            width="24" height="24" fill="currentColor">
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM11.5 8H9v10h2.5V8zM7.75 5.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5zM18 8h-2.5v2h.5a1.5 1.5 0 0 1 1.5 1.5V18h2.5v-5a3.5 3.5 0 0 0-3.5-3.5H16V8z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h1 class="modal-title fs-4" id="consultationModalLabel">Request a Free Consultation</h1>
+                        <p class="text-muted small mb-0">Let's discuss how we can help your financial goals.</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="d-flex flex-column gap-3">
+                        <div><label for="modalFullName" class="form-label small">Full Name</label><input type="text"
+                                class="form-control" id="modalFullName" placeholder="John Doe"></div>
+                        <div><label for="modalWorkEmail" class="form-label small">Work Email</label><input type="email"
+                                class="form-control" id="modalWorkEmail" placeholder="you@company.com">
+                        </div>
+                        <div><label for="modalUserType" class="form-label small">I am a...</label><select
+                                class="form-select" id="modalUserType">
+                                <option selected disabled>Select an option</option>
+                                <option>Healthcare Provider</option>
+                                <option>Patient</option>
+                            </select></div>
+                        <div class="d-grid mt-3"><button type="submit" class="btn btn-primary btn-lg">Schedule
+                                Consultation</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

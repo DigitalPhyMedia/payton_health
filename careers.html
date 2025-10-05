@@ -13,219 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-    <style>
-        :root {
-            --primary-color: #1193d4;
-            --bs-primary-rgb: 17, 147, 212;
-            --bs-dark-rgb: 23, 27, 42;
-            --bs-border-radius: .5rem;
-            --bs-border-radius-lg: .75rem;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-weight: 700;
-        }
-
-        .display-1,
-        .display-2,
-        .display-3,
-        .display-4,
-        .display-5,
-        .display-6 {
-            font-weight: 800;
-        }
-
-        .top-bar {
-            background-color: var(--primary-color);
-            padding: 0.5rem 0;
-            font-size: 0.875rem;
-            color: #ffffff;
-            max-height: 40px;
-            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-        }
-
-        .main-header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1030;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
-        }
-
-        .main-header .navbar-brand {
-            color: #111827;
-            font-weight: 800;
-        }
-
-        .main-header .navbar-nav .nav-link {
-            font-weight: 500;
-            color: #334155;
-        }
-
-        .main-header .navbar-nav .nav-link:hover {
-            color: var(--primary-color);
-        }
-
-        .main-header .navbar-nav .nav-link.active {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .main-header .navbar-toggler {
-            color: #334155;
-            border-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .main-header .btn-get-started {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-        }
-
-        .main-header .btn-get-started:hover {
-            background-color: #0e7bb0;
-            border-color: #0e7bb0;
-        }
-
-        .offcanvas {
-            background-color: #fff;
-            color: #111827;
-            width: 75%;
-        }
-
-        .offcanvas-header {
-            border-bottom: 1px solid #e5e7eb;
-            padding: 1.5rem;
-        }
-
-        .offcanvas-body {
-            padding: 1.5rem;
-        }
-
-        .offcanvas .navbar-nav .nav-link {
-            color: #334155;
-            padding: 0.75rem 0;
-            font-weight: 600;
-        }
-
-        .offcanvas .navbar-nav .nav-link.active {
-            color: var(--primary-color);
-        }
-
-        .offcanvas .dropdown-menu {
-            background-color: #f8fafc;
-            border: none;
-            box-shadow: none;
-            padding-left: 1rem;
-        }
-
-        .dropdown-menu {
-            border-radius: 0.75rem;
-            border-color: #e5e7eb;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-        }
-
-        .dropdown-item.active,
-        .dropdown-item:active {
-            color: var(--primary-color);
-            background-color: rgba(var(--bs-primary-rgb), 0.1);
-            font-weight: 600;
-        }
-
-        .dropdown-item:hover {
-            color: var(--primary-color);
-            background-color: rgba(var(--bs-primary-rgb), 0.05);
-        }
-
-        .text-primary {
-            color: var(--primary-color) !important;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            font-weight: 600;
-            --bs-btn-hover-bg: #0e7bb0;
-            --bs-btn-hover-border-color: #0e7bb0;
-        }
-
-        footer a:hover {
-            color: var(--primary-color) !important;
-        }
-
-        .modal-content {
-            border-radius: var(--bs-border-radius-lg);
-            border: none;
-        }
-
-        .modal-header {
-            border-bottom: none;
-            padding: 2rem 2rem 1rem;
-        }
-
-        .modal-body {
-            padding: 1rem 2rem 2rem;
-        }
-
-        .hero-section {
-            position: relative;
-            padding: 6rem 0;
-            color: white;
-            background-size: cover;
-            background-position: center;
-            min-height: 480px;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(10, 20, 40, 0.8) 0%, rgba(10, 20, 40, 0.5) 100%);
-            z-index: 1;
-        }
-
-        .hero-section .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 1rem 2rem rgba(30, 41, 59, 0.12);
-        }
-
-        .table {
-            --bs-table-hover-bg: #f8fafc;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
     <header class="main-header">
-        <div class="top-bar" style="max-height: 0; padding: 0;">
+        <div class="top-bar">
             <div class="container d-flex justify-content-center justify-content-md-end">
                 <span>Need help? Call us at <a href="tel:+919876543210"
                         class="text-white text-decoration-none fw-bold">+91 98765 43210</a></span>
@@ -238,8 +31,8 @@
                     <ul class="navbar-nav gap-lg-3 text-center">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Services</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Services</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="services.html">All Services</a></li>
                                 <li>
@@ -250,16 +43,16 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Claims</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Claims</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
                                 <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Resources</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Resources</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
                             </ul>
@@ -272,24 +65,23 @@
                         data-bs-target="#consultationModal">Get Started</button>
                 </div>
                 <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    data-bs-target="#offcanvasNavbar">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
             </div>
         </nav>
     </header>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">PAYTONHEALTH</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title fw-bold">PAYTONHEALTH</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Services</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="services.html">All Services</a></li>
                         <li><a class="dropdown-item" href="for-hospitals.html">For Hospitals</a></li>
@@ -297,16 +89,14 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Claims</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Claims</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="how-to-claim.html">How to Claim</a></li>
                         <li><a class="dropdown-item" href="claim-forms.html">Claim Forms</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Resources</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="no-cost-emi.html">No Cost EMI</a></li>
                     </ul>
@@ -320,33 +110,36 @@
         </div>
     </div>
 
-    <main class="flex-grow-1">
-
+    <main class="flex-grow-1 page-content">
         <section class="hero-section d-flex align-items-center text-center"
-            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRLQNQd3aUgl-A-6qTfWqwbvh-8GYRhvANlXaNLZc6IVef5DFFX_WvGpT7fwE1-0hkBsyBopgKYCjK-lBjeL3JeJNVWYh7sr6S1pQCO3yk4uJudRj5TTaJdLjJjprjdMqXnnWnOQIE5mRPnfJjHkXUxpUWP6OrhsQpWQvFevjUnp3oujkCZJdfLGM1a35fdVdfe4ggdR3V9GE-NxMD43f-_WeSzlEuA1yvzw94ZJNBpIgRIHWlellczabu9VPM390FLopOwI0lJGQ');">
+            style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop');">
             <div class="hero-overlay"></div>
             <div class="container">
                 <h1 class="display-3 fw-bolder">Join Our Team</h1>
-                <p class="lead mt-3 mx-auto" style="max-width: 48rem;">
-                    At Payton Healthcare, we're dedicated to transforming healthcare revenue cycle management. Our team
-                    thrives on innovation, collaboration, and making a real impact. Explore opportunities to grow your
-                    career with us.
-                </p>
+                <p class="lead mt-3 mx-auto" style="max-width: 48rem;">At Payton Healthcare, we're dedicated to
+                    transforming healthcare revenue cycle management. Our team thrives on innovation, collaboration, and
+                    making a real impact. Explore opportunities to grow your career with us.</p>
             </div>
         </section>
 
-        <section class="container py-5">
-            <div class="py-5">
-                <h2 class="display-5 fw-bold text-center">Current Openings</h2>
+        <section class="section-spacing scroll-animate">
+            <div class="container">
+                <h2 class="display-6 fw-bold text-center mb-3">Current Openings</h2>
+                <p class="text-center text-muted mb-5">We're looking for talented individuals to join our growing team.
+                    From revenue cycle specialists to data analysts, we offer diverse roles across finance, operations,
+                    customer service, and technology. Each position provides opportunities for professional growth and
+                    the chance to make a meaningful impact in healthcare.</p>
+
                 <div class="mt-4 d-flex justify-content-center">
                     <div class="input-group" style="max-width: 28rem;">
                         <span class="input-group-text bg-white border-end-0">
                             <span class="material-symbols-outlined text-muted">search</span>
                         </span>
-                        <input type="search" class="form-control form-control-lg border-start-0"
+                        <input type="search" class="form-control border-start-0"
                             placeholder="Search by role or department">
                     </div>
                 </div>
+
                 <div class="mt-5 card shadow-sm border-0">
                     <div class="table-responsive">
                         <table class="table table-hover align-middle mb-0">
@@ -363,40 +156,42 @@
                                     <td class="px-4 py-3 fw-medium">Revenue Cycle Analyst</td>
                                     <td class="px-4 py-3 text-muted">Finance</td>
                                     <td class="px-4 py-3 text-muted">Remote</td>
-                                    <td class="px-4 py-3 text-end"><a href="#"
-                                            class="btn btn-sm btn-link text-primary fw-bold text-decoration-none">Apply</a>
+                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 fw-medium">Patient Support Specialist</td>
                                     <td class="px-4 py-3 text-muted">Customer Service</td>
                                     <td class="px-4 py-3 text-muted">Remote</td>
-                                    <td class="px-4 py-3 text-end"><a href="#"
-                                            class="btn btn-sm btn-link text-primary fw-bold text-decoration-none">Apply</a>
+                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 fw-medium">Healthcare Data Analyst</td>
                                     <td class="px-4 py-3 text-muted">Analytics</td>
                                     <td class="px-4 py-3 text-muted">Remote</td>
-                                    <td class="px-4 py-3 text-end"><a href="#"
-                                            class="btn btn-sm btn-link text-primary fw-bold text-decoration-none">Apply</a>
+                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 fw-medium">Implementation Manager</td>
                                     <td class="px-4 py-3 text-muted">Operations</td>
-                                    <td class="px-4 py-3 text-muted">Remote</td>
-                                    <td class="px-4 py-3 text-end"><a href="#"
-                                            class="btn btn-sm btn-link text-primary fw-bold text-decoration-none">Apply</a>
+                                    <td class="px-4 py-3 text-muted">Hybrid</td>
+                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 fw-medium">Sales Executive</td>
                                     <td class="px-4 py-3 text-muted">Sales</td>
                                     <td class="px-4 py-3 text-muted">Remote</td>
-                                    <td class="px-4 py-3 text-end"><a href="#"
-                                            class="btn btn-sm btn-link text-primary fw-bold text-decoration-none">Apply</a>
+                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 fw-medium">Medical Coding Specialist</td>
+                                    <td class="px-4 py-3 text-muted">Medical Records</td>
+                                    <td class="px-4 py-3 text-muted">Remote</td>
+                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -406,41 +201,74 @@
             </div>
         </section>
 
-        <section class="bg-light py-5">
-            <div class="container py-5">
-                <h2 class="display-5 fw-bold text-center">Why Payton Healthcare?</h2>
-                <div class="row g-4 mt-5">
+        <section class="section-spacing bg-light scroll-animate">
+            <div class="container">
+                <h2 class="display-6 fw-bold text-center mb-5">Why Payton Healthcare?</h2>
+                <div class="row g-4">
                     <div class="col-md-4">
                         <div class="card card-hover h-100 border-0 shadow-sm text-center">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdA0O_NdQOsC3v8iZCcc9n6HZqA9XcwrieiUUIb6X07nY8fog_1miTjOg6I4sG52t-Jyvpfw398a_b3SNEd3HhZcgP8XCheFNrV8598C-Cbmva2E-CMANLb2qv7jiRiyoUr6tcGH9PES4AMjXzQsEIFYGCdzzIOwcHD4OsYyakAhBlrRhNMnXr-VIC7g-grS2LAKxvDwMq4a8zTOCPP5SKmmyjayMH1Io988OtwPR66jqIuoCBMyKvH8Fzm5fazLYxct7WSbLc3LQ"
-                                alt="Impactful Work" class="card-img-top" style="height: 220px; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+                                alt="Impactful Work" class="card-img-top" style="height: 200px; object-fit: cover;">
                             <div class="card-body p-4">
-                                <h3 class="h4 fw-bold">Impactful Work</h3>
-                                <p class="text-muted">Contribute to meaningful projects that improve healthcare
-                                    efficiency and patient experience.</p>
+                                <h3 class="h5 fw-bold">Impactful Work</h3>
+                                <p class="text-muted small">Contribute to meaningful projects that improve healthcare
+                                    efficiency and patient experience across the nation.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card card-hover h-100 border-0 shadow-sm text-center">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqhTpg5od6-_h-2sIczTHfjZNw_xSLqqOCjpJ__eflnNySy-pDzEMTLE7Zwyn4mgenaoV1iR2dnzK61sGRm7qFu2aA1g6YdShOJ-Or63HrA4Ipg8zuX-qbQuG8xkEphtZnwsKlyPv4FXBsMgKWyNjVu_0gjN5PJUBn5QaM_9X92vHerXA2w8iL3msConpjFDhm9P2RinhkPSpKHRREz2ycYjQ8gjbGlAR1EnsgQKzzMZi7mirmP91A2eEvYdMPbEamrR1mAOKVFkI"
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop"
                                 alt="Growth Opportunities" class="card-img-top"
-                                style="height: 220px; object-fit: cover;">
+                                style="height: 200px; object-fit: cover;">
                             <div class="card-body p-4">
-                                <h3 class="h4 fw-bold">Growth Opportunities</h3>
-                                <p class="text-muted">Advance your career with continuous learning, mentorship, and
-                                    leadership development programs.</p>
+                                <h3 class="h5 fw-bold">Growth Opportunities</h3>
+                                <p class="text-muted small">Advance your career with continuous learning, mentorship
+                                    programs, and clear pathways to leadership roles.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card card-hover h-100 border-0 shadow-sm text-center">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWUvGCXdzYjR6tPX9u-k1Lwfb0tp79HySznwVDnZt4AdhuqStWzAOggHEK4Tykt5b5XURjc_cp9T7ac77PU2rtl1MI2DOZEJiTYNhH11u1IYKdrEWr6v67Sa2y1LX62rVo3rjYNAN5Ku2juQp5P5IfYu5wxUOEGOadCfcZzppLxlKIK0QALzlYR7OsXdvavZIMdHjDPTrGhNe4Jv6rqim_zdVc6fM-BJGsxh0TIoDhwpqW-c1R_SYA5sZviCa8BYCzo-HZrrwzeBM"
-                                alt="Inclusive Culture" class="card-img-top" style="height: 220px; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2532&auto=format&fit=crop"
+                                alt="Inclusive Culture" class="card-img-top" style="height: 200px; object-fit: cover;">
                             <div class="card-body p-4">
-                                <h3 class="h4 fw-bold">Inclusive Culture</h3>
-                                <p class="text-muted">Join a diverse and supportive team where every voice is valued and
-                                    respected.</p>
+                                <h3 class="h5 fw-bold">Inclusive Culture</h3>
+                                <p class="text-muted small">Join a diverse and supportive team where every voice is
+                                    valued, respected, and encouraged to thrive.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4 mt-3">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-box-sm d-flex align-items-center justify-content-center me-3"
+                                        style="width: 48px; height: 48px; font-size: 1.5rem;">
+                                        <span class="material-symbols-outlined">credit_card</span>
+                                    </div>
+                                    <h4 class="h5 fw-bold mb-0">Competitive Benefits</h4>
+                                </div>
+                                <p class="text-muted small mb-0">Comprehensive health insurance, retirement plans, paid
+                                    time off, and performance bonuses to support your wellbeing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-box-sm d-flex align-items-center justify-content-center me-3"
+                                        style="width: 48px; height: 48px; font-size: 1.5rem;">
+                                        <span class="material-symbols-outlined">schedule</span>
+                                    </div>
+                                    <h4 class="h5 fw-bold mb-0">Work-Life Balance</h4>
+                                </div>
+                                <p class="text-muted small mb-0">Flexible work arrangements, remote options, and a
+                                    culture that values personal time and family commitments.</p>
                             </div>
                         </div>
                     </div>
@@ -448,24 +276,25 @@
             </div>
         </section>
 
-        <section class="py-5">
-            <div class="container py-5">
-                <h2 class="display-5 fw-bold text-center">From Our Team</h2>
-                <div class="row g-4 mt-5">
+        <section class="section-spacing scroll-animate">
+            <div class="container">
+                <h2 class="display-6 fw-bold text-center mb-5">Hear From Our Team</h2>
+                <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="card card-hover h-100 shadow-sm border-0">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWfe1B6FHmNtOz7bVPOWSBcgivR1m5uUcJR40BdVHUP2GQJ1mM7RlXcW42KYvuNOAA2_-KqLQZFWpV5CIidzZYk20KkL-J0aSvKXbm3obbw6tQrOxpDFZR7_5kltclZEXOCWFTfx-y8tBXn5zCYTKQeS5Z2i-bFIEggxSXDai6-JEmd7esBX07aYV8lRXj77kUclHsW9wYaSLxUmK50ghpSKQ-Vb4uS5yqpQdG4HAqikJT6x94617M5KO9s0ItO3-hF8xYOOZca4Y"
-                                        alt="Sarah M." class="rounded-circle me-3" width="48" height="48">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop"
+                                        alt="Sarah M." class="rounded-circle me-3" width="48" height="48"
+                                        style="object-fit: cover;">
                                     <div>
-                                        <h6 class="mb-0 fw-bold">Sarah M.</h6>
+                                        <h6 class="mb-0 fw-bold">Sarah Martinez</h6>
                                         <p class="mb-0 text-muted small">Revenue Cycle Specialist</p>
                                     </div>
                                 </div>
-                                <p class="card-text text-muted">"Working at Payton Healthcare has been incredibly
+                                <p class="card-text text-muted small">"Working at Payton Healthcare has been incredibly
                                     rewarding. The collaborative environment and focus on innovation make every day
-                                    exciting."</p>
+                                    exciting. I've grown both professionally and personally."</p>
                             </div>
                         </div>
                     </div>
@@ -473,15 +302,17 @@
                         <div class="card card-hover h-100 shadow-sm border-0">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1dhsj0rNy9aH-7DwKvkM1ClYM9CxAAEdMrj9W3n7LIYj1pBZETjuYSzW-QdsdvhdZ8LRmMxKV9nIzAbiJG6NTFjG3xOmdoEtRed5SdAsjbsCsw0Vb75NG9gzpJd8lWYCo8CiNdYjsqAV17us8ksVnZC8z7qLp2P1g2xnEQQIgxRygF4Z98PJ-dot3T7zxn-82ENHnso7VcbIiEQkZktELnAXbYEGAXrjWI4yQvG2SWGssCmtCqoOfqhv7IIiXkarZpo6JDzNSOhY"
-                                        alt="David L." class="rounded-circle me-3" width="48" height="48">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop"
+                                        alt="David L." class="rounded-circle me-3" width="48" height="48"
+                                        style="object-fit: cover;">
                                     <div>
-                                        <h6 class="mb-0 fw-bold">David L.</h6>
+                                        <h6 class="mb-0 fw-bold">David Thompson</h6>
                                         <p class="mb-0 text-muted small">Data Analyst</p>
                                     </div>
                                 </div>
-                                <p class="card-text text-muted">"I've grown so much professionally since joining Payton
-                                    Healthcare. The company truly invests in its employees' development."</p>
+                                <p class="card-text text-muted small">"I've grown so much professionally since joining
+                                    Payton Healthcare. The company truly invests in its employees' development through
+                                    training programs and mentorship opportunities."</p>
                             </div>
                         </div>
                     </div>
@@ -489,22 +320,77 @@
                         <div class="card card-hover h-100 shadow-sm border-0">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC500h4TRNX8gVbSLbipr2CvXQlAIbKQzp6wuO60tVitF2LBQQ6jSr9c5RFcJrMFXmn8vzimXNsIHDkNkm4F1S5Klnqo_nDc4lIOcDJbrOSdpILcs-n47tz5J6YNioEEwbnLL2j27OHPJ0vGFccqjB19V42ChPp9f80HFSAmzY6ZB2pFiyFbRKz2opmhJhmz5PVnnomrEaeo0lWPE63wm7wpFYnPtSfQNiz5ZA1VW1ghsc-rvTSq1lZ-StlbzfBxrklAEyveYSYwG8"
-                                        alt="Emily R." class="rounded-circle me-3" width="48" height="48">
+                                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1887&auto=format&fit=crop"
+                                        alt="Emily R." class="rounded-circle me-3" width="48" height="48"
+                                        style="object-fit: cover;">
                                     <div>
-                                        <h6 class="mb-0 fw-bold">Emily R.</h6>
+                                        <h6 class="mb-0 fw-bold">Emily Rodriguez</h6>
                                         <p class="mb-0 text-muted small">Project Manager</p>
                                     </div>
                                 </div>
-                                <p class="card-text text-muted">"The inclusive culture at Payton Healthcare is amazing.
-                                    I feel valued and supported by my team and leadership."</p>
+                                <p class="card-text text-muted small">"The inclusive culture at Payton Healthcare is
+                                    amazing. I feel valued and supported by my team and leadership. It's truly a great
+                                    place to build a career."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card card-hover h-100 shadow-sm border-0">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop"
+                                        alt="Michael Chen" class="rounded-circle me-3" width="48" height="48"
+                                        style="object-fit: cover;">
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">Michael Chen</h6>
+                                        <p class="mb-0 text-muted small">Implementation Specialist</p>
+                                    </div>
+                                </div>
+                                <p class="card-text text-muted small">"The work-life balance here is exceptional.
+                                    Leadership genuinely cares about employee wellbeing and provides flexible options
+                                    that make it easy to manage both work and personal life."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card card-hover h-100 shadow-sm border-0">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop"
+                                        alt="Jessica Williams" class="rounded-circle me-3" width="48" height="48"
+                                        style="object-fit: cover;">
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">Jessica Williams</h6>
+                                        <p class="mb-0 text-muted small">Customer Success Manager</p>
+                                    </div>
+                                </div>
+                                <p class="card-text text-muted small">"I love how my work directly impacts patient care
+                                    and hospital efficiency. Knowing that I'm making a real difference in healthcare
+                                    motivates me every single day."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card card-hover h-100 shadow-sm border-0">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop"
+                                        alt="Robert Kumar" class="rounded-circle me-3" width="48" height="48"
+                                        style="object-fit: cover;">
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">Robert Kumar</h6>
+                                        <p class="mb-0 text-muted small">Senior Financial Analyst</p>
+                                    </div>
+                                </div>
+                                <p class="card-text text-muted small">"The opportunities for advancement are real here.
+                                    I started as an analyst and within two years became a senior team member. The
+                                    company invests in talent development."</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
@@ -514,10 +400,8 @@
                     <h2 class="fs-4">PAYTONHEALTH</h2>
                     <p class="text-white-50 mt-3 pe-4">Your partner in healthcare financial management. We're dedicated
                         to optimizing your revenue and supporting your patients.</p>
-                    <p class="text-white-50 mt-3 small">
-                        123 Health St, Medical City,<br>
-                        Kurnool, Andhra Pradesh 518001, India
-                    </p>
+                    <p class="text-white-50 mt-3 small">123 Health St, Medical City,<br>Kurnool, Andhra Pradesh 518001,
+                        India</p>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5 class="fw-bold text-light">Company</h5>
@@ -575,26 +459,24 @@
         </div>
     </footer>
 
-    <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="consultationModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <div>
-                        <h1 class="modal-title fs-4" id="consultationModalLabel">Request a Free Consultation</h1>
+                        <h1 class="modal-title fs-4">Request a Free Consultation</h1>
                         <p class="text-muted small mb-0">Let's discuss how we can help your financial goals.</p>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form class="d-flex flex-column gap-3">
                         <div><label for="modalFullName" class="form-label small">Full Name</label><input type="text"
-                                class="form-control" id="modalFullName" placeholder="John Doe"></div>
+                                class="form-control" id="modalFullName" placeholder="John Doe" required></div>
                         <div><label for="modalWorkEmail" class="form-label small">Work Email</label><input type="email"
-                                class="form-control" id="modalWorkEmail" placeholder="you@company.com">
-                        </div>
+                                class="form-control" id="modalWorkEmail" placeholder="you@company.com" required></div>
                         <div><label for="modalUserType" class="form-label small">I am a...</label><select
-                                class="form-select" id="modalUserType">
+                                class="form-select" id="modalUserType" required>
                                 <option selected disabled>Select an option</option>
                                 <option>Healthcare Provider</option>
                                 <option>Patient</option>
@@ -608,6 +490,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
