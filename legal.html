@@ -15,28 +15,10 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        /* Additional styles for the sticky nav and scrollspy */
-        #legal-nav.nav-pills .nav-link {
-            border-radius: var(--bs-border-radius);
-            font-weight: 500;
-        }
-
-        #legal-nav.nav-pills .nav-link.active {
-            background-color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .scrollspy-content h3 {
-            padding-top: 80px;
-            /* Offset for sticky header */
-            margin-top: -60px;
-        }
-    </style>
 </head>
 
-<body class="d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target="#legal-nav" data-bs-offset="100"
-    tabindex="0">
+<body class="d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target="#legal-sidebar-nav"
+    data-bs-offset="120">
 
     <header class="main-header">
         <div class="top-bar">
@@ -48,7 +30,6 @@
         <nav class="navbar navbar-expand-xl">
             <div class="container px-4">
                 <a class="navbar-brand fs-4" href="index.html">PAYTONHEALTH</a>
-
                 <div class="d-none d-xl-flex ms-auto align-items-center">
                     <ul class="navbar-nav gap-lg-3 text-center">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -86,7 +67,6 @@
                     <button class="btn btn-get-started px-4 fw-bold ms-lg-3" data-bs-toggle="modal"
                         data-bs-target="#consultationModal">Get Started</button>
                 </div>
-
                 <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="material-symbols-outlined">menu</span>
@@ -136,80 +116,192 @@
         </div>
     </div>
 
-    <main>
+    <main class="flex-grow-1 page-content">
         <section class="hero-section d-flex align-items-center text-center"
             style="background-image: url('https://images.unsplash.com/photo-1599249300664-3054a8a387b3?q=80&w=2070&auto=format&fit=crop');">
             <div class="hero-overlay"></div>
             <div class="container">
                 <h1 class="display-4 fw-bolder">Legal Center</h1>
                 <p class="lead mt-3 mx-auto" style="max-width: 48rem;">
-                    Your guide to our terms, policies, and your rights as a user of our services.
+                    Your guide to our terms, policies, and your rights as a user of our services. Last Updated:
+                    October 6, 2025.
                 </p>
             </div>
         </section>
 
-        <section class="py-5">
+        <section class="section-spacing">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3">
-                        <nav id="legal-nav" class="nav nav-pills flex-column sticky-top" style="top: 100px;">
-                            <a class="nav-link" href="#terms">Terms and Conditions</a>
-                            <a class="nav-link" href="#privacy">Privacy Policy</a>
-                            <a class="nav-link" href="#refund">Refund Policy</a>
-                        </nav>
+                        <div id="legal-sidebar" class="sticky-top" style="top: 120px;">
+                        </div>
                     </div>
 
-                    <div class="col-lg-9 scrollspy-content">
-                        <div id="terms" class="mb-5">
-                            <h3 class="h2 fw-bold">Terms and Conditions</h3>
-                            <div class="mt-4 text-muted d-flex flex-column gap-3">
-                                <p>Welcome to Payton Healthcare. By accessing or using our website, you agree to be
-                                    bound by these Terms and Conditions. Please read them carefully. If you do not agree
-                                    to these terms, please do not use our website. These terms govern your use of our
-                                    website and the services we provide.</p>
-                                <p>We may update these terms from time to time, so please check back periodically for
-                                    changes. Your continued use of the website after any changes constitutes your
-                                    acceptance of the new terms.</p>
+                    <div class="col-lg-9">
+                        <ul class="nav nav-tabs legal-tabs mb-5" id="legalTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="privacy-tab" data-bs-toggle="tab"
+                                    data-bs-target="#privacy-pane" type="button" role="tab" aria-controls="privacy-pane"
+                                    aria-selected="true">Privacy Policy</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="refund-tab" data-bs-toggle="tab"
+                                    data-bs-target="#refund-pane" type="button" role="tab" aria-controls="refund-pane"
+                                    aria-selected="false">Refund Policy</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="terms-tab" data-bs-toggle="tab"
+                                    data-bs-target="#terms-pane" type="button" role="tab" aria-controls="terms-pane"
+                                    aria-selected="false">Terms of Service</button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="legalTabContent">
+                            <div class="tab-pane fade" id="privacy-pane" role="tabpanel" aria-labelledby="privacy-tab"
+                                tabindex="0">
+                                <div class="legal-content space-y-12">
+                                    <section id="privacy-introduction">
+                                        <h2 class="h3 fw-bold mb-3">1. Introduction</h2>
+                                        <p>Welcome to Payton Healthcare ("we," "our," or "us"). We are committed to
+                                            protecting your personal information and your right to privacy...</p>
+                                    </section>
+                                    <section id="privacy-information-collect">
+                                        <h2 class="h3 fw-bold mb-3">2. Information We Collect</h2>
+                                        <p>We collect personal information that you voluntarily provide to us when you
+                                            register, fill out forms, or contact us...</p>
+                                    </section>
+                                    <section id="privacy-how-we-use">
+                                        <h2 class="h3 fw-bold mb-3">3. How We Use Your Information</h2>
+                                        <p>We use the information we collect to provide and improve our services,
+                                            process insurance claims, communicate with you...</p>
+                                    </section>
+                                    <section id="privacy-information-sharing">
+                                        <h2 class="h3 fw-bold mb-3">4. Information Sharing and Disclosure</h2>
+                                        <p>We may share your information with third-party service providers who perform
+                                            services on our behalf...</p>
+                                    </section>
+                                    <section id="privacy-data-security">
+                                        <h2 class="h3 fw-bold mb-3">5. Data Security</h2>
+                                        <p>We implement appropriate technical and organizational security measures to
+                                            protect your personal information...</p>
+                                    </section>
+                                    <section id="privacy-your-rights">
+                                        <h2 class="h3 fw-bold mb-3">6. Your Privacy Rights</h2>
+                                        <p>Depending on your location, you may have the following rights regarding your
+                                            personal information...</p>
+                                    </section>
+                                    <section id="privacy-cookies">
+                                        <h2 class="h3 fw-bold mb-3">7. Cookies and Tracking Technologies</h2>
+                                        <p>We use cookies and similar tracking technologies to track activity on our
+                                            website...</p>
+                                    </section>
+                                    <section id="privacy-changes">
+                                        <h2 class="h3 fw-bold mb-3">8. Changes to This Privacy Policy</h2>
+                                        <p>We may update this Privacy Policy from time to time. We will notify you of
+                                            any changes...</p>
+                                    </section>
+                                    <section id="privacy-contact">
+                                        <h2 class="h3 fw-bold mb-3">9. Contact Us</h2>
+                                        <p>If you have any questions about this Privacy Policy, please contact us...</p>
+                                    </section>
+                                </div>
                             </div>
-                        </div>
 
-                        <hr class="my-5">
-
-                        <div id="privacy" class="mb-5">
-                            <h3 class="h2 fw-bold">Privacy Policy</h3>
-                            <div class="mt-4 text-muted d-flex flex-column gap-3">
-                                <p>Your privacy is important to us. This Privacy Policy explains how we collect, use,
-                                    and protect your personal information. By using our website, you consent to the
-                                    practices described in this policy. We collect information you provide directly to
-                                    us, such as when you fill out a form or contact us.</p>
-                                <p>We also collect information automatically, such as your IP address and browsing
-                                    activity. We use your information to provide and improve our services, communicate
-                                    with you, and for other purposes described in this policy. We take reasonable
-                                    measures to protect your information, but no method of transmission over the
-                                    internet is completely secure.</p>
+                            <div class="tab-pane fade" id="refund-pane" role="tabpanel" aria-labelledby="refund-tab"
+                                tabindex="0">
+                                <div class="legal-content space-y-12">
+                                    <section id="refund-overview">
+                                        <h2 class="h3 fw-bold mb-3">1. Refund Overview</h2>
+                                        <p>Our Refund Policy outlines the terms for refunds related to our services. We
+                                            aim for transparency and fairness in all our financial dealings. Eligibility
+                                            for a refund depends on the service type and the terms outlined in your
+                                            specific service agreement.</p>
+                                    </section>
+                                    <section id="refund-eligibility">
+                                        <h2 class="h3 fw-bold mb-3">2. Eligibility for a Refund</h2>
+                                        <p>Refunds are considered on a case-by-case basis. You may be eligible if
+                                            services were not rendered as described in the service agreement or in case
+                                            of a billing error on our part. Fees for services already successfully
+                                            completed (e.g., a successfully processed claim) are non-refundable.</p>
+                                    </section>
+                                    <section id="refund-request">
+                                        <h2 class="h3 fw-bold mb-3">3. How to Request a Refund</h2>
+                                        <p>To request a refund, please contact our support team at
+                                            billing@paytonhealthcare.com within 30 days of the charge. Your request must
+                                            include your name, contact information, service details, and a clear reason
+                                            for the request.</p>
+                                    </section>
+                                    <section id="refund-processing">
+                                        <h2 class="h3 fw-bold mb-3">4. Processing</h2>
+                                        <p>Once we receive your request, our team will review it. We may contact you for
+                                            additional information. You will be notified of the approval or rejection of
+                                            your refund within 10-15 business days. If approved, your refund will be
+                                            processed, and a credit will automatically be applied to your original
+                                            method of payment.</p>
+                                    </section>
+                                </div>
                             </div>
-                        </div>
 
-                        <hr class="my-5">
-
-                        <div id="refund" class="mb-5">
-                            <h3 class="h2 fw-bold">Refund Policy</h3>
-                            <div class="mt-4 text-muted d-flex flex-column gap-3">
-                                <p>Our Refund Policy outlines the terms and conditions for refunds related to our
-                                    services. Please review this policy carefully before making any purchases. If you
-                                    are not satisfied with our services, you may be eligible for a refund under certain
-                                    conditions.</p>
-                                <p>To request a refund, please contact our customer support team with your order details
-                                    and reason for the request. We will review your request and respond within a
-                                    reasonable timeframe. Refunds, if approved, will be processed according to our
-                                    policy and may take a certain number of days to reflect in your account.</p>
+                            <div class="tab-pane fade" id="terms-pane" role="tabpanel" aria-labelledby="terms-tab"
+                                tabindex="0">
+                                <div class="legal-content space-y-12">
+                                    <section id="terms-acceptance">
+                                        <h2 class="h3 fw-bold mb-3">1. Acceptance of Terms</h2>
+                                        <p>Welcome to Payton Healthcare. By accessing or using our website and services,
+                                            you agree to be bound by these Terms and Conditions...</p>
+                                    </section>
+                                    <section id="terms-services">
+                                        <h2 class="h3 fw-bold mb-3">2. Our Services</h2>
+                                        <p>Payton Healthcare provides revenue cycle management (RCM) services for
+                                            healthcare providers and patient reimbursement support...</p>
+                                    </section>
+                                    <section id="terms-user-obligations">
+                                        <h2 class="h3 fw-bold mb-3">3. User Obligations</h2>
+                                        <p>You agree to provide accurate, current, and complete information when using
+                                            our services...</p>
+                                    </section>
+                                    <section id="terms-fees">
+                                        <h2 class="h3 fw-bold mb-3">4. Fees and Payment</h2>
+                                        <p>Fees for our services vary depending on the type and scope of services
+                                            provided...</p>
+                                    </section>
+                                    <section id="terms-intellectual-property">
+                                        <h2 class="h3 fw-bold mb-3">5. Intellectual Property</h2>
+                                        <p>All content on our website, including text, graphics, logos, and software, is
+                                            the property of Payton Healthcare...</p>
+                                    </section>
+                                    <section id="terms-disclaimers">
+                                        <h2 class="h3 fw-bold mb-3">6. Disclaimers</h2>
+                                        <p>Our services are provided "as is" and "as available." We do not warrant that
+                                            our services will be uninterrupted or error-free...</p>
+                                    </section>
+                                    <section id="terms-limitation">
+                                        <h2 class="h3 fw-bold mb-3">7. Limitation of Liability</h2>
+                                        <p>To the fullest extent permitted by law, Payton Healthcare shall not be liable
+                                            for any indirect, incidental, or consequential damages...</p>
+                                    </section>
+                                    <section id="terms-termination">
+                                        <h2 class="h3 fw-bold mb-3">8. Termination</h2>
+                                        <p>We reserve the right to suspend or terminate your access to our services at
+                                            any time, with or without notice...</p>
+                                    </section>
+                                    <section id="terms-governing-law">
+                                        <h2 class="h3 fw-bold mb-3">9. Governing Law</h2>
+                                        <p>These Terms shall be governed by and construed in accordance with the laws of
+                                            India...</p>
+                                    </section>
+                                    <section id="terms-contact">
+                                        <h2 class="h3 fw-bold mb-3">10. Contact Information</h2>
+                                        <p>If you have any questions about these Terms and Conditions, please contact us
+                                            at legal@paytonhealthcare.com...</p>
+                                    </section>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
@@ -247,7 +339,7 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="fw-bold text-light">Legal</h5>
                     <ul class="list-unstyled mt-3">
-                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="legal.html">Privacy
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="legal.html#privacy">Privacy
                                 Policy</a></li>
                         <li class="mb-2"><a class="text-white-50 text-decoration-none" href="legal.html#terms">Terms of
                                 Service</a>
@@ -294,15 +386,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="d-flex flex-column gap-3">
-                        <div><label for="modalFullName" class="form-label small">Full Name</label><input type="text"
-                                class="form-control" id="modalFullName" placeholder="John Doe"></div>
-                        <div><label for="modalWorkEmail" class="form-label small">Work Email</label><input type="email"
-                                class="form-control" id="modalWorkEmail" placeholder="you@company.com">
+                    <form>
+                        <div class="mb-3"><label for="modalFullName" class="form-label small">Full Name</label><input
+                                type="text" class="form-control" id="modalFullName" placeholder="John Doe"></div>
+                        <div class="mb-3"><label for="modalWorkEmail" class="form-label small">Work Email</label><input
+                                type="email" class="form-control" id="modalWorkEmail" placeholder="you@company.com">
                         </div>
-                        <div><label for="modalUserType" class="form-label small">I am a...</label><select
+                        <div class="mb-3"><label for="modalUserType" class="form-label small">I am a...</label><select
                                 class="form-select" id="modalUserType">
-                                <option selected disabled>Select an option</option>
+                                <option selected disabled value="">Select an option</option>
                                 <option>Healthcare Provider</option>
                                 <option>Patient</option>
                             </select></div>
@@ -313,6 +405,24 @@
             </div>
         </div>
     </div>
+
+    <div class="fab-container">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/919876543210" class="fab-btn fab-whatsapp" target="_blank" rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+            </svg>
+        </a>
+
+        <!-- Call Button -->
+        <a href="tel:+919876543210" class="fab-btn fab-call" aria-label="Call Us">
+            <span class="material-symbols-outlined">call</span>
+        </a>
+    </div>
+
+    <!-- END FLOATING ACTION BUTTONS -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>

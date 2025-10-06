@@ -288,6 +288,15 @@ p,
     --bs-btn-hover-border-color: #0e7bb0;
 }
 
+.btn-outline-primary {
+    --bs-btn-border-color: var(--primary-color);
+    --bs-btn-color: var(--primary-color);
+    --bs-btn-hover-bg: var(--primary-color);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-active-bg: #0e7bb0;
+    --bs-btn-active-border-color: #0e7bb0;
+}
+
 /* Cards */
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -297,6 +306,18 @@ p,
     transform: translateY(-8px);
     box-shadow: 0 1rem 2rem rgba(30, 41, 59, 0.12);
 }
+
+.card .btn-outline-primary {
+    --bs-btn-color: #64748b;
+    --bs-btn-border-color: #cbd5e1;
+}
+
+.card .btn-outline-primary:hover {
+    --bs-btn-hover-bg: var(--primary-color);
+    --bs-btn-hover-border-color: var(--primary-color);
+    --bs-btn-hover-color: #fff;
+}
+
 
 .badge.bg-primary-soft {
     background-color: rgba(var(--bs-primary-rgb), 0.15);
@@ -414,6 +435,14 @@ p,
 }
 
 /* Form Styles */
+form div {
+    margin-bottom: 0.5rem;
+}
+
+.form-label {
+    margin-bottom: 0.25rem;
+}
+
 .form-control:focus,
 .form-select:focus {
     border-color: var(--primary-color);
@@ -466,120 +495,541 @@ footer a:hover {
     transform: translateY(0);
 }
 
-/* Feature Image Cards */
-.feature-img-card {
-    overflow: hidden;
+/* NEW: Homepage Redesigned Card Styles */
+.feature-card-v2 {
+    border: none;
     border-radius: var(--bs-border-radius-lg);
-}
-
-.feature-img-card img {
-    transition: transform 0.4s ease;
-}
-
-.feature-img-card:hover img {
-    transform: scale(1.05);
-}
-
-/* Background Image Sections */
-.bg-image-section {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    color: white;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 16px rgba(30, 41, 59, 0.05);
 }
 
-.bg-image-section::before {
-    content: '';
+.feature-card-v2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(30, 41, 59, 0.1);
+}
+
+.feature-card-v2 .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.feature-card-v2 .icon-box-lg {
     position: absolute;
-    top: -10px;
-    left: -10px;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    background: inherit;
-    filter: blur(5px);
-    z-index: 1;
+    bottom: -32px;
+    right: 1.5rem;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 4px solid white;
 }
 
-.bg-image-section .container {
+.difference-card {
+    background-color: white;
+    border-radius: var(--bs-border-radius-lg);
+    border: 1px solid #e5e7eb;
     position: relative;
-    z-index: 3;
+    overflow: hidden;
 }
 
-/* Glass Effect Cards */
-.glass-content-card {
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--bs-border-radius-lg);
+.difference-card .icon-box-lg {
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.glass-service-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--bs-border-radius-lg);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.glass-service-card:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-8px);
-}
-
-.glass-content-card .accordion-item {
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin-bottom: 1rem;
-}
-
-.glass-content-card .accordion-button {
-    background-color: transparent !important;
+.difference-card:hover .icon-box-lg {
+    transform: scale(1.1) rotate(-10deg);
+    background-color: var(--primary-color);
     color: white;
+}
+
+.service-card-v2 {
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.service-card-v2:hover {
+    border-color: var(--primary-color);
+    background-color: white;
+}
+
+.service-card-v2 .icon-box-lg {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+}
+
+/* Legal Page Specific Styles */
+.legal-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.legal-tabs .nav-item {
+    margin-bottom: -1px;
+    /* Overlap the border */
+}
+
+.legal-tabs .nav-link {
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #6c757d;
+    font-weight: 500;
+    padding: 1rem 0.25rem;
+    margin: 0 1rem;
+}
+
+.legal-tabs .nav-link:first-child {
+    margin-left: 0;
+}
+
+.legal-tabs .nav-link.active {
+    border-bottom-color: var(--primary-color);
+    color: #212529;
+    font-weight: 700;
+}
+
+.legal-tabs .nav-link:hover {
+    border-bottom-color: #adb5bd;
+}
+
+.legal-content section {
+    padding-top: 120px;
+    margin-top: -120px;
+}
+
+.legal-sidebar-title {
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    border-radius: var(--bs-border-radius);
+}
+
+#legal-sidebar-nav .nav-link {
+    font-size: 0.875rem;
+    color: #64748b;
+    padding: 0.5rem 1rem;
+    border-left: 2px solid transparent;
+}
+
+#legal-sidebar-nav .nav-link:hover {
+    color: #212529;
+    background-color: #f8f9fa;
+}
+
+#legal-sidebar-nav .nav-link.active {
+    color: var(--primary-color);
     font-weight: 600;
-    border-radius: var(--bs-border-radius) !important;
+    border-left-color: var(--primary-color);
+    background-color: transparent;
 }
 
-.glass-content-card .accordion-button::after {
-    filter: invert(1) grayscale(100) brightness(200%);
+/* Floating Action Buttons */
+.fab-container {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
-.glass-content-card .accordion-button:not(.collapsed) {
+.fab-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
     color: white;
-    box-shadow: none;
-    background-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
 }
 
-.glass-content-card .accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+.fab-btn:hover {
+    transform: scale(1.1);
+    color: white;
 }
 
-.glass-content-card .accordion-body {
-    color: rgba(255, 255, 255, 0.8);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.fab-whatsapp {
+    background-color: #25D366;
 }
 
-/* Table Styles */
-.table {
-    --bs-table-hover-bg: #f8fafc;
+.fab-call {
+    background-color: var(--primary-color);
+}
+
+.fab-btn .material-symbols-outlined {
+    font-size: 28px;
 }
 
 /* Utility Classes */
 .icon-box-sm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 32px;
     height: 32px;
     border-radius: 50%;
     background-color: rgba(var(--bs-primary-rgb), 0.1);
     color: var(--primary-color);
+    flex-shrink: 0;
 }
 
-.btn-download {
-    background-color: rgba(var(--bs-primary-rgb), 0.08);
+.icon-box-lg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
     color: var(--primary-color);
-    border: none;
+    flex-shrink: 0;
+}
+
+.icon-box-lg .material-symbols-outlined {
+    font-size: 2rem;
+}
+
+/* Row Equal Height Utility */
+.row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row-eq-height>[class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-eq-height>[class*='col-'] .card {
+    flex-grow: 1;
+}
+
+.space-y-12>*+* {
+    margin-top: 3rem;
+}
+
+/* ========================================
+   REDESIGNED SECTION 1: In-House Doctor Expertise
+   ======================================== */
+.expertise-section {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.expertise-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(17, 147, 212, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.expertise-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.expertise-image-wrapper img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.expertise-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.expertise-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.expertise-list-item {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.expertise-list-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 24px rgba(17, 147, 212, 0.15);
+}
+
+.expertise-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--primary-color), #0e7bb0);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.expertise-icon .material-symbols-outlined {
+    color: white;
+    font-size: 24px;
+}
+
+/* ========================================
+   REDESIGNED SECTION 2: The Payton Healthcare Difference
+   ======================================== */
+.difference-section {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    position: relative;
+}
+
+.difference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.difference-card-redesign {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.difference-card-redesign::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), #0e7bb0);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.difference-card-redesign:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(17, 147, 212, 0.2);
+    border-color: var(--primary-color);
+}
+
+.difference-card-redesign:hover::before {
+    transform: scaleX(1);
+}
+
+.difference-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(17, 147, 212, 0.1), rgba(17, 147, 212, 0.05));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.difference-card-redesign:hover .difference-icon-wrapper {
+    background: linear-gradient(135deg, var(--primary-color), #0e7bb0);
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.difference-icon-wrapper .material-symbols-outlined {
+    font-size: 40px;
+    color: var(--primary-color);
+    transition: color 0.4s ease;
+}
+
+.difference-card-redesign:hover .difference-icon-wrapper .material-symbols-outlined {
+    color: white;
+}
+
+.difference-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(17, 147, 212, 0.08);
+    transition: all 0.4s ease;
+}
+
+.difference-card-redesign:hover .difference-number {
+    color: rgba(17, 147, 212, 0.15);
+    transform: scale(1.2);
+}
+
+/* ========================================
+   REDESIGNED SECTION 3: Comprehensive Healthcare Solutions
+   ======================================== */
+.solutions-section {
+    background: linear-gradient(135deg, #1e3a8a 0%, var(--primary-color) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.solutions-section::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.solution-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 3rem;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.solution-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(17, 147, 212, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+    border-color: white;
+}
+
+.solution-card:hover::before {
+    opacity: 1;
+}
+
+.solution-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(17, 147, 212, 0.1);
+}
+
+.solution-icon-large {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--primary-color), #0e7bb0);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(17, 147, 212, 0.3);
+}
+
+.solution-icon-large .material-symbols-outlined {
+    color: white;
+    font-size: 32px;
+}
+
+.solution-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.solution-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(17, 147, 212, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.solution-feature-item:hover {
+    background: rgba(17, 147, 212, 0.1);
+    transform: translateX(8px);
+}
+
+.solution-feature-icon {
+    width: 36px;
+    height: 36px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.solution-feature-icon .material-symbols-outlined {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.solution-cta {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(17, 147, 212, 0.1);
+}
+
+.solution-cta .btn {
+    width: 100%;
+    padding: 0.875rem;
     font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
-.btn-download:hover {
-    background-color: rgba(var(--bs-primary-rgb), 0.15);
-    color: var(--primary-color);
+.solution-cta .btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(17, 147, 212, 0.3);
+}
+
+/* Responsive adjustments for redesigned sections */
+@media (max-width: 991.98px) {
+    .expertise-image-wrapper img {
+        height: 350px;
+    }
+
+    .difference-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .solution-card {
+        padding: 2rem;
+    }
 }

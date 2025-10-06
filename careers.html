@@ -122,7 +122,7 @@
             </div>
         </section>
 
-        <section class="section-spacing scroll-animate">
+        <section id="openings" class="section-spacing scroll-animate">
             <div class="container">
                 <h2 class="display-6 fw-bold text-center mb-3">Current Openings</h2>
                 <p class="text-center text-muted mb-5">We're looking for talented individuals to join our growing team.
@@ -156,42 +156,54 @@
                                     <td class="px-4 py-3 fw-medium">Revenue Cycle Analyst</td>
                                     <td class="px-4 py-3 text-muted">Finance</td>
                                     <td class="px-4 py-3 text-muted">Remote</td>
-                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
+                                    <td class="px-4 py-3 text-end"><button class="btn btn-sm btn-primary apply-btn"
+                                            data-bs-toggle="modal" data-bs-target="#applyModal"
+                                            data-position="Revenue Cycle Analyst">Apply</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 fw-medium">Patient Support Specialist</td>
                                     <td class="px-4 py-3 text-muted">Customer Service</td>
                                     <td class="px-4 py-3 text-muted">Remote</td>
-                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
+                                    <td class="px-4 py-3 text-end"><button class="btn btn-sm btn-primary apply-btn"
+                                            data-bs-toggle="modal" data-bs-target="#applyModal"
+                                            data-position="Patient Support Specialist">Apply</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 fw-medium">Healthcare Data Analyst</td>
                                     <td class="px-4 py-3 text-muted">Analytics</td>
                                     <td class="px-4 py-3 text-muted">Remote</td>
-                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
+                                    <td class="px-4 py-3 text-end"><button class="btn btn-sm btn-primary apply-btn"
+                                            data-bs-toggle="modal" data-bs-target="#applyModal"
+                                            data-position="Healthcare Data Analyst">Apply</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 fw-medium">Implementation Manager</td>
                                     <td class="px-4 py-3 text-muted">Operations</td>
                                     <td class="px-4 py-3 text-muted">Hybrid</td>
-                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
+                                    <td class="px-4 py-3 text-end"><button class="btn btn-sm btn-primary apply-btn"
+                                            data-bs-toggle="modal" data-bs-target="#applyModal"
+                                            data-position="Implementation Manager">Apply</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 fw-medium">Sales Executive</td>
                                     <td class="px-4 py-3 text-muted">Sales</td>
                                     <td class="px-4 py-3 text-muted">Remote</td>
-                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
+                                    <td class="px-4 py-3 text-end"><button class="btn btn-sm btn-primary apply-btn"
+                                            data-bs-toggle="modal" data-bs-target="#applyModal"
+                                            data-position="Sales Executive">Apply</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 fw-medium">Medical Coding Specialist</td>
                                     <td class="px-4 py-3 text-muted">Medical Records</td>
                                     <td class="px-4 py-3 text-muted">Remote</td>
-                                    <td class="px-4 py-3 text-end"><a href="#" class="btn btn-sm btn-primary">Apply</a>
+                                    <td class="px-4 py-3 text-end"><button class="btn btn-sm btn-primary apply-btn"
+                                            data-bs-toggle="modal" data-bs-target="#applyModal"
+                                            data-position="Medical Coding Specialist">Apply</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -204,12 +216,12 @@
         <section class="section-spacing bg-light scroll-animate">
             <div class="container">
                 <h2 class="display-6 fw-bold text-center mb-5">Why Payton Healthcare?</h2>
-                <div class="row g-4">
+                <div class="row g-4 row-eq-height">
                     <div class="col-md-4">
                         <div class="card card-hover h-100 border-0 shadow-sm text-center">
                             <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
                                 alt="Impactful Work" class="card-img-top" style="height: 200px; object-fit: cover;">
-                            <div class="card-body p-4">
+                            <div class="card-body p-4 d-flex flex-column">
                                 <h3 class="h5 fw-bold">Impactful Work</h3>
                                 <p class="text-muted small">Contribute to meaningful projects that improve healthcare
                                     efficiency and patient experience across the nation.</p>
@@ -221,7 +233,7 @@
                             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop"
                                 alt="Growth Opportunities" class="card-img-top"
                                 style="height: 200px; object-fit: cover;">
-                            <div class="card-body p-4">
+                            <div class="card-body p-4 d-flex flex-column">
                                 <h3 class="h5 fw-bold">Growth Opportunities</h3>
                                 <p class="text-muted small">Advance your career with continuous learning, mentorship
                                     programs, and clear pathways to leadership roles.</p>
@@ -232,7 +244,7 @@
                         <div class="card card-hover h-100 border-0 shadow-sm text-center">
                             <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2532&auto=format&fit=crop"
                                 alt="Inclusive Culture" class="card-img-top" style="height: 200px; object-fit: cover;">
-                            <div class="card-body p-4">
+                            <div class="card-body p-4 d-flex flex-column">
                                 <h3 class="h5 fw-bold">Inclusive Culture</h3>
                                 <p class="text-muted small">Join a diverse and supportive team where every voice is
                                     valued, respected, and encouraged to thrive.</p>
@@ -246,8 +258,7 @@
                         <div class="card border-0 shadow-sm h-100">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <div class="icon-box-sm d-flex align-items-center justify-content-center me-3"
-                                        style="width: 48px; height: 48px; font-size: 1.5rem;">
+                                    <div class="icon-box-sm d-flex align-items-center justify-content-center me-3">
                                         <span class="material-symbols-outlined">credit_card</span>
                                     </div>
                                     <h4 class="h5 fw-bold mb-0">Competitive Benefits</h4>
@@ -261,8 +272,7 @@
                         <div class="card border-0 shadow-sm h-100">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <div class="icon-box-sm d-flex align-items-center justify-content-center me-3"
-                                        style="width: 48px; height: 48px; font-size: 1.5rem;">
+                                    <div class="icon-box-sm d-flex align-items-center justify-content-center me-3">
                                         <span class="material-symbols-outlined">schedule</span>
                                     </div>
                                     <h4 class="h5 fw-bold mb-0">Work-Life Balance</h4>
@@ -276,118 +286,15 @@
             </div>
         </section>
 
-        <section class="section-spacing scroll-animate">
+        <section class="section-spacing scroll-animate"
+            style="background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a8a 100%);">
             <div class="container">
-                <h2 class="display-6 fw-bold text-center mb-5">Hear From Our Team</h2>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-hover h-100 shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop"
-                                        alt="Sarah M." class="rounded-circle me-3" width="48" height="48"
-                                        style="object-fit: cover;">
-                                    <div>
-                                        <h6 class="mb-0 fw-bold">Sarah Martinez</h6>
-                                        <p class="mb-0 text-muted small">Revenue Cycle Specialist</p>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small">"Working at Payton Healthcare has been incredibly
-                                    rewarding. The collaborative environment and focus on innovation make every day
-                                    exciting. I've grown both professionally and personally."</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-hover h-100 shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop"
-                                        alt="David L." class="rounded-circle me-3" width="48" height="48"
-                                        style="object-fit: cover;">
-                                    <div>
-                                        <h6 class="mb-0 fw-bold">David Thompson</h6>
-                                        <p class="mb-0 text-muted small">Data Analyst</p>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small">"I've grown so much professionally since joining
-                                    Payton Healthcare. The company truly invests in its employees' development through
-                                    training programs and mentorship opportunities."</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-hover h-100 shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1887&auto=format&fit=crop"
-                                        alt="Emily R." class="rounded-circle me-3" width="48" height="48"
-                                        style="object-fit: cover;">
-                                    <div>
-                                        <h6 class="mb-0 fw-bold">Emily Rodriguez</h6>
-                                        <p class="mb-0 text-muted small">Project Manager</p>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small">"The inclusive culture at Payton Healthcare is
-                                    amazing. I feel valued and supported by my team and leadership. It's truly a great
-                                    place to build a career."</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-hover h-100 shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop"
-                                        alt="Michael Chen" class="rounded-circle me-3" width="48" height="48"
-                                        style="object-fit: cover;">
-                                    <div>
-                                        <h6 class="mb-0 fw-bold">Michael Chen</h6>
-                                        <p class="mb-0 text-muted small">Implementation Specialist</p>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small">"The work-life balance here is exceptional.
-                                    Leadership genuinely cares about employee wellbeing and provides flexible options
-                                    that make it easy to manage both work and personal life."</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-hover h-100 shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop"
-                                        alt="Jessica Williams" class="rounded-circle me-3" width="48" height="48"
-                                        style="object-fit: cover;">
-                                    <div>
-                                        <h6 class="mb-0 fw-bold">Jessica Williams</h6>
-                                        <p class="mb-0 text-muted small">Customer Success Manager</p>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small">"I love how my work directly impacts patient care
-                                    and hospital efficiency. Knowing that I'm making a real difference in healthcare
-                                    motivates me every single day."</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-hover h-100 shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop"
-                                        alt="Robert Kumar" class="rounded-circle me-3" width="48" height="48"
-                                        style="object-fit: cover;">
-                                    <div>
-                                        <h6 class="mb-0 fw-bold">Robert Kumar</h6>
-                                        <p class="mb-0 text-muted small">Senior Financial Analyst</p>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted small">"The opportunities for advancement are real here.
-                                    I started as an analyst and within two years became a senior team member. The
-                                    company invests in talent development."</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center text-white">
+                    <h2 class="display-5 fw-bold">Ready to Make an Impact in Healthcare?</h2>
+                    <p class="lead mt-3 mx-auto" style="max-width: 40rem; color: rgba(255,255,255,0.9);">
+                        Join our team of innovators and help shape the future of revenue cycle management.
+                    </p>
+                    <a href="#openings" class="btn btn-light btn-lg px-5 mt-4">View Open Roles</a>
                 </div>
             </div>
         </section>
@@ -426,8 +333,10 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="fw-bold text-light">Legal</h5>
                     <ul class="list-unstyled mt-3">
-                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="#">Privacy Policy</a></li>
-                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="#">Terms of Service</a>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="legal.html#privacy">Privacy
+                                Policy</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="legal.html#terms">Terms of
+                                Service</a>
                         </li>
                     </ul>
                 </div>
@@ -470,24 +379,158 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="d-flex flex-column gap-3">
-                        <div><label for="modalFullName" class="form-label small">Full Name</label><input type="text"
-                                class="form-control" id="modalFullName" placeholder="John Doe" required></div>
-                        <div><label for="modalWorkEmail" class="form-label small">Work Email</label><input type="email"
-                                class="form-control" id="modalWorkEmail" placeholder="you@company.com" required></div>
-                        <div><label for="modalUserType" class="form-label small">I am a...</label><select
-                                class="form-select" id="modalUserType" required>
-                                <option selected disabled>Select an option</option>
+                    <form novalidate>
+                        <div class="mb-3">
+                            <label for="modalFullName" class="form-label small">Full Name</label>
+                            <input type="text" class="form-control" id="modalFullName" placeholder="John Doe" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalWorkEmail" class="form-label small">Work Email</label>
+                            <input type="email" class="form-control" id="modalWorkEmail" placeholder="you@company.com"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalPhone" class="form-label small">Mobile Number</label>
+                            <input type="tel" class="form-control" id="modalPhone" placeholder="+91 98765 43210"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalUserType" class="form-label small">I am a...</label>
+                            <select class="form-select" id="modalUserType" required>
+                                <option selected disabled value="">Select an option</option>
                                 <option>Healthcare Provider</option>
                                 <option>Patient</option>
-                            </select></div>
-                        <div class="d-grid mt-3"><button type="submit" class="btn btn-primary btn-lg">Schedule
-                                Consultation</button></div>
+                            </select>
+                        </div>
+                        <div class="d-grid mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg">Schedule Consultation</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="applyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h1 class="modal-title fs-4">Apply for Position</h1>
+                        <p class="text-muted small mb-0">We're excited to have you on our team!</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="applyPosition" class="form-label small">Applying for</label>
+                            <select class="form-select" id="applyPosition" required>
+                                <option value="Revenue Cycle Analyst">Revenue Cycle Analyst</option>
+                                <option value="Patient Support Specialist">Patient Support Specialist</option>
+                                <option value="Healthcare Data Analyst">Healthcare Data Analyst</option>
+                                <option value="Implementation Manager">Implementation Manager</option>
+                                <option value="Sales Executive">Sales Executive</option>
+                                <option value="Medical Coding Specialist">Medical Coding Specialist</option>
+                            </select>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-lg-6">
+                                <label for="applyFirstName" class="form-label small">First Name</label>
+                                <input type="text" class="form-control" id="applyFirstName" required>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="applyLastName" class="form-label small">Last Name</label>
+                                <input type="text" class="form-control" id="applyLastName" required>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-lg-6">
+                                <label for="applyEmail" class="form-label small">Email</label>
+                                <input type="email" class="form-control" id="applyEmail" required>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="applyPhone" class="form-label small">Phone</label>
+                                <input type="tel" class="form-control" id="applyPhone" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="applyResume" class="form-label small">Upload Resume</label>
+                            <input class="form-control" type="file" id="applyResume" required>
+                        </div>
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+    </footer>
+
+    <div class="modal fade" id="consultationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h1 class="modal-title fs-4">Request a Free Consultation</h1>
+                        <p class="text-muted small mb-0">Let's discuss how we can help your financial goals.</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form novalidate>
+                        <div class="mb-3">
+                            <label for="modalFullName" class="form-label small">Full Name</label>
+                            <input type="text" class="form-control" id="modalFullName" placeholder="John Doe" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalWorkEmail" class="form-label small">Work Email</label>
+                            <input type="email" class="form-control" id="modalWorkEmail" placeholder="you@company.com"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalPhone" class="form-label small">Mobile Number</label>
+                            <input type="tel" class="form-control" id="modalPhone" placeholder="+91 98765 43210"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalUserType" class="form-label small">I am a...</label>
+                            <select class="form-select" id="modalUserType" required>
+                                <option selected disabled value="">Select an option</option>
+                                <option>Healthcare Provider</option>
+                                <option>Patient</option>
+                            </select>
+                        </div>
+                        <div class="d-grid mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg">Schedule Consultation</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fab-container">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/919876543210" class="fab-btn fab-whatsapp" target="_blank" rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+            </svg>
+        </a>
+
+        <!-- Call Button -->
+        <a href="tel:+919876543210" class="fab-btn fab-call" aria-label="Call Us">
+            <span class="material-symbols-outlined">call</span>
+        </a>
+    </div>
+
+    <!-- END FLOATING ACTION BUTTONS -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>

@@ -143,21 +143,26 @@
                         <div class="p-4 rounded-4 shadow-lg"
                             style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2);">
                             <h4 class="fw-bold text-white text-center">Request a Free Consultation</h4>
-                            <form class="mt-4 d-flex flex-column gap-3">
-                                <div>
+                            <form class="mt-4 needs-validation" novalidate>
+                                <div class="mb-3">
                                     <label for="fullNameHero" class="form-label small text-white">Full Name</label>
                                     <input type="text" class="form-control" id="fullNameHero" placeholder="John Doe"
                                         required>
                                 </div>
-                                <div>
+                                <div class="mb-3">
                                     <label for="workEmailHero" class="form-label small text-white">Work Email</label>
                                     <input type="email" class="form-control" id="workEmailHero"
                                         placeholder="you@company.com" required>
                                 </div>
-                                <div>
+                                <div class="mb-3">
+                                    <label for="phoneHero" class="form-label small text-white">Mobile Number</label>
+                                    <input type="tel" class="form-control" id="phoneHero" placeholder="+91 98765 43210"
+                                        required>
+                                </div>
+                                <div class="mb-3">
                                     <label for="userTypeHero" class="form-label small text-white">I am a...</label>
                                     <select class="form-select" id="userTypeHero" required>
-                                        <option selected disabled>Select an option</option>
+                                        <option selected disabled value="">Select an option</option>
                                         <option>Healthcare Provider</option>
                                         <option>Patient</option>
                                     </select>
@@ -172,93 +177,67 @@
             </div>
         </section>
 
-        <section class="section-spacing scroll-animate">
+        <!-- REDESIGNED SECTION 1: In-House Doctor Expertise -->
+        <section class="section-spacing expertise-section scroll-animate">
             <div class="container">
-                <div class="text-center mb-5">
-                    <p class="text-primary fw-semibold mb-2">Our Expertise</p>
-                    <h2 class="display-6 fw-bold">In-House Doctor Expertise</h2>
-                    <p class="lead text-muted mt-3 mx-auto" style="max-width: 48rem;">Our in-house doctor team provides
-                        expert insights and support, ensuring accurate coding, compliance, and optimal reimbursement
-                        outcomes.</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 shadow-lg overflow-hidden">
-                            <div class="position-relative" style="height: 250px; overflow: hidden;">
-                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop"
-                                    class="w-100 h-100" alt="Accurate Coding"
-                                    style="object-fit: cover; transition: transform 0.3s ease;">
-                                <div class="position-absolute top-0 start-0 w-100 h-100"
-                                    style="background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);">
-                                </div>
-                                <div class="position-absolute bottom-0 start-0 p-4 text-white">
-                                    <div class="d-flex align-items-center gap-2 mb-2">
-                                        <span class="material-symbols-outlined">medical_services</span>
-                                        <span class="badge bg-white text-primary">Medical Coding</span>
-                                    </div>
-                                </div>
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <p class="text-primary fw-semibold mb-2">Our Expertise</p>
+                        <h2 class="display-6 fw-bold mb-4">In-House Doctor Expertise</h2>
+                        <p class="lead text-muted mb-4">Our dedicated team of medical professionals ensures every aspect
+                            of your revenue cycle is handled with clinical precision and financial expertise.</p>
+
+                        <div class="expertise-list-item">
+                            <div class="expertise-icon">
+                                <span class="material-symbols-outlined">medical_services</span>
                             </div>
-                            <div class="card-body p-4">
-                                <h5 class="card-title fw-bold">Accurate Coding</h5>
-                                <p class="card-text text-muted">Our in-house doctors ensure precise coding, minimizing
-                                    errors and maximizing revenue with clinical expertise.</p>
-                                <div class="mt-3">
-                                    <span class="badge bg-primary-subtle text-primary me-2">ICD-10</span>
-                                    <span class="badge bg-primary-subtle text-primary me-2">CPT</span>
-                                    <span class="badge bg-primary-subtle text-primary">HCPCS</span>
-                                </div>
+                            <div>
+                                <h5 class="fw-bold mb-2">Accurate Clinical Coding</h5>
+                                <p class="text-muted small mb-0">Our in-house doctors ensure precise medical coding,
+                                    minimizing errors and maximizing revenue with their clinical expertise and industry
+                                    knowledge.</p>
+                            </div>
+                        </div>
+
+                        <div class="expertise-list-item">
+                            <div class="expertise-icon">
+                                <span class="material-symbols-outlined">verified_user</span>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-2">Compliance Assurance</h5>
+                                <p class="text-muted small mb-0">We guarantee adherence to all regulatory standards,
+                                    reducing risks and ensuring full compliance with healthcare laws and insurance
+                                    requirements.</p>
+                            </div>
+                        </div>
+
+                        <div class="expertise-list-item">
+                            <div class="expertise-icon">
+                                <span class="material-symbols-outlined">trending_up</span>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-2">Optimal Reimbursement</h5>
+                                <p class="text-muted small mb-0">Our clinical and financial expertise leads to the
+                                    highest possible reimbursement rates for both healthcare providers and patients.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 shadow-lg overflow-hidden">
-                            <div class="position-relative" style="height: 250px; overflow: hidden;">
-                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
-                                    class="w-100 h-100" alt="Compliance Assurance" style="object-fit: cover;">
-                                <div class="position-absolute top-0 start-0 w-100 h-100"
-                                    style="background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);">
-                                </div>
-                                <div class="position-absolute bottom-0 start-0 p-4 text-white">
-                                    <div class="d-flex align-items-center gap-2 mb-2">
-                                        <span class="material-symbols-outlined">verified_user</span>
-                                        <span class="badge bg-white text-primary">Compliance</span>
+
+                    <div class="col-lg-6">
+                        <div class="expertise-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop"
+                                alt="Medical Professionals">
+                            <div class="expertise-badge">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div>
+                                        <h3 class="fw-bold text-primary mb-0">98%</h3>
+                                        <p class="text-muted small mb-0">Success Rate</p>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-4">
-                                <h5 class="card-title fw-bold">Compliance Assurance</h5>
-                                <p class="card-text text-muted">We guarantee adherence to all regulatory standards,
-                                    reducing risks and ensuring full compliance with healthcare laws.</p>
-                                <div class="mt-3">
-                                    <span class="badge bg-primary-subtle text-primary me-2">HIPAA</span>
-                                    <span class="badge bg-primary-subtle text-primary me-2">CMS</span>
-                                    <span class="badge bg-primary-subtle text-primary">OIG</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 shadow-lg overflow-hidden">
-                            <div class="position-relative" style="height: 250px; overflow: hidden;">
-                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
-                                    class="w-100 h-100" alt="Optimal Reimbursement" style="object-fit: cover;">
-                                <div class="position-absolute top-0 start-0 w-100 h-100"
-                                    style="background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);">
-                                </div>
-                                <div class="position-absolute bottom-0 start-0 p-4 text-white">
-                                    <div class="d-flex align-items-center gap-2 mb-2">
-                                        <span class="material-symbols-outlined">trending_up</span>
-                                        <span class="badge bg-white text-primary">Revenue</span>
+                                    <div class="vr"></div>
+                                    <div>
+                                        <h3 class="fw-bold text-primary mb-0">15+</h3>
+                                        <p class="text-muted small mb-0">Years Experience</p>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-4">
-                                <h5 class="card-title fw-bold">Optimal Reimbursement</h5>
-                                <p class="card-text text-muted">Our expertise leads to the highest possible
-                                    reimbursement rates for both hospitals and patients.</p>
-                                <div class="mt-3">
-                                    <span class="badge bg-success-subtle text-success me-2">98% Success</span>
-                                    <span class="badge bg-success-subtle text-success">Fast Processing</span>
                                 </div>
                             </div>
                         </div>
@@ -267,138 +246,185 @@
             </div>
         </section>
 
-        <section class="section-spacing bg-light scroll-animate">
+        <!-- REDESIGNED SECTION 2: The Payton Healthcare Difference -->
+        <section class="section-spacing difference-section scroll-animate">
             <div class="container">
                 <div class="text-center mx-auto mb-5" style="max-width: 56rem;">
+                    <p class="text-primary fw-semibold mb-2">Why Choose Us</p>
                     <h2 class="display-6 fw-bold">The Payton Healthcare Difference</h2>
-                    <p class="lead text-muted mt-3">Our unique in-house doctor provides clinical authority in revenue
-                        cycle management, ensuring accuracy and efficiency in financial processes.</p>
+                    <p class="lead text-muted mt-3">Experience the unique advantages of our in-house medical team
+                        combined with cutting-edge revenue cycle management technology.</p>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 p-4 shadow-sm"
-                            style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-                            <div class="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white mx-auto mb-3"
-                                style="width: 70px; height: 70px;">
-                                <span class="material-symbols-outlined" style="font-size: 36px;">medical_services</span>
-                            </div>
-                            <h5 class="fw-bold text-center">Clinical Expertise</h5>
-                            <p class="text-muted small text-center">Benefit from clinical insights integrated into
-                                financial management for superior accuracy.</p>
-                            <div class="mt-auto pt-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="badge bg-primary">Expert Team</span>
-                                    <span class="material-symbols-outlined text-primary">arrow_forward</span>
-                                </div>
-                            </div>
+
+                <div class="difference-grid">
+                    <div class="difference-card-redesign">
+                        <div class="difference-number">04</div>
+                        <div class="difference-icon-wrapper">
+                            <span class="material-symbols-outlined">speed</span>
                         </div>
+                        <h4 class="fw-bold mb-3">Faster Processing</h4>
+                        <p class="text-muted mb-0">Reduce claim processing time by 40% with our streamlined workflows
+                            and automated systems. Get paid faster with fewer denials and rejections.</p>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 p-4 shadow-sm"
-                            style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-                            <div class="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white mx-auto mb-3"
-                                style="width: 70px; height: 70px;">
-                                <span class="material-symbols-outlined" style="font-size: 36px;">groups</span>
-                            </div>
-                            <h5 class="fw-bold text-center">Patient-Centric Approach</h5>
-                            <p class="text-muted small text-center">Prioritize patient satisfaction with tailored
-                                reimbursement support and personalized care.</p>
-                            <div class="mt-auto pt-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="badge bg-primary">Dedicated Support</span>
-                                    <span class="material-symbols-outlined text-primary">arrow_forward</span>
-                                </div>
-                            </div>
+
+                    <div class="difference-card-redesign">
+                        <div class="difference-number">05</div>
+                        <div class="difference-icon-wrapper">
+                            <span class="material-symbols-outlined">insights</span>
                         </div>
+                        <h4 class="fw-bold mb-3">Data-Driven Insights</h4>
+                        <p class="text-muted mb-0">Access comprehensive analytics and reporting to identify trends,
+                            optimize revenue, and make informed business decisions for your healthcare facility.</p>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 p-4 shadow-sm"
-                            style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-                            <div class="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white mx-auto mb-3"
-                                style="width: 70px; height: 70px;">
-                                <span class="material-symbols-outlined" style="font-size: 36px;">verified_user</span>
-                            </div>
-                            <h5 class="fw-bold text-center">Enhanced Compliance</h5>
-                            <p class="text-muted small text-center">Ensure adherence to healthcare regulations and
-                                standards with our expert oversight.</p>
-                            <div class="mt-auto pt-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="badge bg-primary">100% Compliant</span>
-                                    <span class="material-symbols-outlined text-primary">arrow_forward</span>
-                                </div>
-                            </div>
+
+                    <div class="difference-card-redesign">
+                        <div class="difference-number">06</div>
+                        <div class="difference-icon-wrapper">
+                            <span class="material-symbols-outlined">support_agent</span>
                         </div>
+                        <h4 class="fw-bold mb-3">24/7 Support</h4>
+                        <p class="text-muted mb-0">Round-the-clock assistance for urgent queries and claims. Our
+                            dedicated support team is always available to help resolve any issues quickly.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-spacing scroll-animate">
+        <!-- REDESIGNED SECTION 3: Comprehensive Healthcare Solutions -->
+        <section class="section-spacing solutions-section scroll-animate">
             <div class="container">
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 text-white">
+                    <p class="fw-semibold mb-2" style="color: rgba(255,255,255,0.9);">Tailored Solutions</p>
                     <h2 class="display-6 fw-bold">Comprehensive Healthcare Solutions</h2>
-                    <p class="lead text-muted mt-3 mx-auto" style="max-width: 48rem;">We offer tailored solutions for
-                        both hospitals and patients, ensuring financial efficiency and peace of mind.</p>
+                    <p class="lead mt-3 mx-auto" style="max-width: 48rem; color: rgba(255,255,255,0.85);">We offer
+                        specialized solutions designed specifically for hospitals and patients, ensuring financial
+                        efficiency and peace of mind for everyone.</p>
                 </div>
 
-                <h3 class="h4 fw-bold mb-4">Hospital Services</h3>
-                <div class="row g-4 mb-5">
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 shadow-sm p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary">add_circle</span>
-                            <h5 class="fw-bold mt-3">Revenue Cycle Management</h5>
-                            <p class="text-muted small">Comprehensive solutions to manage and optimize revenue cycles.
-                            </p>
-                            <a href="for-hospitals.html" class="btn btn-outline-primary btn-sm mt-3">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 shadow-sm p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary">paid</span>
-                            <h5 class="fw-bold mt-3">Financial Optimization</h5>
-                            <p class="text-muted small">Strategies to enhance financial performance and reduce costs.
-                            </p>
-                            <a href="for-hospitals.html" class="btn btn-outline-primary btn-sm mt-3">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 shadow-sm p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary">description</span>
-                            <h5 class="fw-bold mt-3">Compliance and Reporting</h5>
-                            <p class="text-muted small">Ensuring adherence to regulations and providing detailed
-                                reporting.</p>
-                            <a href="for-hospitals.html" class="btn btn-outline-primary btn-sm mt-3">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="h4 fw-bold mb-4">Patient Services</h3>
                 <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 shadow-sm p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary">account_circle</span>
-                            <h5 class="fw-bold mt-3">Reimbursement Support</h5>
-                            <p class="text-muted small">Assistance with navigating insurance claims and reimbursement
-                                processes.</p>
-                            <a href="for-patients.html" class="btn btn-outline-primary btn-sm mt-3">Learn More</a>
+                    <div class="col-lg-6">
+                        <div class="solution-card">
+                            <div class="solution-header">
+                                <div class="solution-icon-large">
+                                    <span class="material-symbols-outlined">local_hospital</span>
+                                </div>
+                                <div>
+                                    <h3 class="h4 fw-bold mb-1">For Hospitals</h3>
+                                    <p class="text-muted small mb-0">Optimize revenue and operations</p>
+                                </div>
+                            </div>
+
+                            <div class="solution-features">
+                                <div class="solution-feature-item">
+                                    <div class="solution-feature-icon">
+                                        <span class="material-symbols-outlined">add_circle</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Revenue Cycle Management</h6>
+                                        <p class="text-muted small mb-0">End-to-end RCM from patient registration to
+                                            final payment</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-feature-item">
+                                    <div class="solution-feature-icon">
+                                        <span class="material-symbols-outlined">paid</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Financial Optimization</h6>
+                                        <p class="text-muted small mb-0">Increase revenue by 15-20% with strategic
+                                            insights</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-feature-item">
+                                    <div class="solution-feature-icon">
+                                        <span class="material-symbols-outlined">description</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Compliance and Reporting</h6>
+                                        <p class="text-muted small mb-0">Automated compliance checks and detailed
+                                            analytics</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-feature-item">
+                                    <div class="solution-feature-icon">
+                                        <span class="material-symbols-outlined">code</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Medical Coding Services</h6>
+                                        <p class="text-muted small mb-0">Expert coding by certified professionals</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="solution-cta">
+                                <a href="for-hospitals.html" class="btn btn-primary">Explore Hospital Solutions</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 shadow-sm p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary">volunteer_activism</span>
-                            <h5 class="fw-bold mt-3">Financial Assistance</h5>
-                            <p class="text-muted small">Support for patients seeking financial aid and payment options.
-                            </p>
-                            <a href="for-patients.html" class="btn btn-outline-primary btn-sm mt-3">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-hover h-100 border-0 shadow-sm p-4">
-                            <span class="material-symbols-outlined fs-1 text-primary">support_agent</span>
-                            <h5 class="fw-bold mt-3">Advocacy and Guidance</h5>
-                            <p class="text-muted small">Guidance and advocacy to help patients understand their rights
-                                and options.</p>
-                            <a href="for-patients.html" class="btn btn-outline-primary btn-sm mt-3">Learn More</a>
+
+                    <div class="col-lg-6">
+                        <div class="solution-card">
+                            <div class="solution-header">
+                                <div class="solution-icon-large">
+                                    <span class="material-symbols-outlined">person</span>
+                                </div>
+                                <div>
+                                    <h3 class="h4 fw-bold mb-1">For Patients</h3>
+                                    <p class="text-muted small mb-0">Simplify your healthcare journey</p>
+                                </div>
+                            </div>
+
+                            <div class="solution-features">
+                                <div class="solution-feature-item">
+                                    <div class="solution-feature-icon">
+                                        <span class="material-symbols-outlined">account_circle</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Reimbursement Support</h6>
+                                        <p class="text-muted small mb-0">Complete assistance with insurance claims and
+                                            paperwork</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-feature-item">
+                                    <div class="solution-feature-icon">
+                                        <span class="material-symbols-outlined">volunteer_activism</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Financial Assistance Programs</h6>
+                                        <p class="text-muted small mb-0">Access to no-cost EMI and payment plans</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-feature-item">
+                                    <div class="solution-feature-icon">
+                                        <span class="material-symbols-outlined">support_agent</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Advocacy and Guidance</h6>
+                                        <p class="text-muted small mb-0">Personal support throughout your healthcare
+                                            journey</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-feature-item">
+                                    <div class="solution-feature-icon">
+                                        <span class="material-symbols-outlined">receipt_long</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Claim Processing</h6>
+                                        <p class="text-muted small mb-0">Fast and efficient claim submission and
+                                            tracking</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="solution-cta">
+                                <a href="for-patients.html" class="btn btn-primary">Explore Patient Solutions</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -451,7 +477,7 @@
                     <p class="text-muted">Discover how we've helped businesses and individuals navigate healthcare
                         finance</p>
                 </div>
-                <div class="row g-4">
+                <div class="row g-4 row-eq-height">
                     <div class="col-lg-4 col-md-6">
                         <div class="card card-hover h-100 shadow-sm border-0">
                             <div class="card-body p-4">
@@ -579,8 +605,10 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="fw-bold text-light">Legal</h5>
                     <ul class="list-unstyled mt-3">
-                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="#">Privacy Policy</a></li>
-                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="#">Terms of Service</a>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="legal.html#privacy">Privacy
+                                Policy</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none" href="legal.html#terms">Terms of
+                                Service</a>
                         </li>
                     </ul>
                 </div>
@@ -626,20 +654,25 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="d-flex flex-column gap-3">
-                        <div>
+                    <form novalidate>
+                        <div class="mb-3">
                             <label for="modalFullName" class="form-label small">Full Name</label>
                             <input type="text" class="form-control" id="modalFullName" placeholder="John Doe" required>
                         </div>
-                        <div>
+                        <div class="mb-3">
                             <label for="modalWorkEmail" class="form-label small">Work Email</label>
                             <input type="email" class="form-control" id="modalWorkEmail" placeholder="you@company.com"
                                 required>
                         </div>
-                        <div>
+                        <div class="mb-3">
+                            <label for="modalPhone" class="form-label small">Mobile Number</label>
+                            <input type="tel" class="form-control" id="modalPhone" placeholder="+91 98765 43210"
+                                required>
+                        </div>
+                        <div class="mb-3">
                             <label for="modalUserType" class="form-label small">I am a...</label>
                             <select class="form-select" id="modalUserType" required>
-                                <option selected disabled>Select an option</option>
+                                <option selected disabled value="">Select an option</option>
                                 <option>Healthcare Provider</option>
                                 <option>Patient</option>
                             </select>
@@ -653,8 +686,21 @@
         </div>
     </div>
 
+    <div class="fab-container">
+        <a href="https://wa.me/919876543210" class="fab-btn fab-whatsapp" target="_blank" rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+            </svg>
+        </a>
+        <a href="tel:+919876543210" class="fab-btn fab-call" aria-label="Call Us">
+            <span class="material-symbols-outlined">call</span>
+        </a>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
-</html
+</html>
