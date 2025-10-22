@@ -5,9 +5,10 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // ===== EMAILJS INITIALIZATION =====
-    // IMPORTANT: Replace "YOUR_PUBLIC_KEY" with your actual EmailJS Public Key
-    // You can find this in your EmailJS account under Account > API Keys
+    // IMPORTANT: Replace "YOUR_PUBLIC_KEY" with your actual EmailJS Public Key.
+    //            Find this in your EmailJS account under Account > API Keys.
     // Example: emailjs.init("user_xxxxxxxxxxxxxxxxxxx");
+    // UNCOMMENT AND ADD YOUR KEY BELOW:
     // emailjs.init("YOUR_PUBLIC_KEY");
 
 
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             target.innerText = targetNum.toLocaleString(); // Ensure final number is exact
                         }
                     };
-                    updateCounter();
+                    requestAnimationFrame(updateCounter); // Start animation
                     observer.unobserve(target); // Unobserve after animation starts
                 }
                 // Scroll Animation (Fade/Slide Up)
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     target.style.backgroundColor = 'rgba(17, 147, 212, 0.1)'; // Light blue highlight
                     setTimeout(() => {
                         target.style.backgroundColor = ''; // Remove highlight
+                        target.style.transition = ''; // Clean up transition style
                     }, 1500); // Duration of highlight
                 }
             }
@@ -110,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!feedbackDiv) {
                 feedbackDiv = document.createElement('div');
                 feedbackDiv.className = 'form-feedback-message small mt-3 text-center'; // Added text-center
-                // Insert after the button's parent div if it's in a grid, otherwise directly after button
                 const parentContainer = submitButton.closest('.d-grid') || submitButton.parentNode;
                 parentContainer.parentNode.insertBefore(feedbackDiv, parentContainer.nextSibling);
             }
@@ -124,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (form.checkValidity() === false) {
                 e.stopPropagation(); // Stop further event propagation if invalid
                 form.classList.add('was-validated'); // Show Bootstrap feedback
-                // Add a general invalid message if needed
                 feedbackDiv.textContent = 'Please fill out all required fields correctly.';
                 feedbackDiv.className = 'form-feedback-message small mt-3 text-danger text-center';
                 return; // Stop processing if form is invalid
@@ -140,40 +140,36 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-
-            let originalButtonText = ''; // Define outside the if block
+            let originalButtonText = '';
             if (submitButton) {
                 submitButton.disabled = true;
-                originalButtonText = submitButton.innerHTML; // Store original HTML
+                originalButtonText = submitButton.innerHTML;
                 submitButton.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...`;
             }
 
+            // --- Send email using EmailJS ---
+            // IMPORTANT: Replace "YOUR_SERVICE_ID" and the appropriate "YOUR_TEMPLATE_ID_..." below
+            //            with your actual Service ID and Template IDs from EmailJS.
+            const serviceID = "YOUR_SERVICE_ID"; // <<< REPLACE THIS
 
-            // Prepare parameters for EmailJS (Dynamically get all form fields)
-            const formData = new FormData(form);
-            const templateParams = {};
-            formData.forEach((value, key) => {
-                // You might need to adjust keys based on your EmailJS template naming
-                templateParams[key.replace(/-/g, '_')] = value; // Replace hyphens globally if needed
-            });
+            // Determine Template ID based on form context
+            let templateID = "YOUR_TEMPLATE_ID_GENERAL"; // <<< REPLACE Default/Contact Template ID
+            const formParentModalId = form.closest('.modal')?.id;
+            const formOnContactPage = form.closest('.page-contact') && !formParentModalId; // Check if it's the main contact form
 
-            // Add position if it's the apply modal (example)
-            if (form.closest('#applyModal')) {
-                const select = form.querySelector('#applyPositionSelect');
-                if (select) templateParams['apply_position'] = select.value; // Adjust key name as needed
+            if (formParentModalId === 'applyModal') {
+                templateID = "YOUR_TEMPLATE_ID_APPLICATION"; // <<< REPLACE Application Template ID
+                // EmailJS handles file uploads automatically if the input name matches the attachment parameter in your template settings. Ensure your <input type="file"> has a 'name' attribute (e.g., name="resume").
+            } else if (formParentModalId === 'consultationModal' || form.closest('.hero-form-bg')) {
+                templateID = "YOUR_TEMPLATE_ID_LEAD"; // <<< REPLACE Lead/Consultation Template ID (if different from general)
+            } else if (formOnContactPage) {
+                // Keep default or set specific contact template ID if needed
+                templateID = "YOUR_TEMPLATE_ID_CONTACT"; // <<< REPLACE Contact Page Template ID (if different from general)
             }
 
-
-            // --- Send email using EmailJS ---
-            // IMPORTANT: Replace "YOUR_SERVICE_ID" and "YOUR_TEMPLATE_ID" below
-            //            with your actual Service ID and Template ID from EmailJS.
-            //            Find these in your EmailJS account under Email Services and Email Templates.
-            const serviceID = "YOUR_SERVICE_ID"; // <<< REPLACE THIS
-            const templateID = "YOUR_TEMPLATE_ID"; // <<< REPLACE THIS
-
-            if (serviceID === "YOUR_SERVICE_ID" || templateID === "YOUR_TEMPLATE_ID") {
-                console.warn("EmailJS Service ID or Template ID not set in script.js. Please replace placeholders.");
-                // Simulate failure locally if keys aren't set
+            // Check if placeholders are still present
+            if (serviceID === "YOUR_SERVICE_ID" || templateID.startsWith("YOUR_TEMPLATE_ID")) {
+                console.warn(`EmailJS Service ID or Template ID (${templateID}) not set in script.js. Please replace placeholders.`);
                 if (submitButton) {
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
@@ -183,22 +179,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 return; // Stop if not configured
             }
 
-
-            emailjs.send(serviceID, templateID, templateParams)
+            // Send using the determined serviceID and templateID
+            // EmailJS Browser SDK v3 uses sendForm() which takes the form element directly
+            emailjs.sendForm(serviceID, templateID, form)
                 .then(function (response) {
                     console.log('EmailJS SUCCESS!', response.status, response.text);
-                    feedbackDiv.textContent = 'Thank you! Your message has been sent successfully.';
-                    feedbackDiv.className = 'form-feedback-message small mt-3 text-success text-center'; // Added text-center
-                    form.reset(); // Clear the form
-                    form.classList.remove('was-validated'); // Remove validation classes
+                    let successMessage = 'Thank you! Your message has been sent successfully.';
+                    if (templateID === "YOUR_TEMPLATE_ID_APPLICATION") { // Check using the *actual* ID you set
+                        successMessage = 'Thank you! Your application has been submitted successfully.';
+                    }
+                    feedbackDiv.textContent = successMessage;
+                    feedbackDiv.className = 'form-feedback-message small mt-3 text-success text-center';
+                    form.reset();
+                    form.classList.remove('was-validated');
 
-                    // Hide modal if the form is inside one after a delay
                     const modal = form.closest('.modal');
                     if (modal) {
                         try {
                             const modalInstance = bootstrap.Modal.getInstance(modal);
                             if (modalInstance) {
-                                setTimeout(() => modalInstance.hide(), 2500); // Hide after 2.5 seconds
+                                setTimeout(() => modalInstance.hide(), 2500);
                             }
                         } catch (e) {
                             console.error("Error getting modal instance:", e);
@@ -207,31 +207,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 }, function (error) {
                     console.error('EmailJS FAILED...', error);
-                    feedbackDiv.textContent = 'Oops! Something went wrong. Please try again later or contact support.';
-                    feedbackDiv.className = 'form-feedback-message small mt-3 text-danger text-center'; // Added text-center
+                    let errorMessage = 'Oops! Something went wrong. Please try again later or contact support.';
+                    if (templateID === "YOUR_TEMPLATE_ID_APPLICATION") { // Check using the *actual* ID you set
+                        errorMessage = 'Oops! There was an error submitting your application. Please try again or contact us.';
+                    }
+                    feedbackDiv.textContent = errorMessage;
+                    feedbackDiv.className = 'form-feedback-message small mt-3 text-danger text-center';
                 }).finally(function () {
-                    // Re-enable button and restore text regardless of success/failure
                     if (submitButton) {
                         submitButton.disabled = false;
-                        submitButton.innerHTML = originalButtonText; // Use the stored original HTML
+                        submitButton.innerHTML = originalButtonText;
                     }
-                    // Optionally clear feedback message after a longer delay
                     setTimeout(() => {
-                        // Clear message only if it was success to avoid hiding error messages too quickly
                         if (feedbackDiv.classList.contains('text-success')) {
                             feedbackDiv.textContent = '';
-                            feedbackDiv.className = 'form-feedback-message small mt-3 text-center'; // Reset classes
+                            feedbackDiv.className = 'form-feedback-message small mt-3 text-center';
                         }
-                    }, 8000); // Clear after 8 seconds
+                    }, 8000);
                 });
         });
     });
 
-
     // ===== CAREERS "APPLY NOW" MODAL LOGIC (Dropdown Population) =====
     const applyModal = document.getElementById('applyModal');
     if (applyModal) {
-        // Use querySelectorAll to find all job titles on the page when the modal might be shown
         const getAvailablePositions = () => [
             ...document.querySelectorAll('.job-accordion:not(.d-none) .job-accordion-item .job-title')
         ].map(titleEl => titleEl.textContent.trim());
@@ -241,14 +240,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const positionClicked = button ? button.getAttribute('data-position') : null;
             const positionSelect = applyModal.querySelector('#applyPositionSelect');
             const form = applyModal.querySelector('form');
-            form.classList.remove('was-validated'); // Reset validation on show
+            form.classList.remove('was-validated');
             const feedback = form.querySelector('.form-feedback-message');
-            if (feedback) feedback.textContent = ''; // Clear feedback on show
+            if (feedback) feedback.textContent = '';
 
 
             if (positionSelect) {
-                const availablePositions = getAvailablePositions(); // Get current positions
-                positionSelect.innerHTML = ''; // Clear previous options
+                const availablePositions = getAvailablePositions();
+                positionSelect.innerHTML = '';
 
                 const defaultOption = document.createElement('option');
                 defaultOption.value = "";
@@ -266,20 +265,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     positionSelect.appendChild(option);
                 });
 
-                // Select default if clicked position isn't available or none was clicked
                 if (!positionClicked || !availablePositions.includes(positionClicked)) {
-                    if (positionSelect.options.length > 0) { // Ensure defaultOption exists before selecting
+                    if (positionSelect.options.length > 0) {
                         defaultOption.selected = true;
                     }
                 } else {
-                    // Ensure the 'required' validation works correctly if a valid option is pre-selected
                     positionSelect.value = positionClicked;
                 }
             }
         });
 
         applyModal.addEventListener('hidden.bs.modal', function () {
-            // Optional: Reset form completely when modal is hidden
             const form = applyModal.querySelector('form');
             if (form) {
                 form.reset();
@@ -301,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 header.addEventListener('click', function () {
                     const isActive = item.classList.contains('active');
 
-                    // Close all other active items
                     jobItems.forEach(otherItem => {
                         if (otherItem !== item && !otherItem.classList.contains('disabled')) {
                             otherItem.classList.remove('active');
@@ -310,7 +305,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     });
 
-                    // Toggle the current item
                     item.classList.toggle('active');
                     body.style.maxHeight = item.classList.contains('active') ? body.scrollHeight + "px" : null;
                 });
@@ -321,7 +315,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ===== BACK TO TOP BUTTON =====
     const backToTop = document.createElement('button');
     backToTop.innerHTML = '<span class="material-symbols-outlined">arrow_upward</span>';
-    // Add multiple classes for styling via CSS
     backToTop.className = 'btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3 m-lg-4 p-0 d-flex align-items-center justify-content-center back-to-top-btn';
     backToTop.setAttribute('aria-label', 'Back to top');
     document.body.appendChild(backToTop);
@@ -339,6 +332,129 @@ document.addEventListener('DOMContentLoaded', function () {
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // ===== WELCOME MODAL FOR BROWSER INSTANCE (Broadcast Channel) =====
+    const welcomeModalElement = document.getElementById('welcomeModal');
+    const welcomeModalSessionKey = 'paytonHealthWelcomeModalShown_Session'; // Key for sessionStorage
+    const welcomeChannelName = 'payton_welcome_modal_channel';
+    let welcomeChannel = null;
+    let modalShownInThisTab = false; // Flag specific to the current tab
+
+    // Function to show the modal and notify other tabs
+    const showWelcomeModalAndNotify = () => {
+        if (!welcomeModalElement || modalShownInThisTab || sessionStorage.getItem(welcomeModalSessionKey)) {
+            if (welcomeChannel) {
+                try { welcomeChannel.close(); } catch (e) { } // Close channel if modal shouldn't show
+            }
+            return; // Don't show if already shown in this tab/session or element missing
+        }
+
+        const welcomeModal = new bootstrap.Modal(welcomeModalElement);
+
+        // Show the modal
+        setTimeout(() => {
+            try {
+                welcomeModal.show();
+                modalShownInThisTab = true; // Mark as shown in this specific tab instance
+                sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Mark session storage
+
+                // Notify other tabs that the modal has been shown
+                if (welcomeChannel) {
+                    welcomeChannel.postMessage('modal_shown');
+                    // console.log("Broadcast: modal_shown"); // For debugging
+                    // Close the channel after broadcasting confirmation
+                    setTimeout(() => { try { welcomeChannel.close(); } catch (e) { } }, 100);
+                }
+            } catch (e) {
+                console.error("Error showing welcome modal:", e);
+                sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Set flag anyway to prevent loops
+            }
+        }, 1500); // Show delay
+
+        // Add event listener to ensure flag is set if dismissed via button
+        welcomeModalElement.querySelectorAll('.modal-footer button, .modal-body a.btn').forEach(button => {
+            button.addEventListener('click', () => {
+                sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Re-ensure flag on close/action
+                if (welcomeChannel) {
+                    try { welcomeChannel.close(); } catch (e) { } // Close channel on interaction
+                }
+            });
+        });
+    };
+
+    // --- Main Logic for Welcome Modal ---
+    if (welcomeModalElement && !sessionStorage.getItem(welcomeModalSessionKey)) {
+        // Check if BroadcastChannel is supported
+        if ('BroadcastChannel' in window) {
+            try {
+                welcomeChannel = new BroadcastChannel(welcomeChannelName);
+                // console.log("Channel created/joined"); // For debugging
+
+                // Listener ref - needed to remove listener properly
+                const messageListener = (event) => {
+                    // console.log("Message received:", event.data); // For debugging
+                    if (event.data === 'modal_shown' && !modalShownInThisTab) {
+                        sessionStorage.setItem(welcomeModalSessionKey, 'true');
+                        // console.log("Flag set by broadcast, closing channel"); // For debugging
+                        if (welcomeChannel) {
+                            try {
+                                welcomeChannel.removeEventListener('message', messageListener); // Remove listener
+                                welcomeChannel.close();
+                            } catch (e) { }
+                        }
+                    }
+                };
+
+                welcomeChannel.addEventListener('message', messageListener);
+
+
+                // console.log("Broadcasting: checking_modal"); // For debugging
+                // Ask others (optional, relying on timeout and 'modal_shown' is often enough)
+                // welcomeChannel.postMessage('checking_modal');
+
+                // Set a short timeout. If no 'modal_shown' message is received, show the modal.
+                setTimeout(() => {
+                    if (!sessionStorage.getItem(welcomeModalSessionKey)) {
+                        // console.log("Timeout: No message received, showing modal now."); // For debugging
+                        showWelcomeModalAndNotify(); // This function will also close the channel
+                    } else {
+                        // console.log("Timeout: Flag was set during wait, closing channel."); // For debugging
+                        if (welcomeChannel) {
+                            try {
+                                welcomeChannel.removeEventListener('message', messageListener); // Cleanup listener
+                                welcomeChannel.close();
+                            } catch (e) { }
+                        }
+                    }
+                }, 150); // Wait 150ms
+
+            } catch (e) {
+                console.error("Error using BroadcastChannel:", e);
+                // Fallback: Show modal, might appear in multiple tabs on initial load race condition
+                showWelcomeModalAndNotify();
+            }
+        } else {
+            console.warn("BroadcastChannel API not supported. Falling back to simple session storage.");
+            // Fallback for older browsers: just use the session storage logic
+            if (welcomeModalElement && !sessionStorage.getItem(welcomeModalSessionKey)) {
+                const welcomeModal = new bootstrap.Modal(welcomeModalElement);
+                setTimeout(() => {
+                    try {
+                        welcomeModal.show();
+                        sessionStorage.setItem(welcomeModalSessionKey, 'true');
+                    } catch (e) {
+                        console.error("Error showing welcome modal (fallback):", e);
+                        sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Set flag anyway
+                    }
+                }, 1500);
+                welcomeModalElement.querySelectorAll('.modal-footer button, .modal-body a.btn').forEach(button => {
+                    button.addEventListener('click', () => {
+                        sessionStorage.setItem(welcomeModalSessionKey, 'true');
+                    });
+                });
+            }
+        }
+    }
 
 
     console.log('%c💊 PaytonHealth Website Initialized', 'color: #1193d4; font-size: 16px; font-weight: bold;');
