@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Contact Message - PaytonHealth</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+            word-spacing: normal;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .wrapper {
+            padding: 20px 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* --- Blue Header --- */
+        .header {
+            background-color: #1193d4;
+            padding: 20px 30px;
+            text-align: center;
+        }
+
+        .header img {
+            width: 233px;
+            height: 18px;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            /* --- Apply Filter for White Logo on Blue BG --- */
+            -webkit-filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1);
+        }
+
+        /* --- Subject Bar CSS Removed --- */
+        .content-padding {
+            padding: 30px 40px;
+        }
+
+        .content h1 {
+            color: #1f2937;
+            font-size: 22px;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .content p.intro {
+            color: #374151;
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 0 0 25px 0;
+        }
+
+        .field-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .field-table td {
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #f3f4f6;
+            vertical-align: top;
+        }
+
+        .field-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #4b5563;
+            width: 120px;
+            padding-right: 15px;
+        }
+
+        .field-value {
+            color: #1f2937;
+        }
+
+        .field-value a {
+            color: #1193d4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .field-value a:hover {
+            text-decoration: underline;
+        }
+
+        .message-section {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .message-label {
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 16px;
+        }
+
+        .message-content {
+            background-color: #f9fafb;
+            padding: 15px 20px;
+            border-radius: 6px;
+            line-height: 1.6;
+            color: #374151;
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* --- Dark Footer --- */
+        .footer {
+            padding: 25px 40px;
+            font-size: 12px;
+            color: #adb5bd;
+            /* Light grey text */
+            text-align: center;
+            background-color: #171b2a;
+            /* Dark background */
+        }
+
+        .footer a {
+            color: #ffffff;
+            /* White links */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #1193d4 !important;
+            /* Primary color on hover */
+        }
+
+        @media only screen and (max-width: 600px) {
+            .content-padding {
+                padding: 20px 25px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            /* Subject bar media query removed */
+            .footer {
+                padding: 20px 25px;
+                font-size: 11px;
+            }
+
+            .field-label {
+                width: 90px;
+                padding-right: 10px;
+                font-size: 13px;
+            }
+
+            .field-value {
+                font-size: 13px;
+            }
+
+            .content h1 {
+                font-size: 19px;
+            }
+
+            .content p.intro {
+                font-size: 14px;
+            }
+
+            .message-content {
+                font-size: 13px;
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" class="wrapper">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" class="container">
+                    <tr>
+                        <td class="header">
+                            <img src="cid:logo" alt="PaytonHealth Logo" width="233" height="18"
+                                style="display: block; border: 0;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="content-padding">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td class="content">
+                                        <h1>New Contact Message</h1>
+                                        <p class="intro">A new message has been submitted via the PaytonHealth contact
+                                            form:</p>
+                                        <table border="0" cellpadding="0" cellspacing="0" class="field-table">
+                                            <tr>
+                                                <td class="field-label">User Type:</td>
+                                                <td class="field-value">{{i-am-a}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="field-label">First Name:</td>
+                                                <td class="field-value">{{first-name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="field-label">Last Name:</td>
+                                                <td class="field-value">{{last-name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="field-label">Email:</td>
+                                                <td class="field-value"><a href="mailto:{{email}}">{{email}}</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="field-label">Phone:</td>
+                                                <td class="field-value"><a
+                                                        href="tel:{{phone-number}}">{{phone-number}}</a></td>
+                                            </tr>
+                                        </table>
+                                        <div class="message-section">
+                                            <span class="message-label">Message Content:</span>
+                                            <div class="message-content">
+                                                {{message}} </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="footer">
+                            Payton Healthcare Solutions Pvt Ltd<br>
+                            <a href="https://www.paytonhealth.com">www.paytonhealth.com</a> | <a
+                                href="tel:+919164023507">+91 91640 23507</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

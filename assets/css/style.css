@@ -11,6 +11,135 @@
     --bs-border-radius-lg: .75rem;
 }
 
+/* ================================
+   Preloader Animation
+   ================================ */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    z-index: 9999;
+    -webkit-transition: opacity 0.5s ease, visibility 0.5s ease;
+    -o-transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-logo {
+    /* Support for both text and image */
+    display: block;
+    margin-bottom: 2rem;
+    -webkit-animation: preloaderPulse 2s ease-in-out infinite;
+    animation: preloaderPulse 2s ease-in-out infinite;
+}
+
+/* For text-based logo (fallback) */
+.preloader-logo-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* For image-based logo */
+.preloader-logo img {
+    width: 220px;
+    height: auto;
+    max-width: 80vw;
+    display: block;
+    margin: 0 auto;
+    -webkit-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
+}
+
+.preloader-percentage {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-feature-settings: "tnum";
+    font-feature-settings: "tnum";
+}
+
+.preloader-bar-container {
+    width: 250px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.preloader-bar {
+    height: 100%;
+    background-color: #ffffff;
+    width: 0%;
+    -webkit-transition: width 0.1s ease;
+    -o-transition: width 0.1s ease;
+    transition: width 0.1s ease;
+    -webkit-box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@-webkit-keyframes preloaderPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes preloaderPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+}
+
 /* Base Styles */
 body {
     font-family: 'Poppins', sans-serif;
@@ -101,11 +230,21 @@ small,
     /* Fallback text color if image fails */
 }
 
+/* --- Logo Size Adjustment --- */
 .main-header .navbar-brand img {
-    height: 35px;
+    height: 18px;
+    /* Fixed height */
+    width: 233px;
+    /* Fixed width */
+    max-width: 100%;
+    /* Ensure it doesn't overflow container */
+    object-fit: contain;
+    /* Adjust fit if needed */
     vertical-align: middle;
-    /* Better alignment */
 }
+
+/* --- End Logo Size Adjustment --- */
+
 
 .main-header .navbar-nav .nav-link {
     font-weight: 500;
@@ -166,13 +305,19 @@ footer a:hover {
     color: #ffffff !important;
 }
 
-footer .credit-link:hover {
-    color: var(--primary-color) !important;
+/* Removed credit-link hover */
+
+/* --- Footer Logo Size Adjustment --- */
+footer .navbar-brand img {
+    height: 18px;
+    /* Fixed height */
+    width: 233px;
+    /* Fixed width */
+    max-width: 100%;
+    object-fit: contain;
 }
 
-footer .navbar-brand img {
-    height: 40px;
-}
+/* --- End Footer Logo Size Adjustment --- */
 
 .footer-contact-info li {
     display: flex;
@@ -212,8 +357,12 @@ footer a:hover .bi {
 }
 
 .offcanvas-header .navbar-brand img {
-    height: 35px;
-    /* Match the main navbar logo height */
+    height: 18px;
+    /* Match updated logo height */
+    width: 233px;
+    /* Match updated logo width */
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .offcanvas-body {
@@ -607,6 +756,41 @@ form div {
     border-color: var(--primary-color);
 }
 
+/* --- Placeholder Behavior --- */
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
+    color: transparent;
+    transition: color 0.1s ease-out;
+}
+
+input:focus:-moz-placeholder,
+textarea:focus:-moz-placeholder {
+    /* Firefox 18- */
+    color: transparent;
+    transition: color 0.1s ease-out;
+}
+
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder {
+    /* Firefox 19+ */
+    color: transparent;
+    transition: color 0.1s ease-out;
+}
+
+input:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder {
+    /* IE 10+ */
+    color: transparent;
+    transition: color 0.1s ease-out;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    /* Modern Browsers */
+    color: transparent;
+    transition: color 0.1s ease-out;
+}
+
 /* Modal */
 .modal-content {
     border-radius: var(--bs-border-radius-lg);
@@ -808,7 +992,6 @@ form div {
     border-radius: 50px;
     font-weight: 500;
     font-size: 0.9rem;
-    /* Reverted */
     transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
 }
@@ -872,7 +1055,6 @@ form div {
 
 .job-title {
     font-size: 1.1rem;
-    /* Reverted */
     font-weight: 600;
     margin: 0;
     color: #111827;
@@ -884,7 +1066,6 @@ form div {
     gap: 1rem;
     color: #64748b;
     font-size: 0.85rem;
-    /* Reverted */
     flex-wrap: wrap;
 }
 
@@ -903,7 +1084,6 @@ form div {
     padding: 0.25rem 0.6rem;
     border-radius: 50px;
     font-size: 0.8rem;
-    /* Reverted */
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
@@ -948,13 +1128,48 @@ form div {
     margin-top: -1px;
 }
 
+/* New Career List Item Styles */
+.job-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
+    gap: 1rem;
+    /* Add gap for wrapping */
+}
+
+.job-list-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.job-list-item .job-info {
+    flex-grow: 1;
+    /* Allow job info to take available space */
+    margin-right: 1rem;
+    /* Space before button */
+}
+
+@media (max-width: 575.98px) {
+    .job-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .job-list-item .btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
+
 /* Career Card Images */
 .career-card-img {
     height: 200px;
-    /* Adjust height as needed */
     width: 100%;
     object-fit: cover;
-    /* Ensures image covers the area */
 }
 
 /* ================================
@@ -997,13 +1212,11 @@ form div {
 
 .legal-content section {
     padding-top: 120px;
-    /* Offset for fixed header */
     margin-top: -120px;
 }
 
 .scroll-target {
     scroll-margin-top: 120px;
-    /* Adjust based on final header height */
 }
 
 .legal-sidebar-title {
@@ -1017,7 +1230,6 @@ form div {
 
 #legal-sidebar-nav .nav-link {
     font-size: 0.875rem;
-    /* Reverted */
     color: #64748b;
     padding: 0.5rem 1rem;
     border-left: 2px solid transparent;
@@ -1056,6 +1268,233 @@ form div {
 .doc-list-item .material-symbols-outlined {
     font-size: 20px;
     margin-top: 2px;
+}
+
+/* --- Rupee + Check Composite Icon --- */
+.timeline-zigzag-icon .rupee-check-icon {
+    position: relative;
+    /* Establishes positioning context */
+    display: inline-flex;
+    /* Allows alignment */
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    /* Helps with alignment consistency */
+}
+
+/* Style for the main Rupee icon */
+.timeline-zigzag-icon .rupee-check-icon .rupee {
+    font-size: 1.5rem;
+    /* Base size, matches other timeline icons */
+    line-height: 1;
+}
+
+/* Style and position the smaller checkmark icon */
+.timeline-zigzag-icon .rupee-check-icon .check {
+    position: absolute;
+    /* Position relative to .rupee-check-icon */
+    font-size: 0.9rem;
+    /* Make checkmark smaller */
+    font-weight: bold;
+    /* Make it slightly bolder */
+    top: -4px;
+    /* Adjust vertical position (move up) */
+    right: -6px;
+    /* Adjust horizontal position (move right) */
+    line-height: 1;
+}
+
+/* --- End Composite Icon Styles --- */
+
+/* ================================
+   Page Specific: Download Forms (Enhanced Styles)
+   ================================ */
+.page-download-forms .job-accordion-item .job-accordion-header h3 {
+    font-size: 1.1rem;
+}
+
+/* Intro text block styling */
+.download-form-intro {
+    background-color: #f0f9ff !important;
+    /* Light blue background */
+    border-left-color: var(--primary-color) !important;
+}
+
+.download-form-intro ul {
+    list-style-type: disc;
+}
+
+.download-form-intro strong {
+    color: #1e293b;
+}
+
+.form-list-container {
+    padding-top: 0.5rem;
+    /* Reduced top padding */
+}
+
+/* Enhanced Form List Item Style */
+.form-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    /* Increased padding */
+    border-bottom: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    gap: 0.75rem;
+    transition: background-color 0.2s ease-in-out;
+    /* Add hover effect */
+    margin-left: -1.5rem;
+    /* Offset padding from parent */
+    margin-right: -1.5rem;
+    /* Offset padding from parent */
+}
+
+/* Apply padding offset only within the accordion content */
+.job-accordion-content>.form-list-container>.form-list-item {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+
+.form-list-item:hover {
+    background-color: #f8fafc;
+    /* Subtle background on hover */
+}
+
+.form-list-item:first-child {
+    border-top: 1px solid #e5e7eb;
+    /* Add top border for first item */
+}
+
+.form-list-item:last-child {
+    border-bottom: none;
+    padding-bottom: 1rem;
+    /* Ensure consistent padding */
+}
+
+.form-list-item .form-label-text {
+    flex-grow: 1;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+    color: #1e293b;
+    /* Darker text */
+    font-weight: 500;
+}
+
+/* Download Link Style (replaces button) */
+.form-list-item .form-download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+    /* Minimal padding */
+    transition: color 0.2s ease;
+}
+
+.form-list-item .form-download-link:hover {
+    color: #0e7bb0;
+    /* Darker primary on hover */
+    text-decoration: underline;
+}
+
+.form-list-item .form-download-link .material-symbols-outlined {
+    font-size: 18px;
+    /* Adjust icon size */
+    margin-right: 0.1rem;
+    /* Fine-tune icon spacing */
+}
+
+/* Enhanced Pagination Style */
+.pagination-container {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    /* Increased top padding */
+    border-top: 1px solid #e5e7eb;
+}
+
+.pagination-container .pagination {
+    margin-bottom: 0;
+    justify-content: center;
+}
+
+/* Override Bootstrap Pagination Colors */
+.pagination .page-item .page-link {
+    color: var(--primary-color);
+    /* Link color */
+    border-color: #dee2e6;
+    transition: all 0.2s ease-in-out;
+    border-radius: 0.3rem;
+    /* Slightly rounded corners */
+    margin: 0 0.15rem;
+    /* Add small horizontal spacing */
+}
+
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link {
+    border-radius: 0.3rem;
+    /* Ensure consistent rounding */
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #e0f2fe;
+    /* Lighter primary background on hover */
+    color: #0c6a9e;
+    /* Darker primary text on hover */
+    border-color: #aeddf4;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    /* Primary background for active */
+    border-color: var(--primary-color);
+    color: white;
+    /* White text for active */
+    z-index: 3;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #adb5bd;
+    /* Lighter color for disabled */
+    background-color: #f8fafc;
+    border-color: #dee2e6;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 575.98px) {
+    .form-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 1rem;
+        /* Adjust padding for mobile */
+        padding-right: 1rem;
+    }
+
+    /* Make link take full width on mobile if desired */
+    /* .form-list-item .form-download-link {
+        width: 100%;
+        margin-top: 0.75rem;
+        justify-content: center;
+        padding: 0.5rem;
+    } */
+    .pagination-container .pagination {
+        justify-content: center;
+        /* Ensure centering */
+    }
+}
+
+/* --- Ensure accordion content padding is adjusted --- */
+.page-download-forms .job-accordion-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    /* Remove top padding */
 }
 
 
@@ -1737,6 +2176,11 @@ form div {
     background-image: image-set(url('/assets/images/hero/policy-small-1x.webp') 1x, url('/assets/images/hero/policy-small-2x.webp') 2x);
 }
 
+.page-grievance .hero-section {
+    background-image: -webkit-image-set(url('/assets/images/hero/grievance-small-1x.webp') 1x, url('/assets/images/hero/grievance-small-2x.webp') 2x);
+    background-image: image-set(url('/assets/images/hero/grievance-small-1x.webp') 1x, url('/assets/images/hero/grievance-small-2x.webp') 2x);
+}
+
 /* Medium screens (Tablets) */
 @media (min-width: 768px) {
     .page-home .hero-section {
@@ -1787,6 +2231,11 @@ form div {
     .page-privacy-policy .hero-section {
         background-image: -webkit-image-set(url('/assets/images/hero/policy-medium-1x.webp') 1x, url('/assets/images/hero/policy-medium-2x.webp') 2x);
         background-image: image-set(url('/assets/images/hero/policy-medium-1x.webp') 1x, url('/assets/images/hero/policy-medium-2x.webp') 2x);
+    }
+
+    .page-grievance .hero-section {
+        background-image: -webkit-image-set(url('/assets/images/hero/grievance-medium-1x.webp') 1x, url('/assets/images/hero/grievance-medium-2x.webp') 2x);
+        background-image: image-set(url('/assets/images/hero/grievance-medium-1x.webp') 1x, url('/assets/images/hero/grievance-medium-2x.webp') 2x);
     }
 }
 
@@ -1841,4 +2290,324 @@ form div {
         background-image: -webkit-image-set(url('/assets/images/hero/policy-large-1x.webp') 1x, url('/assets/images/hero/policy-large-2x.webp') 2x);
         background-image: image-set(url('/assets/images/hero/policy-large-1x.webp') 1x, url('/assets/images/hero/policy-large-2x.webp') 2x);
     }
+
+    .page-grievance .hero-section {
+        background-image: -webkit-image-set(url('/assets/images/hero/grievance-1x.webp') 1x, url('/assets/images/hero/grievance-2x.webp') 2x);
+        background-image: image-set(url('/assets/images/hero/grievance-1x.webp') 1x, url('/assets/images/hero/grievance-2x.webp') 2x);
+    }
 }
+
+/* ================================
+   Page Specific: Download Forms (Enhanced Styles)
+   ================================ */
+/* Style for the introductory alert box */
+.download-forms-intro {
+    background-color: #e0f2fe;
+    /* Light primary background */
+    border-left: 5px solid var(--primary-color);
+    color: #0c5464;
+    /* Darker text for readability */
+    margin-bottom: 2.5rem;
+    /* Space below the intro */
+    font-size: 0.9rem;
+    padding: 1.25rem 1.5rem;
+    /* Added padding */
+    border-radius: var(--bs-border-radius);
+    /* Added border radius */
+}
+
+.download-forms-intro strong {
+    color: #0a4a58;
+}
+
+.download-forms-intro a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    /* Removed default underline */
+}
+
+.download-forms-intro a:hover {
+    color: #0e7bb0;
+    text-decoration: underline;
+    /* Add underline on hover */
+}
+
+.download-forms-intro .material-symbols-outlined {
+    font-size: 1.1em;
+    vertical-align: text-bottom;
+    margin-right: 0.2rem;
+    color: #16a34a;
+    /* Green checkmark */
+}
+
+.download-forms-intro h4 .material-symbols-outlined {
+    color: #f59e0b;
+    /* Amber/Yellow lightbulb */
+    vertical-align: middle;
+    /* Align better with heading */
+}
+
+
+.page-download-forms .job-accordion-item .job-accordion-header h3 {
+    font-size: 1.1rem;
+}
+
+.form-list-container {
+    padding-top: 0.5rem;
+}
+
+/* Updated Form List Item Style */
+.form-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s ease-in-out;
+    margin-left: -1.5rem;
+    /* Offset padding from parent */
+    margin-right: -1.5rem;
+}
+
+.job-accordion-content>.form-list-container>.form-list-item {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.form-list-item:hover {
+    background-color: #f8fafc;
+}
+
+.form-list-item:first-child {
+    border-top: 1px solid #e5e7eb;
+}
+
+.form-list-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0.9rem;
+}
+
+/* Style for the form name link */
+.form-list-item .form-download-link {
+    flex-grow: 1;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+    color: #1e293b;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-list-item .form-download-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.form-list-item .form-download-link .material-symbols-outlined {
+    font-size: 20px;
+    color: #94a3b8;
+    /* Lighter color for the PDF icon */
+    flex-shrink: 0;
+}
+
+
+/* Enhanced Pagination Style (Remains the same) */
+.pagination-container {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.pagination-container .pagination {
+    margin-bottom: 0;
+    justify-content: center;
+}
+
+.pagination .page-item .page-link {
+    color: var(--primary-color);
+    border-color: #dee2e6;
+    transition: all 0.2s ease-in-out;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #e0f2fe;
+    color: #0c6a9e;
+    border-color: #aeddf4;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    z-index: 3;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #adb5bd;
+    background-color: #f8fafc;
+    border-color: #dee2e6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 575.98px) {
+    .download-forms-intro {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .form-list-item {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        align-items: flex-start;
+        /* Align link to start */
+    }
+
+    .form-list-item .form-download-link {
+        margin-right: 0;
+    }
+}
+
+.page-download-forms .job-accordion-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+/* --- Rupee + Check Composite Icon --- */
+/* (Keep this from previous step if still needed for how-to-claim) */
+.timeline-zigzag-icon .rupee-check-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.timeline-zigzag-icon .rupee-check-icon .rupee {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.timeline-zigzag-icon .rupee-check-icon .check {
+    position: absolute;
+    font-size: 0.9rem;
+    font-weight: bold;
+    top: 10px;
+    right: -6px;
+    line-height: 1;
+}
+
+/* ===== PHP Email Form Feedback ===== */
+.php-email-form .error-message,
+.php-email-form .sent-message {
+    display: none;
+    padding: 15px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: var(--bs-border-radius);
+}
+
+.php-email-form .error-message {
+    color: #fff;
+    background: #dc3545;
+}
+
+.php-email-form .sent-message {
+    color: #fff;
+    background: #198754;
+}
+
+.hero-form-bg .php-email-form .error-message,
+.hero-form-bg .php-email-form .sent-message {
+    color: #fff;
+}
+
+.hero-form-bg .php-email-form .error-message {
+    background: rgba(220, 53, 69, 0.85);
+}
+
+.hero-form-bg .php-email-form .sent-message {
+    background: rgba(25, 135, 84, 0.85);
+}
+
+.php-email-form button[type="submit"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* ===== End Additions ===== */
+
+/* ===== Additions for Download Forms Page Icons ===== */
+
+.form-list-item .form-download-link .material-symbols-outlined {
+    /* Apply fill and primary color by default */
+    font-variation-settings: 'FILL' 1;
+    color: var(--primary-color);
+    transition: color 0.2s ease-in-out;
+    /* Optional: smooth transition */
+}
+
+/* Ensure hover primarily affects text underline/color */
+.form-list-item .form-download-link:hover .material-symbols-outlined {
+    color: var(--primary-color);
+    /* Keep primary color on hover */
+    /* Or use a slightly darker shade if preferred: color: #0e7bb0; */
+}
+
+.form-list-item .form-download-link:hover {
+    color: #0e7bb0;
+    /* Darker primary text on hover */
+    text-decoration: underline;
+}
+
+
+/* ===== End Additions ===== */
+
+/* === ADD CSS FOR RUPEE-CHECK ICON in Icon Box === */
+/* Composite Rupee Check Icon (inside icon-box-sm) */
+.icon-box-sm .rupee-check-icon {
+    position: relative;
+    /* Context for absolute positioning of check */
+    display: inline-flex;
+    /* Align items nicely */
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    /* Prevent extra space */
+    color: var(--primary-color);
+    /* Icon color matches box color */
+    left: -1px;
+}
+
+/* Base Rupee icon style */
+.icon-box-sm .rupee-check-icon .rupee {
+    font-size: 1.125rem;
+    /* ~18px, adjust as needed */
+    line-height: 1;
+}
+
+/* Checkmark style and positioning */
+.icon-box-sm .rupee-check-icon .check {
+    position: absolute;
+    font-size: 0.7rem;
+    /* ~11px, adjust size */
+    font-weight: bold;
+    /* Make checkmark stand out */
+    top: 5px;
+    /* Adjust vertical position */
+    right: -3px;
+    /* Adjust horizontal position */
+    line-height: 1;
+    /* Match background color of the icon box for seamless overlap */
+    /* background-color: rgba(var(--bs-primary-rgb), 0.1); */
+    /* Assumes icon-box-sm background */
+    /* border-radius: 50%; */
+    /* Make its background circular */
+    padding: 1px;
+    /* Tiny padding if needed */
+}
+
+/* === END ADDED CSS === */

@@ -4,13 +4,58 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ===== EMAILJS INITIALIZATION =====
-    // IMPORTANT: Replace "YOUR_PUBLIC_KEY" with your actual EmailJS Public Key.
-    //            Find this in your EmailJS account under Account > API Keys.
-    // Example: emailjs.init("user_xxxxxxxxxxxxxxxxxxx");
-    // UNCOMMENT AND ADD YOUR KEY BELOW:
-    // emailjs.init("YOUR_PUBLIC_KEY");
-
+    // ===== PRELOADER ANIMATION (Logo + First Load Only) =====
+    const preloader = document.getElementById('preloader');
+    const preloaderPercentage = document.querySelector('.preloader-percentage');
+    
+    // Check if user has already visited in this session
+    if (!sessionStorage.getItem('preloaderShown')) {
+        // First visit - show preloader
+        if (preloader && preloaderPercentage) {
+            let progress = 0;
+            let interval;
+            
+            // Start counting immediately
+            interval = setInterval(() => {
+                if (progress < 90) {
+                    progress += Math.random() * 10; // Fast increment up to 90%
+                    preloaderPercentage.textContent = Math.floor(progress) + '%';
+                }
+            }, 50);
+            
+            // When page is fully loaded
+            window.addEventListener('load', () => {
+                clearInterval(interval);
+                
+                // Quickly finish to 100%
+                const finishInterval = setInterval(() => {
+                    progress += 5;
+                    if (progress >= 100) {
+                        progress = 100;
+                        preloaderPercentage.textContent = '100%';
+                        clearInterval(finishInterval);
+                        
+                        // Hide preloader immediately after reaching 100%
+                        setTimeout(() => {
+                            preloader.classList.add('preloader-hidden');
+                            setTimeout(() => {
+                                preloader.remove();
+                                // Mark as shown in this session
+                                sessionStorage.setItem('preloaderShown', 'true');
+                            }, 500);
+                        }, 200);
+                    } else {
+                        preloaderPercentage.textContent = Math.floor(progress) + '%';
+                    }
+                }, 30);
+            });
+        }
+    } else {
+        // Already visited in this session - skip preloader
+        if (preloader) {
+            preloader.remove();
+        }
+    }
 
     // ===== HEADER SCROLL BEHAVIOR =====
     const header = document.querySelector('.main-header');
@@ -22,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 header.classList.remove('scrolled');
             }
         };
+
         window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll(); // Initial check
     }
@@ -75,8 +121,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (href.length > 1 && document.querySelector(href)) {
                 e.preventDefault();
                 const target = document.querySelector(href);
-                // Dynamically get header height if possible, fallback to 120
-                const headerHeight = document.querySelector('.main-header')?.offsetHeight || 120;
+                // Dynamically get header height if possible, fallback to 80
+                const headerHeight = document.querySelector('.main-header')?.offsetHeight || 80;
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
@@ -99,218 +145,299 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ===== ENHANCED FORM VALIDATION & SUBMISSION (EMAILJS INTEGRATION) =====
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent default submission first
-
-            const submitButton = form.querySelector('button[type="submit"]');
-            let feedbackDiv = form.querySelector('.form-feedback-message');
-
-            // Ensure feedback div exists
-            if (!feedbackDiv) {
-                feedbackDiv = document.createElement('div');
-                feedbackDiv.className = 'form-feedback-message small mt-3 text-center'; // Added text-center
-                const parentContainer = submitButton.closest('.d-grid') || submitButton.parentNode;
-                parentContainer.parentNode.insertBefore(feedbackDiv, parentContainer.nextSibling);
-            }
-
-            // Clear previous messages
-            feedbackDiv.textContent = '';
-            feedbackDiv.className = 'form-feedback-message small mt-3 text-center'; // Reset classes
-            form.classList.remove('was-validated'); // Reset validation state initially
-
-            // Perform Bootstrap validation
-            if (form.checkValidity() === false) {
-                e.stopPropagation(); // Stop further event propagation if invalid
-                form.classList.add('was-validated'); // Show Bootstrap feedback
-                feedbackDiv.textContent = 'Please fill out all required fields correctly.';
-                feedbackDiv.className = 'form-feedback-message small mt-3 text-danger text-center';
-                return; // Stop processing if form is invalid
-            }
-
-            // --- Form is valid, proceed with EmailJS ---
-            // Check if EmailJS is initialized
-            if (typeof emailjs === 'undefined' || typeof emailjs.init !== 'function') {
-                console.error("EmailJS SDK not loaded or initialized. Make sure you have included the SDK and called emailjs.init('YOUR_PUBLIC_KEY');");
-                feedbackDiv.textContent = 'Email service is not configured. Please contact support.';
-                feedbackDiv.className = 'form-feedback-message small mt-3 text-warning text-center';
-                if (submitButton) submitButton.disabled = false; // Re-enable button
-                return;
-            }
-
-            let originalButtonText = '';
-            if (submitButton) {
-                submitButton.disabled = true;
-                originalButtonText = submitButton.innerHTML;
-                submitButton.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...`;
-            }
-
-            // --- Send email using EmailJS ---
-            // IMPORTANT: Replace "YOUR_SERVICE_ID" and the appropriate "YOUR_TEMPLATE_ID_..." below
-            //            with your actual Service ID and Template IDs from EmailJS.
-            const serviceID = "YOUR_SERVICE_ID"; // <<< REPLACE THIS
-
-            // Determine Template ID based on form context
-            let templateID = "YOUR_TEMPLATE_ID_GENERAL"; // <<< REPLACE Default/Contact Template ID
-            const formParentModalId = form.closest('.modal')?.id;
-            const formOnContactPage = form.closest('.page-contact') && !formParentModalId; // Check if it's the main contact form
-
-            if (formParentModalId === 'applyModal') {
-                templateID = "YOUR_TEMPLATE_ID_APPLICATION"; // <<< REPLACE Application Template ID
-                // EmailJS handles file uploads automatically if the input name matches the attachment parameter in your template settings. Ensure your <input type="file"> has a 'name' attribute (e.g., name="resume").
-            } else if (formParentModalId === 'consultationModal' || form.closest('.hero-form-bg')) {
-                templateID = "YOUR_TEMPLATE_ID_LEAD"; // <<< REPLACE Lead/Consultation Template ID (if different from general)
-            } else if (formOnContactPage) {
-                // Keep default or set specific contact template ID if needed
-                templateID = "YOUR_TEMPLATE_ID_CONTACT"; // <<< REPLACE Contact Page Template ID (if different from general)
-            }
-
-            // Check if placeholders are still present
-            if (serviceID === "YOUR_SERVICE_ID" || templateID.startsWith("YOUR_TEMPLATE_ID")) {
-                console.warn(`EmailJS Service ID or Template ID (${templateID}) not set in script.js. Please replace placeholders.`);
-                if (submitButton) {
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = originalButtonText;
-                }
-                feedbackDiv.textContent = 'Email configuration missing. Please contact support.';
-                feedbackDiv.className = 'form-feedback-message small mt-3 text-warning text-center';
-                return; // Stop if not configured
-            }
-
-            // Send using the determined serviceID and templateID
-            // EmailJS Browser SDK v3 uses sendForm() which takes the form element directly
-            emailjs.sendForm(serviceID, templateID, form)
-                .then(function (response) {
-                    console.log('EmailJS SUCCESS!', response.status, response.text);
-                    let successMessage = 'Thank you! Your message has been sent successfully.';
-                    if (templateID === "YOUR_TEMPLATE_ID_APPLICATION") { // Check using the *actual* ID you set
-                        successMessage = 'Thank you! Your application has been submitted successfully.';
-                    }
-                    feedbackDiv.textContent = successMessage;
-                    feedbackDiv.className = 'form-feedback-message small mt-3 text-success text-center';
-                    form.reset();
-                    form.classList.remove('was-validated');
-
-                    const modal = form.closest('.modal');
-                    if (modal) {
-                        try {
-                            const modalInstance = bootstrap.Modal.getInstance(modal);
-                            if (modalInstance) {
-                                setTimeout(() => modalInstance.hide(), 2500);
-                            }
-                        } catch (e) {
-                            console.error("Error getting modal instance:", e);
-                        }
-                    }
-
-                }, function (error) {
-                    console.error('EmailJS FAILED...', error);
-                    let errorMessage = 'Oops! Something went wrong. Please try again later or contact support.';
-                    if (templateID === "YOUR_TEMPLATE_ID_APPLICATION") { // Check using the *actual* ID you set
-                        errorMessage = 'Oops! There was an error submitting your application. Please try again or contact us.';
-                    }
-                    feedbackDiv.textContent = errorMessage;
-                    feedbackDiv.className = 'form-feedback-message small mt-3 text-danger text-center';
-                }).finally(function () {
-                    if (submitButton) {
-                        submitButton.disabled = false;
-                        submitButton.innerHTML = originalButtonText;
-                    }
-                    setTimeout(() => {
-                        if (feedbackDiv.classList.contains('text-success')) {
-                            feedbackDiv.textContent = '';
-                            feedbackDiv.className = 'form-feedback-message small mt-3 text-center';
-                        }
-                    }, 8000);
-                });
-        });
-    });
+    // ===== PHP EMAIL FORM SUBMISSION HANDLER (REMOVED - Now handled by validate.js) =====
+    // The code that started with (function () { "use strict"; ... and handled fetch has been removed.
 
     // ===== CAREERS "APPLY NOW" MODAL LOGIC (Dropdown Population) =====
     const applyModal = document.getElementById('applyModal');
     if (applyModal) {
+        // Selector for job titles
         const getAvailablePositions = () => [
-            ...document.querySelectorAll('.job-accordion:not(.d-none) .job-accordion-item .job-title')
+            ...document.querySelectorAll('.job-list-item .job-info h4.h6')
         ].map(titleEl => titleEl.textContent.trim());
 
+        // Event listener for when the modal is about to be shown
         applyModal.addEventListener('show.bs.modal', function (event) {
-            const button = event.relatedTarget;
-            const positionClicked = button ? button.getAttribute('data-position') : null;
-            const positionSelect = applyModal.querySelector('#applyPositionSelect');
+            const button = event.relatedTarget; // Button that triggered the modal
+            const positionClicked = button ? button.getAttribute('data-position') : null; // Get position from button
+            const positionSelect = applyModal.querySelector('#applyPositionSelect'); // The dropdown
             const form = applyModal.querySelector('form');
-            form.classList.remove('was-validated');
-            const feedback = form.querySelector('.form-feedback-message');
-            if (feedback) feedback.textContent = '';
+
+            // --- Resetting form state and feedback specific to validate.js structure ---
+            form.classList.remove('was-validated'); // Reset Bootstrap validation
+            const feedbackDivs = form.querySelectorAll('.loading, .error-message, .sent-message');
+            feedbackDivs.forEach(div => div.classList.remove('d-block')); // Hide all feedback
+            const errorMsgDiv = form.querySelector('.error-message');
+            if (errorMsgDiv) errorMsgDiv.innerHTML = ''; // Clear previous error text
+            // --- End Resetting ---
 
 
             if (positionSelect) {
-                const availablePositions = getAvailablePositions();
-                positionSelect.innerHTML = '';
+                const availablePositions = getAvailablePositions(); // Get current job titles
+                positionSelect.innerHTML = ''; // Clear old options
 
+                // Add default placeholder
                 const defaultOption = document.createElement('option');
                 defaultOption.value = "";
                 defaultOption.textContent = "Select Position";
                 defaultOption.disabled = true;
                 positionSelect.appendChild(defaultOption);
 
+                // Add options for each available position
                 availablePositions.forEach(pos => {
                     const option = document.createElement('option');
                     option.value = pos;
                     option.textContent = pos;
-                    if (pos === positionClicked) {
+                    if (pos === positionClicked) { // Pre-select if triggered by specific button
                         option.selected = true;
                     }
                     positionSelect.appendChild(option);
                 });
 
+                // Select placeholder if no position was clicked or found
                 if (!positionClicked || !availablePositions.includes(positionClicked)) {
-                    if (positionSelect.options.length > 0) {
-                        defaultOption.selected = true;
-                    }
-                } else {
-                    positionSelect.value = positionClicked;
+                    defaultOption.selected = true;
                 }
             }
         });
 
+        // Event listener for when the modal is hidden
         applyModal.addEventListener('hidden.bs.modal', function () {
             const form = applyModal.querySelector('form');
             if (form) {
-                form.reset();
-                form.classList.remove('was-validated');
-                const feedback = form.querySelector('.form-feedback-message');
-                if (feedback) feedback.textContent = '';
+                form.reset(); // Clear form fields
+                form.classList.remove('was-validated'); // Reset validation
+                // Clear feedback messages using validate.js structure
+                form.querySelectorAll('.loading, .error-message, .sent-message').forEach(el => el.classList.remove('d-block'));
+                const errorDiv = form.querySelector('.error-message');
+                if (errorDiv) errorDiv.innerHTML = '';
             }
         });
     }
 
-    // ===== CAREERS PAGE ACCORDION TOGGLE =====
-    const jobItems = document.querySelectorAll('.job-accordion-item');
-    if (jobItems.length > 0) {
-        jobItems.forEach(item => {
+
+    // ===== GENERIC ACCORDION TOGGLE LOGIC (For Careers & Download Forms) =====
+    const genericAccordionItems = document.querySelectorAll('.job-accordion-item');
+    if (genericAccordionItems.length > 0) {
+        genericAccordionItems.forEach(item => {
             const header = item.querySelector('.job-accordion-header');
             const body = item.querySelector('.job-accordion-body');
 
             if (header && body && !item.classList.contains('disabled')) {
-                header.addEventListener('click', function () {
-                    const isActive = item.classList.contains('active');
-
-                    jobItems.forEach(otherItem => {
-                        if (otherItem !== item && !otherItem.classList.contains('disabled')) {
-                            otherItem.classList.remove('active');
-                            const otherBody = otherItem.querySelector('.job-accordion-body');
-                            if (otherBody) otherBody.style.maxHeight = null;
+                // Initialize based on 'active' class
+                if (item.classList.contains('active')) {
+                    setTimeout(() => { // Delay needed for correct height calculation
+                        if (item.classList.contains('active')) {
+                            body.style.maxHeight = body.scrollHeight + "px";
                         }
-                    });
+                    }, 150);
+                } else {
+                    body.style.maxHeight = null;
+                }
 
+                // Add click listener to toggle
+                header.addEventListener('click', function () {
                     item.classList.toggle('active');
+                    // Set maxHeight based on current state (open or closed)
                     body.style.maxHeight = item.classList.contains('active') ? body.scrollHeight + "px" : null;
                 });
             }
         });
     }
+
+
+    // ===== DOWNLOAD FORMS PAGE - ACCORDION & PAGINATION =====
+    const downloadFormsPage = document.querySelector('.page-download-forms');
+    if (downloadFormsPage) {
+        const itemsPerPage = 7; // Number of forms per page
+        let formData = {}; // Object to hold parsed form data
+        const accordionItems = downloadFormsPage.querySelectorAll('.job-accordion-item[data-category]');
+
+        // --- 1. Load and Parse Form Data from JSON Script Tag ---
+        const jsonDataScript = document.getElementById('forms-json-data');
+        if (jsonDataScript) {
+            try {
+                const rawData = JSON.parse(jsonDataScript.textContent);
+                // Initialize categories
+                formData['Cashless Insurance Forms'] = [];
+                formData['Cashless TPA Forms'] = [];
+                formData['Reimbursement Insurance Forms'] = [];
+                formData['Reimbursement TPA Forms'] = [];
+
+                // Process raw data and categorize forms
+                for (const path in rawData) {
+                    const label = rawData[path];
+                    const categoryPath = path.substring(0, path.indexOf('/'));
+                    const fullPath = `assets/pdf/${path}`; // Construct the full download path
+
+                    // Assign to correct category array
+                    if (categoryPath === 'cashless_insurance_forms') {
+                        formData['Cashless Insurance Forms'].push({ label: label, path: fullPath });
+                    } else if (categoryPath === 'cashless_tpa_forms') {
+                        formData['Cashless TPA Forms'].push({ label: label, path: fullPath });
+                    } else if (categoryPath === 'reimbursement_insurance_forms') {
+                        formData['Reimbursement Insurance Forms'].push({ label: label, path: fullPath });
+                    } else if (categoryPath === 'reimbursement_tpa_forms') {
+                        formData['Reimbursement TPA Forms'].push({ label: label, path: fullPath });
+                    }
+                }
+            } catch (e) {
+                console.error("Error parsing form data JSON:", e);
+                // Display error message in all accordion sections
+                accordionItems.forEach(item => {
+                    const listContainer = item.querySelector('.form-list-container');
+                    if (listContainer) listContainer.innerHTML = '<p class="text-danger small text-center">Error loading forms. Please try again later.</p>';
+                });
+            }
+        } else {
+            console.error("Form data script tag not found (#forms-json-data).");
+            accordionItems.forEach(item => {
+                const listContainer = item.querySelector('.form-list-container');
+                if (listContainer) listContainer.innerHTML = '<p class="text-warning small text-center">Form data source missing.</p>';
+            });
+        }
+
+        // --- 2. Function to Render Forms for a Specific Page ---
+        const renderForms = (category, page = 1) => {
+            const accordionItem = downloadFormsPage.querySelector(`.job-accordion-item[data-category="${category}"]`);
+            if (!accordionItem) return;
+
+            const listContainer = accordionItem.querySelector('.form-list-container');
+            const forms = formData[category] || []; // Get forms for the category
+            listContainer.innerHTML = ''; // Clear existing list
+            const body = accordionItem.querySelector('.job-accordion-body'); // Accordion body for height adjustment
+
+            if (forms.length === 0) {
+                listContainer.innerHTML = '<p class="text-muted small text-center">No forms available in this category.</p>';
+                // Adjust height if accordion is open
+                if (accordionItem.classList.contains('active')) {
+                    setTimeout(() => { if (accordionItem.classList.contains('active')) { body.style.maxHeight = body.scrollHeight + "px"; } }, 0);
+                }
+                return;
+            }
+
+            // Calculate forms to display for the current page
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedForms = forms.slice(startIndex, endIndex);
+
+            // Create and append list items (using links now)
+            paginatedForms.forEach(form => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'form-list-item';
+                itemDiv.innerHTML = `
+                    <a href="${form.path}" class="form-download-link" download>
+                         <span class="material-symbols-outlined icon-size-20" aria-hidden="true">picture_as_pdf</span>
+                         ${form.label}
+                     </a>`;
+                listContainer.appendChild(itemDiv);
+            });
+
+            // Re-adjust accordion height if it's open
+            if (accordionItem.classList.contains('active')) {
+                setTimeout(() => { if (accordionItem.classList.contains('active')) { body.style.maxHeight = body.scrollHeight + "px"; } }, 0);
+            }
+        };
+
+
+        // --- 3. Function to Render Pagination Controls ---
+        const renderPagination = (category, currentPage = 1) => {
+            const accordionItem = downloadFormsPage.querySelector(`.job-accordion-item[data-category="${category}"]`);
+            if (!accordionItem) return;
+
+            const paginationContainer = accordionItem.querySelector('.pagination-container');
+            const forms = formData[category] || [];
+            const totalForms = forms.length;
+            const totalPages = Math.ceil(totalForms / itemsPerPage); // Calculate total pages
+            const body = accordionItem.querySelector('.job-accordion-body');
+            paginationContainer.innerHTML = ''; // Clear old pagination
+
+            // Don't render pagination if only one page or less
+            if (totalPages <= 1) {
+                if (accordionItem.classList.contains('active')) {
+                    setTimeout(() => { if (accordionItem.classList.contains('active')) { body.style.maxHeight = body.scrollHeight + "px"; } }, 0);
+                }
+                return;
+            }
+
+            // Create pagination UL element
+            const ul = document.createElement('ul');
+            ul.className = 'pagination pagination-sm justify-content-center'; // Use Bootstrap classes
+
+            // Previous Button
+            const prevLi = document.createElement('li');
+            prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+            prevLi.innerHTML = `<a class="page-link" href="#" data-page="${currentPage - 1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>`;
+            ul.appendChild(prevLi);
+
+            // Page Number Buttons
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLi = document.createElement('li');
+                pageLi.className = `page-item ${i === currentPage ? 'active' : ''}`; // Highlight current page
+                pageLi.innerHTML = `<a class="page-link" href="#" data-page="${i}">${i}</a>`;
+                ul.appendChild(pageLi);
+            }
+
+            // Next Button
+            const nextLi = document.createElement('li');
+            nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextLi.innerHTML = `<a class="page-link" href="#" data-page="${currentPage + 1}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>`;
+            ul.appendChild(nextLi);
+
+            paginationContainer.appendChild(ul); // Add pagination to the container
+
+            // Add click listeners to pagination links
+            paginationContainer.querySelectorAll('.page-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Ignore clicks on disabled buttons
+                    if (e.currentTarget.closest('.page-item').classList.contains('disabled')) return;
+
+                    const targetPage = parseInt(e.currentTarget.getAttribute('data-page')); // Get page number from data attribute
+                    // Re-render forms and pagination for the new page
+                    if (targetPage >= 1 && targetPage <= totalPages && targetPage !== currentPage) {
+                        renderForms(category, targetPage);
+                        renderPagination(category, targetPage);
+                    }
+                });
+            });
+
+            // Re-adjust accordion height after adding pagination
+            if (accordionItem.classList.contains('active')) {
+                setTimeout(() => { if (accordionItem.classList.contains('active')) { body.style.maxHeight = body.scrollHeight + "px"; } }, 0);
+            }
+        };
+
+        // --- 4. Initialize Accordions: Load content on first open ---
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.job-accordion-header');
+            const category = item.getAttribute('data-category');
+            let isInitialized = false; // Track if content has been loaded
+
+            // If accordion starts open, load content immediately
+            if (item.classList.contains('active')) {
+                renderForms(category, 1);
+                renderPagination(category, 1);
+                isInitialized = true;
+                // Height adjustment handled by generic accordion logic's initial check
+            }
+
+            // Add click listener to load content only when opened for the first time
+            if (header) {
+                header.addEventListener('click', () => {
+                    // Check if accordion is now active (just opened) and hasn't been initialized yet
+                    if (item.classList.contains('active') && !isInitialized) {
+                        renderForms(category, 1);
+                        renderPagination(category, 1);
+                        isInitialized = true; // Mark as initialized
+                    }
+                    // Height adjustment is handled by the generic accordion toggle logic
+                });
+            }
+        });
+
+    } // End if (downloadFormsPage)
+
 
     // ===== BACK TO TOP BUTTON =====
     const backToTop = document.createElement('button');
@@ -319,8 +446,9 @@ document.addEventListener('DOMContentLoaded', function () {
     backToTop.setAttribute('aria-label', 'Back to top');
     document.body.appendChild(backToTop);
 
+    // Show/hide button based on scroll position
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
+        if (window.pageYOffset > 300) { // Show after scrolling down 300px
             backToTop.style.opacity = '1';
             backToTop.style.visibility = 'visible';
         } else {
@@ -329,134 +457,114 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, { passive: true });
 
+    // Scroll to top smoothly on click
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ===== WELCOME MODAL FOR BROWSER INSTANCE (Broadcast Channel) =====
+    // ===== WELCOME MODAL LOGIC (Broadcast Channel for single session display) =====
     const welcomeModalElement = document.getElementById('welcomeModal');
-    const welcomeModalSessionKey = 'paytonHealthWelcomeModalShown_Session'; // Key for sessionStorage
-    const welcomeChannelName = 'payton_welcome_modal_channel';
+    const welcomeModalSessionKey = 'paytonHealthWelcomeModalShown_Session'; // sessionStorage key
+    const welcomeChannelName = 'payton_welcome_modal_channel'; // Channel name
     let welcomeChannel = null;
-    let modalShownInThisTab = false; // Flag specific to the current tab
+    let modalShownInThisTab = false; // Flag for current tab
 
-    // Function to show the modal and notify other tabs
+    // Function to display the modal and notify other tabs
     const showWelcomeModalAndNotify = () => {
+        // Don't show if element missing, already shown in this tab, or flag set in sessionStorage
         if (!welcomeModalElement || modalShownInThisTab || sessionStorage.getItem(welcomeModalSessionKey)) {
-            if (welcomeChannel) {
-                try { welcomeChannel.close(); } catch (e) { } // Close channel if modal shouldn't show
-            }
-            return; // Don't show if already shown in this tab/session or element missing
+            if (welcomeChannel) { try { welcomeChannel.close(); } catch (e) { } } // Close channel if not showing
+            return;
         }
 
-        const welcomeModal = new bootstrap.Modal(welcomeModalElement);
+        try {
+            const welcomeModal = new bootstrap.Modal(welcomeModalElement); // Create Bootstrap modal instance
 
-        // Show the modal
-        setTimeout(() => {
-            try {
-                welcomeModal.show();
-                modalShownInThisTab = true; // Mark as shown in this specific tab instance
-                sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Mark session storage
+            // Show the modal after a short delay
+            setTimeout(() => {
+                try {
+                    welcomeModal.show();
+                    modalShownInThisTab = true; // Mark shown for this tab
+                    sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Mark shown for the session
 
-                // Notify other tabs that the modal has been shown
-                if (welcomeChannel) {
-                    welcomeChannel.postMessage('modal_shown');
-                    // console.log("Broadcast: modal_shown"); // For debugging
-                    // Close the channel after broadcasting confirmation
-                    setTimeout(() => { try { welcomeChannel.close(); } catch (e) { } }, 100);
+                    // Notify other open tabs via BroadcastChannel
+                    if (welcomeChannel) {
+                        welcomeChannel.postMessage('modal_shown');
+                        // Close channel shortly after notifying
+                        setTimeout(() => { try { welcomeChannel.close(); } catch (e) { } }, 100);
+                    }
+                } catch (e) {
+                    console.error("Error showing welcome modal:", e);
+                    sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Set flag anyway to prevent loops
+                    if (welcomeChannel) try { welcomeChannel.close(); } catch (e) { }
                 }
-            } catch (e) {
-                console.error("Error showing welcome modal:", e);
-                sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Set flag anyway to prevent loops
-            }
-        }, 1500); // Show delay
+            }, 1500); // 1.5 second delay
 
-        // Add event listener to ensure flag is set if dismissed via button
-        welcomeModalElement.querySelectorAll('.modal-footer button, .modal-body a.btn').forEach(button => {
-            button.addEventListener('click', () => {
-                sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Re-ensure flag on close/action
-                if (welcomeChannel) {
-                    try { welcomeChannel.close(); } catch (e) { } // Close channel on interaction
-                }
+            // Ensure session flag is set if user interacts with modal buttons/links
+            welcomeModalElement.querySelectorAll('.modal-footer button, .modal-body a.btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    sessionStorage.setItem(welcomeModalSessionKey, 'true');
+                    if (welcomeChannel) { try { welcomeChannel.close(); } catch (e) { } } // Close channel on interaction
+                });
             });
-        });
+        } catch (e) {
+            console.error("Error creating Bootstrap modal instance for Welcome Modal:", e);
+            sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Prevent retry loops
+            if (welcomeChannel) try { welcomeChannel.close(); } catch (e) { }
+        }
     };
 
-    // --- Main Logic for Welcome Modal ---
+    // --- Main Logic to Trigger Welcome Modal ---
     if (welcomeModalElement && !sessionStorage.getItem(welcomeModalSessionKey)) {
-        // Check if BroadcastChannel is supported
+        // Check if BroadcastChannel API is supported
         if ('BroadcastChannel' in window) {
             try {
                 welcomeChannel = new BroadcastChannel(welcomeChannelName);
-                // console.log("Channel created/joined"); // For debugging
 
-                // Listener ref - needed to remove listener properly
+                // Listen for messages from other tabs
                 const messageListener = (event) => {
-                    // console.log("Message received:", event.data); // For debugging
                     if (event.data === 'modal_shown' && !modalShownInThisTab) {
+                        // Another tab showed the modal, set session flag and close channel
                         sessionStorage.setItem(welcomeModalSessionKey, 'true');
-                        // console.log("Flag set by broadcast, closing channel"); // For debugging
                         if (welcomeChannel) {
                             try {
-                                welcomeChannel.removeEventListener('message', messageListener); // Remove listener
+                                welcomeChannel.removeEventListener('message', messageListener);
                                 welcomeChannel.close();
                             } catch (e) { }
                         }
                     }
                 };
-
                 welcomeChannel.addEventListener('message', messageListener);
 
-
-                // console.log("Broadcasting: checking_modal"); // For debugging
-                // Ask others (optional, relying on timeout and 'modal_shown' is often enough)
-                // welcomeChannel.postMessage('checking_modal');
-
-                // Set a short timeout. If no 'modal_shown' message is received, show the modal.
+                // Wait briefly; if no message received, this tab will show the modal
                 setTimeout(() => {
                     if (!sessionStorage.getItem(welcomeModalSessionKey)) {
-                        // console.log("Timeout: No message received, showing modal now."); // For debugging
-                        showWelcomeModalAndNotify(); // This function will also close the channel
+                        showWelcomeModalAndNotify(); // Show modal and notify others
                     } else {
-                        // console.log("Timeout: Flag was set during wait, closing channel."); // For debugging
+                        // Flag was set (either by another tab or race condition), clean up
                         if (welcomeChannel) {
                             try {
-                                welcomeChannel.removeEventListener('message', messageListener); // Cleanup listener
+                                welcomeChannel.removeEventListener('message', messageListener);
                                 welcomeChannel.close();
                             } catch (e) { }
                         }
                     }
-                }, 150); // Wait 150ms
+                }, 150); // Short delay to allow other tabs to potentially show first
 
             } catch (e) {
                 console.error("Error using BroadcastChannel:", e);
-                // Fallback: Show modal, might appear in multiple tabs on initial load race condition
-                showWelcomeModalAndNotify();
+                showWelcomeModalAndNotify(); // Fallback to showing without coordination
             }
         } else {
             console.warn("BroadcastChannel API not supported. Falling back to simple session storage.");
-            // Fallback for older browsers: just use the session storage logic
-            if (welcomeModalElement && !sessionStorage.getItem(welcomeModalSessionKey)) {
-                const welcomeModal = new bootstrap.Modal(welcomeModalElement);
-                setTimeout(() => {
-                    try {
-                        welcomeModal.show();
-                        sessionStorage.setItem(welcomeModalSessionKey, 'true');
-                    } catch (e) {
-                        console.error("Error showing welcome modal (fallback):", e);
-                        sessionStorage.setItem(welcomeModalSessionKey, 'true'); // Set flag anyway
-                    }
-                }, 1500);
-                welcomeModalElement.querySelectorAll('.modal-footer button, .modal-body a.btn').forEach(button => {
-                    button.addEventListener('click', () => {
-                        sessionStorage.setItem(welcomeModalSessionKey, 'true');
-                    });
-                });
+            // Fallback for browsers without BroadcastChannel
+            if (!sessionStorage.getItem(welcomeModalSessionKey)) {
+                showWelcomeModalAndNotify();
             }
         }
     }
 
 
-    console.log('%c💊 PaytonHealth Website Initialized', 'color: #1193d4; font-size: 16px; font-weight: bold;');
+    console.log('%c💊 PaytonHealth Website Initialized (Using validate.js)', 'color: #1193d4; font-size: 16px; font-weight: bold;');
 
 }); // End DOMContentLoaded

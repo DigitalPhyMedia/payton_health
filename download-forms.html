@@ -4,26 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Health Insurance Claim Forms (PDF) | PaytonHealth India</title>
+    <title>Download Forms | PaytonHealth</title>
     <meta name="description"
-        content="Download the necessary Cashless / Reimbursement health insurance claim form (PDF) from Payton Healthcare India. Get started with your claim process easily.">
+        content="Download various health insurance claim forms (Cashless & Reimbursement) from leading insurers and TPAs in India, provided by Payton Healthcare.">
     <meta name="author" content="PaytonHealth">
     <meta name="keywords"
-        content="health insurance claim form India, download claim form pdf, cashless claim form pdf India, reimbursement claim form pdf India, PaytonHealth forms">
+        content="health insurance claim form India, download claim form pdf, cashless claim form pdf India, reimbursement claim form pdf India, PaytonHealth forms, insurance forms, tpa forms">
     <link rel="canonical" href="https://www.paytonhealth.com/download-forms.html">
 
+    <!-- ============================================ FAVICON TAGS ============================================ -->
+    <!-- Standard favicon for browsers (legacy support) -->
+    <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="any">
+    <!-- Modern browsers - PNG format -->
     <link rel="icon" href="/assets/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
+    <!-- Android Chrome -->
     <link rel="icon" href="/assets/images/favicon/favicon-192x192.png" sizes="192x192" type="image/png">
+    <!-- Apple iOS - iPhone, iPad, iPod Touch -->
     <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
+    <!-- Microsoft Windows Tiles -->
     <meta name="msapplication-TileImage" content="/assets/images/favicon/ms-tile-icon.png">
-    <meta name="msapplication-TileColor" content="#1193d4">
-    <meta name="theme-color" content="#1193d4">
+    <meta name="msapplication-TileColor" content="#ffffff">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.paytonhealth.com/download-forms.html">
     <meta property="og:title" content="Download Health Insurance Claim Forms (PDF) | PaytonHealth India">
     <meta property="og:description"
-        content="Download the necessary Cashless / Reimbursement health insurance claim form (PDF) from Payton Healthcare India. Get started with your claim process easily.">
+        content="Download various health insurance claim forms (Cashless & Reimbursement) from leading insurers and TPAs in India, provided by Payton Healthcare.">
     <meta property="og:image" content="https://www.paytonhealth.com/assets/images/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -33,7 +39,7 @@
     <meta property="twitter:url" content="https://www.paytonhealth.com/download-forms.html">
     <meta property="twitter:title" content="Download Health Insurance Claim Forms (PDF) | PaytonHealth India">
     <meta property="twitter:description"
-        content="Download the necessary Cashless / Reimbursement health insurance claim form (PDF) from Payton Healthcare India. Get started with your claim process easily.">
+        content="Download various health insurance claim forms (Cashless & Reimbursement) from leading insurers and TPAs in India, provided by Payton Healthcare.">
     <meta property="twitter:image" content="https://www.paytonhealth.com/assets/images/og-image.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,10 +47,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Ensure FILL axis is requested for filled icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- styles for form validation/feedback are in style.css -->
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script type="application/ld+json">
     {
@@ -52,24 +61,33 @@
       "@type": "WebPage",
       "name": "Download Health Insurance Claim Forms",
       "url": "https://www.paytonhealth.com/download-forms.html",
-      "description": "Access and download the official Cashless / Reimbursement health insurance claim form provided by Payton Healthcare for use in India.",
+      "description": "Access and download various health insurance claim forms (Cashless & Reimbursement) for insurers and TPAs in India, provided by Payton Healthcare.",
       "mainEntity": {
-        "@type": "DigitalDocument",
-        "name": "Cashless / Reimbursement Claim Form",
-        "description": "Standard claim form containing sections for both the insured person/claimant and the hospital, required for health insurance claims in India.",
-        "encodingFormat": "application/pdf",
-        "url": "https://www.paytonhealth.com/assets/pdf/claim-form.pdf",
-         "provider": {
-            "@type": "Organization",
-            "name": "PaytonHealth",
-            "url": "https://www.paytonhealth.com/"
-          }
+        "@type": "ItemList",
+        "name": "Downloadable Forms Categories",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Cashless Insurance Forms"},
+          {"@type": "ListItem", "position": 2, "name": "Cashless TPA Forms"},
+          {"@type": "ListItem", "position": 3, "name": "Reimbursement Insurance Forms"},
+          {"@type": "ListItem", "position": 4, "name": "Reimbursement TPA Forms"}
+        ]
       }
     }
     </script>
 </head>
 
 <body class="d-flex flex-column min-vh-100 page-download-forms">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="/assets/images/logo/logo.png" alt="PaytonHealth">
+            </div>
+            <div class="preloader-percentage">0%</div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+
     <header class="main-header">
         <div class="top-bar">
             <div class="container d-flex justify-content-center justify-content-md-end">
@@ -78,7 +96,7 @@
             </div>
         </div>
         <nav class="navbar navbar-expand-xl">
-            <div class="container px-4">
+            <div class="container px-4 px-xl-0">
                 <a class="navbar-brand" href="index.html">
                     <img src="/assets/images/logo/logo.png" alt="PaytonHealth Logo">
                 </a>
@@ -157,68 +175,166 @@
             <div class="hero-overlay"></div>
             <div class="container">
                 <div class="max-width-48">
-                    <h1 class="display-4 fw-bolder">Download Claim Form</h1>
-                    <p class="lead mt-3">Access the necessary form for your claims. Download the PDF directly from our
-                        secure portal and get started with your claim process today.</p>
+                    <h1 class="display-4 fw-bolder">Download Claim Forms</h1>
+                    <p class="lead mt-3">Access necessary forms for your Cashless or Reimbursement claims. Find forms
+                        from various insurance providers and TPAs below.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section-spacing scroll-animate">
-            <div class="container">
-                <div class="mx-auto max-width-64">
-                    <div class="mb-5">
-                        <h2 class="h3 fw-bold border-bottom pb-3 mb-4">Claim Form</h2>
-                        <p class="text-muted mb-4">Please download the required claim form. Both the patient section and
-                            the hospital section are included in this single file.</p>
-                        <div class="list-group">
-                            <div
-                                class="list-group-item d-flex flex-column flex-sm-row justify-content-between align-items-sm-center p-4">
-                                <div class="mb-3 mb-sm-0">
-                                    <h3 class="h5 fw-bold mb-1">Cashless / Reimbursement Claim Form</h3>
-                                    <p class="text-muted small mb-0">Contains sections to be completed by the Insured
-                                        Person/Claimant and the Hospital.</p>
-                                </div>
-                                <a href="assets/pdf/claim-form.pdf" class="btn btn-primary px-4"
-                                    download="PaytonHealth_Claim_Form.pdf"> <span
-                                        class="material-symbols-outlined me-2 align-middle icon-size-20"
-                                        aria-hidden="true">download</span>
-                                    Download Form
-                                </a>
+        <!-- === UPDATED CTA STYLE SECTION === -->
+        <section class="section-spacing scroll-animate bg-gradient-primary">
+            <div class="container text-white">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-xl-9 text-start">
+                        <div class="mb-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="material-symbols-outlined fs-2 me-3 text-white">lightbulb</span>
+                                <h2 class="h5 fw-bold text-white mb-0">Confused about which claim form to use?</h2>
                             </div>
+
+                            <p class="mb-1 text-white-90">
+                                If your insurance card mentions a <strong>TPA (Third Party Administrator)</strong>,
+                                submit your claim to the TPA using the <strong>TPA's claim form</strong>.
+                            </p>
+                            <p class="mb-0 text-white-90">
+                                If not, use the <strong>insurance company's form</strong> — both are available for
+                                download below.
+                            </p>
+                        </div>
+
+                        <div class="mt-4 border-top border-white-50 pt-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="material-symbols-outlined fs-2 me-3 text-white">task_alt</span>
+                                <h2 class="h5 fw-bold text-white mb-0">Save time and avoid rejection hassles!</h2>
+                            </div>
+
+                            <p class="mb-0 text-white-90">
+                                Let our experts file your claim for you on your behalf. We'll take care of the
+                                documentation and submission while you relax.
+                            </p>
+                        </div>
+
+
+                        <div class="text-center mt-4 pt-3">
+                            <button class="btn btn-light btn-lg px-5" data-bs-toggle="modal"
+                                data-bs-target="#consultationModal">Get Help Now</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- === END UPDATED CTA SECTION === -->
 
-        <section class="section-spacing scroll-animate bg-gradient-primary">
+
+        <section class="section-spacing scroll-animate">
             <div class="container">
-                <div class="text-center text-white">
-                    <h2 class="display-6 fw-bold text-white mb-4">Need Help?</h2>
-                    <p class="lead mt-3 mx-auto text-white-90 max-width-40"> Our team is here to assist you
-                        with filling out forms, understanding the claim process, reviewing documents, tracking claims,
-                        and providing support throughout.
-                    </p>
-                    <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
-                        <button class="btn btn-light btn-lg px-5" data-bs-toggle="modal"
-                            data-bs-target="#consultationModal">Get Help Now</button>
-                        <a href="how-to-claim.html" class="btn btn-outline-light btn-lg px-5">View Claim Guide</a>
+                <div class="job-accordion"> <!-- Reusing job-accordion structure for consistency -->
+                    <div class="job-accordion-item" data-category="Cashless Insurance Forms">
+                        <div class="job-accordion-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Cashless Insurance Forms</h3>
+                                <p class="small text-muted mb-0 mt-1">Pre-authorization forms from insurance companies.
+                                </p>
+                            </div>
+                            <div class="job-accordion-icon"><span class="material-symbols-outlined">expand_more</span>
+                            </div>
+                        </div>
+                        <div class="job-accordion-body">
+                            <div class="job-accordion-content">
+                                <div class="form-list-container">
+                                    <p class="text-muted small text-center">Loading forms...</p>
+                                </div>
+                                <div class="pagination-container">
+                                    <!-- Pagination will be rendered here by script.js -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="job-accordion-item" data-category="Cashless TPA Forms">
+                        <div class="job-accordion-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Cashless TPA Forms</h3>
+                                <p class="small text-muted mb-0 mt-1">Pre-authorization forms from Third Party
+                                    Administrators.</p>
+                            </div>
+                            <div class="job-accordion-icon"><span class="material-symbols-outlined">expand_more</span>
+                            </div>
+                        </div>
+                        <div class="job-accordion-body">
+                            <div class="job-accordion-content">
+                                <div class="form-list-container">
+                                    <p class="text-muted small text-center">Loading forms...</p>
+                                </div>
+                                <div class="pagination-container">
+                                    <!-- Pagination will be rendered here by script.js -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-accordion-item" data-category="Reimbursement Insurance Forms">
+                        <div class="job-accordion-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Reimbursement Insurance Forms</h3>
+                                <p class="small text-muted mb-0 mt-1">Claim forms for reimbursement from insurance
+                                    companies.</p>
+                            </div>
+                            <div class="job-accordion-icon"><span class="material-symbols-outlined">expand_more</span>
+                            </div>
+                        </div>
+                        <div class="job-accordion-body">
+                            <div class="job-accordion-content">
+                                <div class="form-list-container">
+                                    <p class="text-muted small text-center">Loading forms...</p>
+                                </div>
+                                <div class="pagination-container">
+                                    <!-- Pagination will be rendered here by script.js -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-accordion-item" data-category="Reimbursement TPA Forms">
+                        <div class="job-accordion-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Reimbursement TPA Forms</h3>
+                                <p class="small text-muted mb-0 mt-1">Claim forms for reimbursement from Third Party
+                                    Administrators.</p>
+                            </div>
+                            <div class="job-accordion-icon"><span class="material-symbols-outlined">expand_more</span>
+                            </div>
+                        </div>
+                        <div class="job-accordion-body">
+                            <div class="job-accordion-content">
+                                <div class="form-list-container">
+                                    <p class="text-muted small text-center">Loading forms...</p>
+                                </div>
+                                <div class="pagination-container">
+                                    <!-- Pagination will be rendered here by script.js -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
+
+        <!-- Removed the bottom CTA section as its content is now above -->
+
     </main>
 
     <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
-        <div class="container px-4">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
                     <a href="index.html" class="navbar-brand">
                         <img src="/assets/images/logo/logo.png" alt="PaytonHealth Logo" class="mb-3">
                     </a>
-                    <p class="text-white-50 mt-2 pe-lg-3 small">Your partner in healthcare financial management,
-                        dedicated to optimizing revenue for hospitals and supporting patients.</p>
+                    <p class="text-white-50 mt-2 pe-lg-3 small">Your trusted partner in simplifying healthcare processes
+                        and enhancing patient support</p>
                     <div class="d-flex flex-column gap-2 mt-3 align-items-start">
                         <span class="badge badge-iso">
                             <span class="material-symbols-outlined">verified</span>
@@ -245,6 +361,8 @@
                                 Services</a></li>
                         <li class="mb-2"><a class="text-white-50 text-decoration-none"
                                 href="privacy-policy.html">Privacy Policy</a></li>
+                        <li class="mb-2"><a class="text-white-50 text-decoration-none"
+                                href="grievance-redressal.html">Grievance Redressal</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
@@ -270,27 +388,9 @@
                     <h3 class="h5 fw-bold text-light">Follow Us</h3>
                     <ul class="list-unstyled mt-3 small">
                         <li class="mb-2">
-                            <a href="#" class="text-white-50 text-decoration-none d-flex align-items-center gap-2">
-                                <svg class="bi" width="16" height="16" fill="currentColor" aria-hidden="true"
-                                    focusable="false">
-                                    <path
-                                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                                </svg>
-                                Facebook
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#" class="text-white-50 text-decoration-none d-flex align-items-center gap-2">
-                                <svg class="bi" width="16" height="16" fill="currentColor" aria-hidden="true"
-                                    focusable="false">
-                                    <path
-                                        d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-                                </svg>
-                                Twitter
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#" class="text-white-50 text-decoration-none d-flex align-items-center gap-2">
+                            <a href="https://www.linkedin.com/company/100508840" target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-white-50 text-decoration-none d-flex align-items-center gap-2">
                                 <svg class="bi" width="16" height="16" fill="currentColor" aria-hidden="true"
                                     focusable="false">
                                     <path
@@ -303,17 +403,14 @@
                 </div>
             </div>
             <hr class="text-white-50">
-            <div class="d-flex justify-content-between pt-2">
+            <div class="text-center pt-2">
                 <p class="text-white-50 text-center mb-0 small">© 2025 Payton Healthcare Solutions. All rights reserved.
-                </p>
-                <p class="text-white-50 text-center mb-0 small">
-                    Design and Developed by <a href="https://digitalphymedia.com/" target="_blank"
-                        class="text-white text-decoration-none credit-link">DigitalPhy Media</a>.
                 </p>
             </div>
         </div>
     </footer>
 
+    <!-- === UPDATED CONSULTATION MODAL === -->
     <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -326,43 +423,55 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form novalidate>
+                    <!-- Added form attributes and feedback divs -->
+                    <form id="consultationFormDownload" novalidate action="forms/connect.php" method="POST"
+                        class="php-email-form needs-validation"
+                        data-recaptcha-site-key="6LfsmfUrAAAAAA_fDK_TpnFLT-7prQKzljb5vwV0">
                         <div class="mb-3">
-                            <label for="modalFullName" class="form-label small">Full Name</label>
-                            <input type="text" class="form-control" id="modalFullName" name="full_name"
-                                placeholder="John Doe" required>
+                            <label for="modalFullNameDownload" class="form-label small">Full Name</label>
+                            <input type="text" class="form-control" id="modalFullNameDownload" name="name"
+                                placeholder="Your Name" required>
                             <div class="invalid-feedback">Please enter your full name.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="modalWorkEmail" class="form-label small">Email</label>
-                            <input type="email" class="form-control" id="modalWorkEmail" name="email"
+                            <label for="modalWorkEmailDownload" class="form-label small">Email</label>
+                            <input type="email" class="form-control" id="modalWorkEmailDownload" name="email"
                                 placeholder="you@example.com" required>
                             <div class="invalid-feedback">Please enter a valid email address.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="modalPhone" class="form-label small">Mobile Number</label>
-                            <input type="tel" class="form-control" id="modalPhone" name="phone" placeholder="9999999999"
-                                required pattern="[0-9]{10}">
+                            <label for="modalPhoneDownload" class="form-label small">Mobile Number</label>
+                            <input type="tel" class="form-control" id="modalPhoneDownload" name="phone"
+                                placeholder="9999999999" required pattern="[0-9]{10}">
                             <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="modalUserType" class="form-label small">I am a...</label>
-                            <select class="form-select" id="modalUserType" name="user_type" required>
+                            <label for="modalUserTypeDownload" class="form-label small">I am a...</label>
+                            <select class="form-select" id="modalUserTypeDownload" name="user_type" required>
                                 <option selected disabled value="">Select an option</option>
                                 <option value="Healthcare Provider">Healthcare Provider</option>
                                 <option value="Patient">Patient</option>
                             </select>
                             <div class="invalid-feedback">Please select who you are.</div>
                         </div>
+                        <!-- Feedback Messages -->
+                        <div class="my-3">
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your request has been sent successfully. Thank you!</div>
+                        </div>
+                        <!-- End Feedback Messages -->
                         <div class="d-grid mt-3">
                             <button type="submit" class="btn btn-primary btn-lg">Let's Connect</button>
                         </div>
-                        <div class="form-feedback-message small mt-3 text-center"></div>
+                        <!-- Removed old form-feedback-message div -->
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <!-- === END UPDATED CONSULTATION MODAL === -->
+
+    <!-- Welcome Modal (Remains the same) -->
     <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true"
         data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog modal-dialog-centered">
@@ -387,6 +496,7 @@
             </div>
         </div>
     </div>
+    <!-- FAB Buttons (Remains the same) -->
     <div class="fab-container">
         <a href="https://wa.me/919164023507" class="fab-btn fab-whatsapp" target="_blank" rel="noopener noreferrer"
             aria-label="Chat on WhatsApp">
@@ -400,8 +510,116 @@
             <span class="material-symbols-outlined" aria-hidden="true">call</span>
         </a>
     </div>
+
+    <!-- JSON data for forms - Keep this -->
+    <script id="forms-json-data" type="application/json">
+        {
+          "cashless_insurance_forms/acko_cashless_form.pdf": "Acko - Cashless Form",
+          "cashless_insurance_forms/aditya_birla.pdf": "Aditya Birla - Cashless Form",
+          "cashless_insurance_forms/bajaj_cashless.pdf": "Bajaj Allianz - Cashless Form",
+          "cashless_insurance_forms/bharti_axa_cashless_form.pdf": "Bharti Axa - Cashless Form",
+          "cashless_insurance_forms/care_health_cashless_form.pdf": "Care Health - Cashless Form",
+          "cashless_insurance_forms/chola_ms_cashless_form.pdf": "Chola MS - Cashless Form",
+          "cashless_insurance_forms/future_generali_cashless_form.pdf": "Future Generali - Cashless Form",
+          "cashless_insurance_forms/galaxy_health_cashless_form.pdf": "Galaxy Health - Cashless Form",
+          "cashless_insurance_forms/generic_cashless_preauthorization_form.pdf": "Generic - Cashless Preauthorization Form",
+          "cashless_insurance_forms/go_digit_cashless_form.pdf": "Go Digit - Cashless Form",
+          "cashless_insurance_forms/hdfc_ergo.pdf": "HDFC Ergo - Cashless Form",
+          "cashless_insurance_forms/icici_lombard.pdf": "ICICI Lombard - Cashless Form",
+          "cashless_insurance_forms/iffco_tokio.pdf": "IFFCO Tokio - Cashless Form",
+          "cashless_insurance_forms/kotak_pre_auth_form.pdf": "Kotak - Pre-Authorization Form",
+          "cashless_insurance_forms/kshema_general_cashless_form.pdf": "Kshema General - Cashless Form",
+          "cashless_insurance_forms/magma_hdi_preauth_form.pdf": "Magma HDI - Pre-Authorization Form",
+          "cashless_insurance_forms/manipal_cigna.pdf": "Manipal Cigna - Cashless Form",
+          "cashless_insurance_forms/national_insurance.pdf": "National Insurance - Cashless Form",
+          "cashless_insurance_forms/navi_pre_auth_form.pdf": "Navi - Pre-Authorization Form",
+          "cashless_insurance_forms/niva_bupa_cashless_form.pdf": "Niva Bupa - Cashless Form",
+          "cashless_insurance_forms/oriental_cashless_form.pdf": "Oriental Insurance - Cashless Form",
+          "cashless_insurance_forms/raheja_qbe_cashless_form.pdf": "Raheja QBE - Cashless Form",
+          "cashless_insurance_forms/reliance_cashless_form.pdf": "Reliance - Cashless Form",
+          "cashless_insurance_forms/royal_sundaram.pdf": "Royal Sundaram - Cashless Form",
+          "cashless_insurance_forms/sbi_general_preauth_form.pdf": "SBI General - Pre-Authorization Form",
+          "cashless_insurance_forms/shriram_general_cashless_form.pdf": "Shriram General - Cashless Form",
+          "cashless_insurance_forms/star_health_cashless_form.pdf": "Star Health - Cashless Form",
+          "cashless_insurance_forms/tata_aig_merged.pdf": "Tata AIG - Cashless Form",
+          "cashless_insurance_forms/universal_sompo_preauth_form.pdf": "Universal Sompo - Pre-Authorization Form",
+          "cashless_insurance_forms/vidal.pdf": "Vidal Health TPA - Cashless Form",
+          "cashless_insurance_forms/zuno.pdf": "Zuno - Cashless Form",
+          "cashless_tpa_forms/akna.pdf": "Raksha TPA (AKNA) - Cashless Form",
+          "cashless_tpa_forms/eastwestassist.pdf": "East West Assist - Cashless Form",
+          "cashless_tpa_forms/ericson_tpa_preauth_form.pdf": "Ericson TPA - Pre-Authorization Form",
+          "cashless_tpa_forms/fhpl.pdf": "FHPL TPA - Cashless Form",
+          "cashless_tpa_forms/genins.pdf": "Genins TPA - Cashless Form",
+          "cashless_tpa_forms/good_health.pdf": "Good Health TPA - Cashless Form",
+          "cashless_tpa_forms/health_india.pdf": "Health India TPA - Cashless Form",
+          "cashless_tpa_forms/heritage_tpa.pdf": "Heritage TPA - Cashless Form",
+          "cashless_tpa_forms/link_k_cashless_form.pdf": "Link K TPA - Cashless Form",
+          "cashless_tpa_forms/md_india.pdf": "MD India TPA - Cashless Form",
+          "cashless_tpa_forms/medi_assist_cashless_form.pdf": "Medi Assist TPA - Cashless Form",
+          "cashless_tpa_forms/medsave_cashless_form.pdf": "Medsave TPA - Cashless Form",
+          "cashless_tpa_forms/paramount.pdf": "Paramount TPA - Cashless Form",
+          "cashless_tpa_forms/park_mediclaim_cashless_form.pdf": "Park Mediclaim TPA - Cashless Form",
+          "cashless_tpa_forms/safeway_cashless_form.pdf": "Safeway TPA - Cashless Form",
+          "cashless_tpa_forms/vidal.pdf": "Vidal Health TPA - Cashless Form",
+          "cashless_tpa_forms/volo.pdf": "Volo TPA - Cashless Form",
+          "reimbursement_insurance_forms/acko_group_health_claim_form.pdf": "Acko Group Health - Claim Form",
+          "reimbursement_insurance_forms/aditya_birla.pdf": "Aditya Birla - Claim Form",
+          "reimbursement_insurance_forms/bajaj_allianz_claim_form.pdf": "Bajaj Allianz - Claim Form",
+          "reimbursement_insurance_forms/bharti_axa_claim_form.pdf": "Bharti Axa - Claim Form",
+          "reimbursement_insurance_forms/care_health_claim_form.pdf": "Care Health - Claim Form",
+          "reimbursement_insurance_forms/chola_ms_claim_form.pdf": "Chola MS - Claim Form",
+          "reimbursement_insurance_forms/future_generali_claim_form.pdf": "Future Generali - Claim Form",
+          "reimbursement_insurance_forms/galaxy_health_claim_form.pdf": "Galaxy Health - Claim Form",
+          "reimbursement_insurance_forms/hdfc_ergo_claim_form_corporate_employees.pdf": "HDFC Ergo - Claim Form (Corporate)",
+          "reimbursement_insurance_forms/hdfc_ergo_claim_form_individual.pdf": "HDFC Ergo - Claim Form (Individual)",
+          "reimbursement_insurance_forms/icici_lombard.pdf": "ICICI Lombard - Claim Form",
+          "reimbursement_insurance_forms/iffco_tokio_general_insurance_company_limited_claim_form.pdf": "IFFCO Tokio - Claim Form",
+          "reimbursement_insurance_forms/kotak.pdf": "Kotak - Claim Form",
+          "reimbursement_insurance_forms/kshema_general_claim_form.pdf": "Kshema General - Claim Form",
+          "reimbursement_insurance_forms/liberty_general_insurance.pdf": "Liberty General - Claim Form",
+          "reimbursement_insurance_forms/magma_hdi_claim_form.pdf": "Magma HDI - Claim Form",
+          "reimbursement_insurance_forms/manipal_cigna.pdf": "Manipal Cigna - Claim Form",
+          "reimbursement_insurance_forms/national_insurance.pdf": "National Insurance - Claim Form",
+          "reimbursement_insurance_forms/navi.pdf": "Navi - Claim Form",
+          "reimbursement_insurance_forms/new_india.pdf": "New India Assurance - Claim Form",
+          "reimbursement_insurance_forms/niva_bupa_claim_form.pdf": "Niva Bupa - Claim Form",
+          "reimbursement_insurance_forms/oriental_claim_form_part_a.pdf": "Oriental Insurance - Claim Form (Part A)",
+          "reimbursement_insurance_forms/oriental_claim_form_part_b.pdf": "Oriental Insurance - Claim Form (Part B)",
+          "reimbursement_insurance_forms/park_mediclaim_claim_form.pdf": "Park Mediclaim TPA - Claim Form",
+          "reimbursement_insurance_forms/raheja_qbe_claim_form.pdf": "Raheja QBE - Claim Form",
+          "reimbursement_insurance_forms/reliance.pdf": "Reliance - Claim Form",
+          "reimbursement_insurance_forms/royal_sundaram_claim_forms.pdf": "Royal Sundaram - Claim Form",
+          "reimbursement_insurance_forms/sbi_claim_form_paramount.pdf": "SBI General - Claim Form (Paramount TPA)",
+          "reimbursement_insurance_forms/shriram_general_insurance_company_limited.pdf": "Shriram General - Claim Form",
+          "reimbursement_insurance_forms/star_health_claim_form.pdf": "Star Health - Claim Form",
+          "reimbursement_insurance_forms/tata_aig_claim_form.pdf": "Tata AIG - Claim Form",
+          "reimbursement_insurance_forms/united_claim_form.pdf": "United India - Claim Form",
+          "reimbursement_insurance_forms/universal_sompo_claim_form_a_and_b.pdf": "Universal Sompo - Claim Form (Part A & B)",
+          "reimbursement_insurance_forms/zuno_health_insurance.pdf": "Zuno - Claim Form",
+          "reimbursement_tpa_forms/akana_claim_form.pdf": "Raksha TPA (AKANA) - Claim Form",
+          "reimbursement_tpa_forms/ericson.pdf": "Ericson TPA - Claim Form",
+          "reimbursement_tpa_forms/fhpl.pdf": "FHPL TPA - Claim Form",
+          "reimbursement_tpa_forms/genins.pdf": "Genins TPA - Claim Form",
+          "reimbursement_tpa_forms/good_health.pdf": "Good Health TPA - Claim Form",
+          "reimbursement_tpa_forms/health_india.pdf": "Health India TPA - Claim Form",
+          "reimbursement_tpa_forms/health_india_claim_form_part_a_and_b.pdf": "Health India TPA - Claim Form (Part A & B)",
+          "reimbursement_tpa_forms/heritage_claim_form.pdf": "Heritage TPA - Claim Form",
+          "reimbursement_tpa_forms/link_k_claim_form.pdf": "Link K TPA - Claim Form",
+          "reimbursement_tpa_forms/md_india.pdf": "MD India TPA - Claim Form",
+          "reimbursement_tpa_forms/medi_assist_claim_form.pdf": "Medi Assist TPA - Claim Form",
+          "reimbursement_tpa_forms/medsave_claim_form.pdf": "Medsave TPA - Claim Form",
+          "reimbursement_tpa_forms/paramount.pdf": "Paramount TPA - Claim Form",
+          "reimbursement_tpa_forms/safeway_tpa_reimbursement_claim_form.pdf": "Safeway TPA - Claim Form",
+          "reimbursement_tpa_forms/vidal.pdf": "Vidal Health TPA - Claim Form",
+          "reimbursement_tpa_forms/volo.pdf": "Volo TPA - Claim Form"
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <!-- Added validate.js script -->
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfsmfUrAAAAAA_fDK_TpnFLT-7prQKzljb5vwV0"></script>
 </body>
 
 </html>
